@@ -16,8 +16,8 @@ public class Product {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long id;
-  private Long idStorage;
-  private Long idCategory;
+  private Long id_store; // FK
+  private Long id_category; // FK
   private String name;
   private Double price;
 }

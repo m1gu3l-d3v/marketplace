@@ -16,6 +16,6 @@ public class Seller{
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long id;
-  private Long idStorage;
-  private Long idMembresia;
+  private Long id_store; // FK
+  private Long id_membership; // FK
 }

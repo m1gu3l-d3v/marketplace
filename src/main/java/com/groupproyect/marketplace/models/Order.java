@@ -18,10 +18,9 @@ public class Order {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long id;
-  private Long idClient;
-  private Long idSeller;
-  private Long idDeliveryMethod;
-  private Long idPaymentMethod;
-  private String location;
-  private List<Product> products;
+  private Long id_client; // FK
+  private Long id_seller; // FK
+  private Long id_delivery_method; // FK
+  private Long id_payment_method; // FK
+  private List<Product> id_products; // FK
 }

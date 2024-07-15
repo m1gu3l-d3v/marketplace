@@ -16,7 +16,7 @@ public class Store {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long id;
-  private Long idCategory;
-  private Long idDeliveryMethod;
+  private Long id_category; // FK
+  private Long id_delivery_method; // FK
   private String name;
 }

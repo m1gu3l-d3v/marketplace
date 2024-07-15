@@ -18,7 +18,7 @@ public class Local {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long id;
-  private Long idStorage;
+  private Long id_store; // FK
   private Long location;
   private LocalTime scheduleOpen;
   private LocalTime scheduleClose;
