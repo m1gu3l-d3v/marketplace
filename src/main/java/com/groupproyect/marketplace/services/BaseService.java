@@ -20,9 +20,9 @@ public class BaseService<T> {
     }
   }
 
-  // public void update(T entity) {
-  //   baseRepository.save(entity);
-  // }
+  public void update(T entity) {
+    baseRepository.save(entity);
+  }
 
   public void save(T entity) {
     baseRepository.save(entity);
