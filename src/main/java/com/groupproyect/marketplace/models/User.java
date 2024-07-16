@@ -28,6 +28,7 @@ public class User {
   private String telephoneNumber;
   private String direction;
   private String password;
+  private Boolean isEnable;
 
   private Date createdAt;
   private Date updatedAt;

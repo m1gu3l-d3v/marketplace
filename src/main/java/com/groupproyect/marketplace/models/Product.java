@@ -20,4 +20,5 @@ public class Product {
   private Long id_category; // FK
   private String name;
   private Double price;
+  private Integer stock;
 }

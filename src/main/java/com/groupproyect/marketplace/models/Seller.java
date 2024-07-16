@@ -18,4 +18,5 @@ public class Seller{
   private Long id;
   private Long id_store; // FK
   private Long id_membership; // FK
+  private Boolean isEnable;
 }
