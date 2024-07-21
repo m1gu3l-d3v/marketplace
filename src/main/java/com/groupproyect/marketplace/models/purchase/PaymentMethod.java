@@ -1,4 +1,4 @@
-package com.groupproyect.marketplace.models.cite;
+package com.groupproyect.marketplace.models.purchase;
 
 import com.groupproyect.marketplace.models.BaseModel;
 
@@ -8,11 +8,9 @@ import lombok.Getter;
 import lombok.Setter;
 
 @Entity
-@Table(name = "departments")
+@Table(name = "payment_methods")
 @Getter
 @Setter
-public class Direction extends BaseModel {
-  private Long address;
-
-  // private Long idDistrict; // FK
+public class PaymentMethod extends BaseModel {
+  private String name;
 }

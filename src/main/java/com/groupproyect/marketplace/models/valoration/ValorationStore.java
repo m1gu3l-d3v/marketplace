@@ -9,6 +9,6 @@ import lombok.Setter;
 @Table(name = "valorations_stores")
 @Getter
 @Setter
-public class ValorationStore extends Valoration {
+public class ValorationStore extends BaseValoration {
   // private Long idStore; // FK
 }

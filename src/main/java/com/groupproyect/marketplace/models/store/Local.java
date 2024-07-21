@@ -18,5 +18,4 @@ public class Local extends BaseModelWithDate {
   private LocalTime closingHours;
 
   // private Long idStore; // FK
-  // private Long idDirection; // FK
 }

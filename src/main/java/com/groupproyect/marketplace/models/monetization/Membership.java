@@ -1,4 +1,4 @@
-package com.groupproyect.marketplace.models.user;
+package com.groupproyect.marketplace.models.monetization;
 
 import com.groupproyect.marketplace.models.BaseModel;
 

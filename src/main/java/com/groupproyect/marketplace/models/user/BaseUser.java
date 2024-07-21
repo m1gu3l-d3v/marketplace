@@ -3,6 +3,7 @@ package com.groupproyect.marketplace.models.user;
 import com.groupproyect.marketplace.models.BaseModelWithDate;
 
 import jakarta.persistence.MappedSuperclass;
+import jakarta.persistence.PrePersist;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -19,4 +20,9 @@ public class BaseUser extends BaseModelWithDate {
 
   // private Long idSeller; // FK
   // private Long idClient; // FK
+
+  @PrePersist
+  public void setEnable() {
+    this.isEnable = true;
+  }
 }

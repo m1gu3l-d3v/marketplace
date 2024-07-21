@@ -2,6 +2,8 @@ package com.groupproyect.marketplace.models;
 
 import java.util.List;
 
+import com.groupproyect.marketplace.models.product.Product;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;

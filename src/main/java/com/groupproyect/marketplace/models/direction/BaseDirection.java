@@ -1,4 +1,4 @@
-package com.groupproyect.marketplace.models.valoration;
+package com.groupproyect.marketplace.models.direction;
 
 import com.groupproyect.marketplace.models.BaseModelWithDate;
 
@@ -9,7 +9,8 @@ import lombok.Setter;
 @MappedSuperclass
 @Getter
 @Setter
-public class BaseValoration extends BaseModelWithDate {
-  private Integer stars;
-  private String review;
+public class BaseDirection extends BaseModelWithDate {
+  private String adress;
+
+  // private Long idDistrict; // FK
 }

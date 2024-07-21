@@ -10,8 +10,6 @@ import lombok.Setter;
 @Getter
 @Setter
 public class Seller extends BaseUser {
-  private Boolean isEnable;
-
   // private Long idStore; // FK
   // private Long idDirectionSeller; // FK
 }

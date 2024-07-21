@@ -1,6 +1,6 @@
 package com.groupproyect.marketplace.services;
 
-import com.groupproyect.marketplace.models.Seller;
+import com.groupproyect.marketplace.models.user.Seller;
 import com.groupproyect.marketplace.repositories.SellerRepository;
 
 public class SellerService extends BaseService<Seller> {
