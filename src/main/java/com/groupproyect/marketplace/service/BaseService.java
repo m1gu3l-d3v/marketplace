@@ -1,5 +1,6 @@
 package com.groupproyect.marketplace.service;
 
+import java.util.List;
 import java.util.Optional;
 
 import com.groupproyect.marketplace.repository.BaseRepository;
@@ -9,6 +10,10 @@ public class BaseService<T> {
 
   public BaseService(BaseRepository<T> baseRepository) {
     this.baseRepository = baseRepository;
+  }
+
+  public List<T> findAll() {
+    return baseRepository.findAll();
   }
 
   public T findById(Long id) {
@@ -24,8 +29,8 @@ public class BaseService<T> {
     baseRepository.save(entity);
   }
 
-  public void save(T entity) {
-    baseRepository.save(entity);
+  public T save(T entity) {
+    return baseRepository.save(entity);
   }
 
   public void deleteById(Long id) {
