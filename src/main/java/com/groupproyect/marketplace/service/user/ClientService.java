@@ -26,4 +26,17 @@ public class ClientService extends BaseService<Client> {
       return null;
     }
   }
+
+  public boolean checkCredentials(String email, String password) {
+    if (existsByEmail(email)) {
+      if (findByEmail(email).getPassword().equals(password)) {
+        return true;
+      }
+    }
+    return false;
+  }
+
+  public Long getIdByEmail(String email) {
+    return clientRepository.getIdByEmail(email);
+  }
 }

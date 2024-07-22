@@ -6,4 +6,5 @@ import com.groupproyect.marketplace.repository.BaseRepository;
 public interface ClientRepository extends BaseRepository<Client> {
   public boolean existsByEmail(String email);
   public Client findByEmail(String email);
+  Long getIdByEmail(String email);
 }

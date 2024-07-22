@@ -4,17 +4,19 @@ import java.util.List;
 
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.groupproyect.marketplace.model.user.Client;
 import com.groupproyect.marketplace.service.user.ClientService;
 
+import jakarta.validation.Valid;
+
 @RestController
-@RequestMapping("/api/clientes")
+@RequestMapping("/api/clients")
 public class ClientApi {
   private final ClientService clientService;
 
@@ -33,7 +35,7 @@ public class ClientApi {
   }
 
   @PostMapping("")
-  public Client createClient(@RequestBody Client client) {
+  public Client createClient(@Valid @ModelAttribute("client") Client client) {
     return clientService.save(client);
   }
 

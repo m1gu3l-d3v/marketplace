@@ -12,7 +12,7 @@ import com.groupproyect.marketplace.model.valoration.ValorationStore;
 import com.groupproyect.marketplace.service.valoration.ValorationStoreService;
 
 @RestController
-@RequestMapping("/api/valoraciones")
+@RequestMapping("/api/valorations")
 public class ValorationStoreApi {
   private final ValorationStoreService valorationStoreService;
 
