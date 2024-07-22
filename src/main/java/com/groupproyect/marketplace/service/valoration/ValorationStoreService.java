@@ -4,10 +4,9 @@ import org.springframework.stereotype.Service;
 
 import com.groupproyect.marketplace.model.valoration.ValorationStore;
 import com.groupproyect.marketplace.repository.valoration.ValorationStoreRepository;
-import com.groupproyect.marketplace.service.BaseService;
 
 @Service
-public class ValorationStoreService extends BaseService<ValorationStore> {
+public class ValorationStoreService extends BaseValorationService<ValorationStore> {
   @SuppressWarnings("unused")
   private final ValorationStoreRepository valorationStoreRepository;
 

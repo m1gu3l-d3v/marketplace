@@ -1,8 +1,10 @@
 package com.groupproyect.marketplace.repository.categorie;
 
-import com.groupproyect.marketplace.model.BaseModel;
+import org.springframework.data.repository.NoRepositoryBean;
+
 import com.groupproyect.marketplace.repository.BaseRepository;
 
-public interface BaseCategory extends BaseRepository<BaseModel> {
+@NoRepositoryBean
+public interface BaseCategory<T> extends BaseRepository<T> {
   
 }

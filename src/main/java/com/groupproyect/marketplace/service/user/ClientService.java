@@ -4,27 +4,15 @@ import org.springframework.stereotype.Service;
 
 import com.groupproyect.marketplace.model.user.Client;
 import com.groupproyect.marketplace.repository.user.ClientRepository;
-import com.groupproyect.marketplace.service.BaseService;
 
 @Service
-public class ClientService extends BaseService<Client> {
+public class ClientService extends BaseUserService<Client> {
+  @SuppressWarnings("unused")
   private final ClientRepository clientRepository;
 
   public ClientService(ClientRepository clientRepository) {
     super(clientRepository);
     this.clientRepository = clientRepository;
-  }
-
-  public boolean existsByEmail(String email) {
-    return clientRepository.existsByEmail(email);
-  }
-
-  public Client findByEmail(String email) {
-    if (existsByEmail(email)) {
-      return clientRepository.findByEmail(email);
-    } else {
-      return null;
-    }
   }
 
   public boolean checkCredentials(String email, String password) {
@@ -34,9 +22,5 @@ public class ClientService extends BaseService<Client> {
       }
     }
     return false;
-  }
-
-  public Long getIdByEmail(String email) {
-    return clientRepository.getIdByEmail(email);
   }
 }

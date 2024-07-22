@@ -1,8 +1,10 @@
 package com.groupproyect.marketplace.repository.valoration;
 
-import com.groupproyect.marketplace.model.valoration.ValorationProduct;
-import com.groupproyect.marketplace.repository.BaseRepository;
+import org.springframework.stereotype.Repository;
 
-public interface ValorationProductRepository extends BaseRepository<ValorationProduct> {
+import com.groupproyect.marketplace.model.valoration.ValorationProduct;
+
+@Repository
+public interface ValorationProductRepository extends BaseValorationRepository<ValorationProduct> {
   
 }
