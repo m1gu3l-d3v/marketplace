@@ -11,6 +11,4 @@ import lombok.Setter;
 @Setter
 public class BaseDirection extends BaseModelWithDate {
   private String adress;
-
-  // private Long idDistrict; // FK
 }

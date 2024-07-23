@@ -1,4 +1,4 @@
-package com.groupproyect.marketplace.model.categorie;
+package com.groupproyect.marketplace.model.category;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;

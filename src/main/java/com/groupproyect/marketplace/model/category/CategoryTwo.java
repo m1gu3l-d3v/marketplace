@@ -1,4 +1,4 @@
-package com.groupproyect.marketplace.model.categorie;
+package com.groupproyect.marketplace.model.category;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
@@ -11,4 +11,10 @@ import lombok.Setter;
 @Setter
 public class CategoryTwo extends BaseCategory {
   // private Long idCategoryOne; // FK
+
+  // Referenced table
+  // Table: categories_one FK
+  // @ManyToOne(fetch = FetchType.LAZY)
+  // @JoinColumn(name = "category_one_id")
+  // private CategoryOne categoryOne;
 }

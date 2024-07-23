@@ -1,4 +1,4 @@
-package com.groupproyect.marketplace.model.categorie;
+package com.groupproyect.marketplace.model.category;
 
 import com.groupproyect.marketplace.model.BaseModel;
 

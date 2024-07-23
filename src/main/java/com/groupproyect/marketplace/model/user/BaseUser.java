@@ -20,9 +20,6 @@ public class BaseUser extends BaseModelWithDate {
   private String numberDocumentIdentity;
   private Boolean isEnable;
 
-  // private Long idSeller; // FK
-  // private Long idClient; // FK
-
   @Transient
   private String confirmPassword;
 
