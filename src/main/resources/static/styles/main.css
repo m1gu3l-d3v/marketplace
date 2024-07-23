@@ -1,4 +1,4 @@
-:root {
+/* :root {
   --color-btn-text: #ffedd3;
   --color-btn-hover-text: #1e1e2b;
   --color-btn-accent: #ffc506;
@@ -9,8 +9,10 @@
 * {
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   color: var(--color-text);
-}
+} */
 
+
+/* 
 body {
   min-height:100vh;
   margin: 0;
@@ -32,4 +34,4 @@ h1.title {
   font-weight: 600;
   padding-bottom: 10px;
   color: white;
-}
+} */

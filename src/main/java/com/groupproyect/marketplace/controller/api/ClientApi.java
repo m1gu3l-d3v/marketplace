@@ -4,16 +4,12 @@ import java.util.List;
 
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.groupproyect.marketplace.model.user.Client;
 import com.groupproyect.marketplace.service.user.ClientService;
-
-import jakarta.validation.Valid;
 
 @RestController
 @RequestMapping("/api/clients")
@@ -34,10 +30,10 @@ public class ClientApi {
     return clientService.findById(id);
   }
 
-  @PostMapping("")
-  public Client createClient(@Valid @ModelAttribute("client") Client client) {
-    return clientService.save(client);
-  }
+  // @PostMapping("")
+  // public Client createClient(@Valid @ModelAttribute("client") Client client) {
+  //   return clientService.save(client);
+  // }
 
   @DeleteMapping("/{id}")
   public void deleteByIdClient(@PathVariable("id") Long id) {

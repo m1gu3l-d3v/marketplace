@@ -17,6 +17,7 @@ public class BaseUser extends BaseModelWithDate {
   private String email;
   private String telephoneNumber;
   private String password;
+  private String numberDocumentIdentity;
   private Boolean isEnable;
 
   // private Long idSeller; // FK

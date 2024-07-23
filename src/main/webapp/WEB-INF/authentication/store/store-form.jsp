@@ -44,28 +44,28 @@
     <div class="logreg-box">
       <div class="form-box">
         <form action="/login" method="post">
-          <h2>Iniciar Sesión</h2>
+          <h2>Sign In</h2>
           <div class="input-box">
               <span class="icon"><i class='bx bxs-envelope'></i></span>
               <input type="email" name="email" id="email" required>
-              <label>Correo</label>
+              <label>Email</label>
           </div>
 
           <div class="input-box">
               <span class="icon"><i class='bx bxs-lock-alt'></i></span>
               <input type="password" name="password" id="password" required>
-              <label>Contraseña</label>
+              <label>Password</label>
           </div>
 
           <div class="remember-forgot">
-            <label><input type="checkbox">Recordar contraseña</label>
-            <a href="#">¿Olvidaste tu contraseña?</a>
+            <label><input type="checkbox">Remember me</label>
+            <a href="#">Forgot password?</a>
           </div>
 
           <button type="submit" class="btn">Sign In</button>
 
           <div class="login-register">
-            <p>¿No tienes una cuenta? <a href="/register" class="register-link">Sign up</a></p>
+            <p>Don't have an account? <a href="/register" class="register-link">Sign up</a></p>
           </div>
         </form>
       </div>

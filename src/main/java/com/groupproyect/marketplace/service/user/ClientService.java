@@ -2,6 +2,7 @@ package com.groupproyect.marketplace.service.user;
 
 import org.springframework.stereotype.Service;
 
+import com.groupproyect.marketplace.model.user.BaseUser;
 import com.groupproyect.marketplace.model.user.Client;
 import com.groupproyect.marketplace.repository.user.ClientRepository;
 
@@ -22,5 +23,16 @@ public class ClientService extends BaseUserService<Client> {
       }
     }
     return false;
+  }
+
+  public Client castFromBaseUser(BaseUser baseUser) {
+    Client client = new Client();
+    client.setFirstName(baseUser.getFirstName());
+    client.setLastName(baseUser.getLastName());
+    client.setEmail(baseUser.getEmail());
+    client.setTelephoneNumber(baseUser.getTelephoneNumber());
+    client.setNumberDocumentIdentity(baseUser.getNumberDocumentIdentity());
+    client.setPassword(baseUser.getPassword());
+    return client;
   }
 }

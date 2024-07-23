@@ -4,7 +4,6 @@ import com.groupproyect.marketplace.repository.user.BaseUserRepository;
 import com.groupproyect.marketplace.service.BaseWithDateService;
 
 public class BaseUserService<T> extends BaseWithDateService<T> {
-  @SuppressWarnings("unused")
   private BaseUserRepository<T> baseUserRepository;
 
   public BaseUserService(BaseUserRepository<T> baseUserRepository) {
