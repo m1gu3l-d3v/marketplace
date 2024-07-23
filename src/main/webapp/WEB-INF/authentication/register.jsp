@@ -145,7 +145,7 @@
           </div>
 
           <div class="remember-forgot">
-            <label class="checkbox-label"><input type="checkbox" required />Recordar contraseña</label>
+            <label class="checkbox-label"><input type="checkbox" />Recordar contraseña</label>
             <a href="#">¿Olvidaste tu contraseña?</a>
           </div>
 

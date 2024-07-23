@@ -26,13 +26,13 @@ public class SellerService extends BaseUserService<Seller> {
   }
 
   public Seller castFromBaseUser(BaseUser baseUser) {
-      Seller seller = new Seller();
-      seller.setFirstName(baseUser.getFirstName());
-      seller.setLastName(baseUser.getLastName());
-      seller.setEmail(baseUser.getEmail());
-      seller.setTelephoneNumber(baseUser.getTelephoneNumber());
-      seller.setNumberDocumentIdentity(baseUser.getNumberDocumentIdentity());
-      seller.setPassword(baseUser.getPassword());
+    Seller seller = new Seller();
+    seller.setFirstName(baseUser.getFirstName());
+    seller.setLastName(baseUser.getLastName());
+    seller.setEmail(baseUser.getEmail());
+    seller.setTelephoneNumber(baseUser.getTelephoneNumber());
+    seller.setNumberDocumentIdentity(baseUser.getNumberDocumentIdentity());
+    seller.setPassword(baseUser.getPassword());
     return seller;
   }
-  }
+}
