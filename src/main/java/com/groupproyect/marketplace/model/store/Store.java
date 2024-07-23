@@ -3,6 +3,7 @@ package com.groupproyect.marketplace.model.store;
 import java.util.List;
 
 import com.groupproyect.marketplace.model.BaseModelWithDate;
+import com.groupproyect.marketplace.model.category.CategoryOne;
 import com.groupproyect.marketplace.model.delivery.DeliveryMethod;
 import com.groupproyect.marketplace.model.product.Product;
 import com.groupproyect.marketplace.model.user.Seller;
@@ -14,6 +15,7 @@ import jakarta.persistence.FetchType;
 import jakarta.persistence.JoinTable;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToMany;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.PrePersist;
@@ -26,10 +28,16 @@ import lombok.Setter;
 @Getter
 @Setter
 public class Store extends BaseModelWithDate {
-  // private Long idCategoryOne; // FK
-
   private String name;
   private Boolean isEnable;
+
+  // Table with Foreign Key
+  // Table: categories_one FK
+  @ManyToOne(fetch = FetchType.LAZY)
+  @JoinColumn(name = "categoryOne_id")
+  private CategoryOne categoryOne;
+
+  /* */
 
   // Referenced Table
   // Table: sellers FK

@@ -3,6 +3,7 @@ package com.groupproyect.marketplace.model.product;
 import java.util.List;
 
 import com.groupproyect.marketplace.model.BaseModelWithDate;
+import com.groupproyect.marketplace.model.category.CategoryThree;
 import com.groupproyect.marketplace.model.order.Order;
 import com.groupproyect.marketplace.model.store.Store;
 import com.groupproyect.marketplace.model.valoration.ValorationProduct;
@@ -23,8 +24,6 @@ import lombok.Setter;
 @Getter
 @Setter
 public class Product extends BaseModelWithDate {
-  // private Long idCategoryThree; // FK
-
   private String name;
   private Double price;
 
@@ -34,13 +33,19 @@ public class Product extends BaseModelWithDate {
   @JoinColumn(name = "store_id")
   private Store store;
 
+  // Table with Foreign Key
+  // Table: categories_three FK
+  @ManyToOne(fetch = FetchType.LAZY)
+  @JoinColumn(name = "categoryThree_id")
+  private CategoryThree categoryThree;
+
   /* */
 
   // Referenced table
   // Table: valorations_products FK
   @OneToMany(mappedBy = "product", fetch = FetchType.LAZY)
   private List<ValorationProduct> valorationProducts;
-
+  
   // Referenced table
   // Table: orders_products FK
   @ManyToMany(fetch = FetchType.LAZY)

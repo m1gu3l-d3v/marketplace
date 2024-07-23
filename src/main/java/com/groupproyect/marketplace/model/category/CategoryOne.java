@@ -1,6 +1,12 @@
 package com.groupproyect.marketplace.model.category;
 
+import java.util.List;
+
+import com.groupproyect.marketplace.model.store.Store;
+
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.Getter;
 import lombok.Setter;
@@ -10,8 +16,13 @@ import lombok.Setter;
 @Getter
 @Setter
 public class CategoryOne extends BaseCategory {
-  // // Referenced table
-  // // Table: categories_two FK
-  // @OneToMany(mappedBy = "categoryOne", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-  // private List<CategoryTwo> categoryTwos;
+  // Referenced Table
+  // Table: categories_two
+  @OneToMany(mappedBy="categoryOne", fetch = FetchType.LAZY)
+  private List<CategoryTwo> categoryTwos;
+
+  // Referenced Table
+  // Table: stores
+  @OneToMany(mappedBy="categoryOne", fetch = FetchType.LAZY)
+  private List<Store> stores;
 }

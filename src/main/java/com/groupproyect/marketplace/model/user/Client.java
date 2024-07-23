@@ -33,5 +33,4 @@ public class Client extends BaseUser {
   // Table: orders FK
   @OneToOne(mappedBy = "client", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
   private Order order;
-
 }
