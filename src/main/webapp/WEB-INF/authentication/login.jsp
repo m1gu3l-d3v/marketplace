@@ -72,5 +72,5 @@
     </div>
   </div>
 </body>
-<script src="scripts/form.js"></script>
+<script src="/scripts/form/form.js"></script>
 </html>
