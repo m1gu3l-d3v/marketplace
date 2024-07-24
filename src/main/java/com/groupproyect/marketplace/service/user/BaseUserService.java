@@ -1,9 +1,10 @@
 package com.groupproyect.marketplace.service.user;
 
+import com.groupproyect.marketplace.model.user.IGetPassword;
 import com.groupproyect.marketplace.repository.user.BaseUserRepository;
 import com.groupproyect.marketplace.service.BaseWithDateService;
 
-public class BaseUserService<T> extends BaseWithDateService<T> {
+public class BaseUserService<T extends IGetPassword> extends BaseWithDateService<T> {
   private BaseUserRepository<T> baseUserRepository;
 
   public BaseUserService(BaseUserRepository<T> baseUserRepository) {
@@ -26,4 +27,13 @@ public class BaseUserService<T> extends BaseWithDateService<T> {
   public Long getIdByEmail(String email) {
     return baseUserRepository.getIdByEmail(email);
   }
+  public boolean checkCredentials(String email, String password) {
+    if (existsByEmail(email)) {
+      if (findByEmail(email).getPassword().equals(password)) {
+        return true;
+      }
+    }
+    return false;
+  }
 }
+

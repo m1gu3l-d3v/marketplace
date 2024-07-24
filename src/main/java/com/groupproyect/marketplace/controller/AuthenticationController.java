@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.groupproyect.marketplace.model.user.BaseUser;
+import com.groupproyect.marketplace.model.user.Client;
 import com.groupproyect.marketplace.service.user.ClientService;
 import com.groupproyect.marketplace.service.user.SellerService;
 
@@ -34,8 +35,8 @@ public class AuthenticationController {
   @PostMapping("/register")
   public String register(
       @ModelAttribute("user") BaseUser user,
-      @RequestParam("radio-group") String role,
-      BindingResult bindingResult) {
+      BindingResult bindingResult,
+      @RequestParam("radio-group") String role) {
     if (!(user.getPassword().equals(user.getConfirmPassword()))) {
       FieldError error = new FieldError("email", "email", "email");
       bindingResult.addError(error);
@@ -48,7 +49,7 @@ public class AuthenticationController {
       return "redirect:/register";
     }
     if (role.equals("client")) {
-      clientService.save(clientService.castFromBaseUser(user));
+      clientService.save((Client) user);
       return "redirect:/";
     } else if (role.equals("seller")) {
       sellerService.save(sellerService.castFromBaseUser(user));

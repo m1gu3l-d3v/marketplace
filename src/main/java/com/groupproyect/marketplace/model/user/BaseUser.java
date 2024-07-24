@@ -11,7 +11,7 @@ import lombok.Setter;
 @MappedSuperclass
 @Getter
 @Setter
-public class BaseUser extends BaseModelWithDate {
+public class BaseUser extends BaseModelWithDate implements IGetPassword{
   private String firstName;
   private String lastName;
   private String email;
