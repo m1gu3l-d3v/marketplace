@@ -1,6 +1,7 @@
 package com.groupproyect.marketplace.model.user;
 
 import com.groupproyect.marketplace.model.BaseModelWithDate;
+import com.groupproyect.marketplace.service.user.IAuxGetPassword;
 
 import jakarta.persistence.MappedSuperclass;
 import jakarta.persistence.PrePersist;
@@ -11,7 +12,7 @@ import lombok.Setter;
 @MappedSuperclass
 @Getter
 @Setter
-public class BaseUser extends BaseModelWithDate implements IGetPassword{
+public class BaseUser extends BaseModelWithDate implements IAuxGetPassword {
   private String firstName;
   private String lastName;
   private String email;

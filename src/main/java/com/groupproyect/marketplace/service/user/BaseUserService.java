@@ -1,10 +1,9 @@
 package com.groupproyect.marketplace.service.user;
 
-import com.groupproyect.marketplace.model.user.IGetPassword;
 import com.groupproyect.marketplace.repository.user.BaseUserRepository;
 import com.groupproyect.marketplace.service.BaseWithDateService;
 
-public class BaseUserService<T extends IGetPassword> extends BaseWithDateService<T> {
+public class BaseUserService<T extends IAuxGetPassword> extends BaseWithDateService<T> {
   private BaseUserRepository<T> baseUserRepository;
 
   public BaseUserService(BaseUserRepository<T> baseUserRepository) {

@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.groupproyect.marketplace.model.user.BaseUser;
-import com.groupproyect.marketplace.model.user.Client;
 import com.groupproyect.marketplace.service.user.ClientService;
 import com.groupproyect.marketplace.service.user.SellerService;
 
@@ -38,7 +37,7 @@ public class AuthenticationController {
       BindingResult bindingResult,
       @RequestParam("radio-group") String role) {
     if (!(user.getPassword().equals(user.getConfirmPassword()))) {
-      FieldError error = new FieldError("email", "email", "email");
+      FieldError error = new FieldError("confirmPassword", "confirmPassword", "Las contraseñas no coinciden");
       bindingResult.addError(error);
     }
     if ((clientService.existsByEmail(user.getEmail())) || (sellerService.existsByEmail(user.getEmail()))) {
@@ -46,10 +45,10 @@ public class AuthenticationController {
       bindingResult.addError(error);
     }
     if (bindingResult.hasErrors()) {
-      return "redirect:/register";
+    return "authentication/register.jsp";
     }
     if (role.equals("client")) {
-      clientService.save((Client) user);
+      clientService.save(clientService.castFromBaseUser(user));
       return "redirect:/";
     } else if (role.equals("seller")) {
       sellerService.save(sellerService.castFromBaseUser(user));

@@ -41,14 +41,14 @@
             <div class="input-box">
               <span class="icon"><i class='bx bxs-user'></i></span>
               <form:input required="required" path="firstName" type="text" id="first-name" />
-              <form:errors path="firstName" />
+              <form:errors path="firstName" class="text-danger" />
               <form:label path="firstName">Nombres</form:label>
             </div>
             
             <div class="input-box">
               <span class="icon"><i class='bx bxs-user'></i></span>
               <form:input required="required" path="lastName" type="text" id="last-name" />
-              <form:errors path="lastName" />
+              <form:errors path="lastName" class="text-danger" />
               <form:label path="lastName">Apellidos</form:label>
             </div>
           </div>
@@ -57,7 +57,7 @@
             <div class="input-box">
               <span class="icon"><i class='bx bxs-envelope'></i></span>
               <form:input required="required" path="email" type="email" id="email" />
-              <form:errors path="email" />
+              <form:errors path="email" class="text-danger" />
               <form:label path="email">Correo</form:label>
             </div>
 
@@ -89,14 +89,14 @@
             <div class="input-box">
               <span class="icon"><i class='bx bxs-phone'></i></i></span>
               <form:input required="required" path="telephoneNumber" type="tel" id="phone" />
-              <form:errors path="telephoneNumber" />
+              <form:errors path="telephoneNumber" class="text-danger" />
               <form:label path="telephoneNumber">Teléfono</form:label>
             </div>
 
             <div class="input-box">
               <span class="icon"><i class='bx bxs-id-card'></i></span>
               <form:input required="required" path="numberDocumentIdentity" type="tel" id="numberDocumentIdentity" />
-              <form:errors path="numberDocumentIdentity" />
+              <form:errors path="numberDocumentIdentity" class="text-danger" />
               <form:label path="numberDocumentIdentity">DNI</form:label>
             </div>
           </div>
@@ -105,14 +105,14 @@
             <div class="input-box">
               <span class="icon"><i class='bx bxs-lock'></i></span>
               <form:input required="required" path="password" type="password" id="password" />
-              <form:errors path="password" />
+              <form:errors path="password" class="text-danger" />
               <form:label path="password">Contraseña</form:label>
             </div>
 
             <div class="input-box">
               <span class="icon"><i class='bx bxs-lock'></i></span>
               <form:input required="required" path="confirmPassword" type="password" id="confirmPassword" />
-              <form:errors path="confirmPassword" />
+              <form:errors path="confirmPassword" class="text-danger" />
               <form:label path="confirmPassword">Confirmar Contraseña</form:label>
             </div>
           </div>
