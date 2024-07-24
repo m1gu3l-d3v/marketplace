@@ -16,15 +16,6 @@ public class SellerService extends BaseUserService<Seller> {
     this.sellerRepository = sellerRepository;
   }
 
-  public boolean checkCredentials(String email, String password) {
-    if (existsByEmail(email)) {
-      if (findByEmail(email).getPassword().equals(password)) {
-        return true;
-      }
-    }
-    return false;
-  }
-
   public Seller castFromBaseUser(BaseUser baseUser) {
     Seller seller = new Seller();
     seller.setFirstName(baseUser.getFirstName());

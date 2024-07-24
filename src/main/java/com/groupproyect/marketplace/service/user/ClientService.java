@@ -16,15 +16,6 @@ public class ClientService extends BaseUserService<Client> {
     this.clientRepository = clientRepository;
   }
 
-  public boolean checkCredentials(String email, String password) {
-    if (existsByEmail(email)) {
-      if (findByEmail(email).getPassword().equals(password)) {
-        return true;
-      }
-    }
-    return false;
-  }
-
   public Client castFromBaseUser(BaseUser baseUser) {
     Client client = new Client();
     client.setFirstName(baseUser.getFirstName());

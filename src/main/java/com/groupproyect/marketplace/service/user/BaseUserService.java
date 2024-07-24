@@ -27,6 +27,7 @@ public class BaseUserService<T extends IGetPassword> extends BaseWithDateService
   public Long getIdByEmail(String email) {
     return baseUserRepository.getIdByEmail(email);
   }
+
   public boolean checkCredentials(String email, String password) {
     if (existsByEmail(email)) {
       if (findByEmail(email).getPassword().equals(password)) {
@@ -36,4 +37,3 @@ public class BaseUserService<T extends IGetPassword> extends BaseWithDateService
     return false;
   }
 }
-
