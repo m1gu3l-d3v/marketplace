@@ -42,10 +42,9 @@ public class StoreController {
     Long idUser = ((Long) httpSession.getAttribute("idUser"));
     model.addAttribute("seller", sellerService.findById(idUser));
     model.addAttribute("store", new Store());
-    model.addAttribute("departments", departmentService.getAllDepartments());
+    model.addAttribute("departments", departmentService.getAllDepartmentsSortedByName());
     model.addAttribute("districts", districtService.getAllDistricts());
     return "store/new.jsp";
-//    return "store/newstore.jsp";
   }
 
   @PostMapping({ "/new" })

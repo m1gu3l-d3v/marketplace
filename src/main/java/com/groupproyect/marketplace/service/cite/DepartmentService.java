@@ -13,4 +13,7 @@ public class DepartmentService {
     private DepartmentRepository departmentRepository;
 
     public List<Department> getAllDepartments() { return departmentRepository.findAll(); }
+    public List<Department> getAllDepartmentsSortedByName() {
+        return departmentRepository.findAllByOrderByNameAsc();
+    }
 }
