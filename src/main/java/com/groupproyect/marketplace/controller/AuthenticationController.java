@@ -77,12 +77,12 @@ public class AuthenticationController {
       @RequestParam("password") String password,
       HttpSession httpSession) {
     if (clientService.checkCredentials(email, password)) {
-      httpSession.setAttribute("idUser", clientService.getIdByEmail(email));
+      httpSession.setAttribute("idUser", clientService.findIdByEmail(email));
       httpSession.setAttribute("roleUser", "client");
       return "redirect:/";
     }
     if (sellerService.checkCredentials(email, password)) {
-      httpSession.setAttribute("idUser", sellerService.getIdByEmail(email));
+      httpSession.setAttribute("idUser", sellerService.findIdByEmail(email));
       httpSession.setAttribute("roleUser", "seller");
       return "redirect:/";
     }

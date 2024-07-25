@@ -4,13 +4,17 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.groupproyect.marketplace.model.store.Store;
+import com.groupproyect.marketplace.model.user.Seller;
 import com.groupproyect.marketplace.service.store.StoreService;
 import com.groupproyect.marketplace.service.user.SellerService;
 
 import jakarta.servlet.http.HttpSession;
+import jakarta.validation.Valid;
 
 @Controller
 @RequestMapping("/stores")
@@ -25,19 +29,25 @@ public class StoreController {
 
   @GetMapping({ "/new", "/new/" })
   public String newStore(@ModelAttribute("store") Store store, Model model, HttpSession httpSession) {
-    System.out.println((httpSession.getAttribute("idUser")) + (httpSession.getAttribute("idUser")).getClass().getName());
-    System.out.println((httpSession.getAttribute("roleUser"))+"-----------------------------------------------------");
-    if ((httpSession.getAttribute("roleUser")) == null || (httpSession.getAttribute("idUser")) == null) {
-      return "redirect:/";
+    if ((httpSession.getAttribute("roleUser")) != "seller" || (httpSession.getAttribute("idUser")) == null) {
+      return "redirect:/login";
     }
-    String roleUser = ((String) httpSession.getAttribute("roleUser"));
     Long idUser = ((Long) httpSession.getAttribute("idUser"));
-    System.out.println("sakjndsakjndskasdjnksdanjsdkansdakdsa" + roleUser+ idUser);
-    // if (!(sellerService.checkRole((String)
-    // httpSession.getAttribute("roleUser")))) {
-    // return "redirect:/";
-    // }
     model.addAttribute("seller", sellerService.findById(idUser));
     return "store/new.jsp";
+  }
+
+  @PostMapping({ "/new" })
+  public String createStore(@Valid @ModelAttribute("store") Store store, HttpSession httpSession,
+      @RequestParam("sellerId") Long sellerId) {
+    if (((String) httpSession.getAttribute("roleUser")) != "seller"
+        || ((Long) httpSession.getAttribute("idUser")) == null) {
+      return "redirect:/login";
+    }
+    Seller seller = sellerService.findById(sellerId);
+    seller.setStore(store);
+    storeService.save(store);
+    sellerService.save(seller);
+    return "redirect:/store/";
   }
 }

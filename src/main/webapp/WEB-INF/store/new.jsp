@@ -36,13 +36,14 @@
           <div>
             <h2>Crear Tienda Virtual</h2>
           </div>
+          <input path="sellerId" type="hidden" name="sellerId" value="${seller.id}" id="sellerId" />
 
           <div class="input-group-row">
             <div class="input-box">
               <span class="icon"><i class='bx bxs-user'></i></span>
               <form:input required="required" path="name" type="text" id="name" />
               <form:errors path="name" class="text-danger" />
-              <form:label path="name">Name</form:label>
+              <form:label path="name">Nombre de la empresa</form:label>
             </div>
           </div>
 
@@ -51,7 +52,13 @@
               <span class="icon"><i class='bx bxs-envelope'></i></span>
               <form:input required="required" path="email" type="email" id="email" />
               <form:errors path="email" class="text-danger" />
-              <form:label path="email">Ruc</form:label>
+              <form:label path="email">Email de la empresa</form:label>
+            </div>
+            <div class="input-box">
+              <span class="icon"><i class='bx bxs-envelope'></i></span>
+              <form:input required="required" path="ruc" type="text" id="ruc" />
+              <form:errors path="ruc" class="text-danger" />
+              <form:label path="ruc">Ruc</form:label>
             </div>
           </div>
 
@@ -67,7 +74,7 @@
               <span class="icon"><i class='bx bxs-id-card'></i></span>
               <form:input required="required" path="ruc" type="tel" id="ruc" />
               <form:errors path="ruc" class="text-danger" />
-              <form:label path="ruc">DNI</form:label>
+              <form:label path="ruc">Carné de identidad</form:label>
             </div>
           </div>
 

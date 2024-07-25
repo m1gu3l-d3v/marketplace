@@ -34,10 +34,10 @@
         <h2>Bienvenido...<br><span>¡Denuevo!</span></h2>
         <p>Hoy es un buen dia para comprar un poco ;)</p>
         <div class="social-icons">
-          <a href="#"><i class='bx bxl-linkedin' ></i></a>
-          <a href="#"><i class='bx bxl-facebook' ></i></a>
-          <a href="#"><i class='bx bxl-instagram' ></i></a>
-          <a href="#"><i class='bx bxl-twitter' ></i></a>
+          <a href="https://www.linkedin.com/"><i class='bx bxl-linkedin' ></i></a>
+          <a href="https://www.facebook.com/"><i class='bx bxl-facebook' ></i></a>
+          <a href="https://www.instagram.com/"><i class='bx bxl-instagram' ></i></a>
+          <a href="https://github.com/m1gu3l-d3v/marketplace/"><i class='bx bxl-github'></i></a>
         </div>
       </div>
     </div>

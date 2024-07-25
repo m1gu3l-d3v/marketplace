@@ -3,7 +3,7 @@ package com.groupproyect.marketplace.service.user;
 import com.groupproyect.marketplace.repository.user.BaseUserRepository;
 import com.groupproyect.marketplace.service.BaseWithDateService;
 
-public class BaseUserService<T extends IAuxGetPassword> extends BaseWithDateService<T> {
+public class BaseUserService<T extends IAuxBaseUser> extends BaseWithDateService<T> {
   private BaseUserRepository<T> baseUserRepository;
 
   public BaseUserService(BaseUserRepository<T> baseUserRepository) {
@@ -23,8 +23,8 @@ public class BaseUserService<T extends IAuxGetPassword> extends BaseWithDateServ
     }
   }
 
-  public Long getIdByEmail(String email) {
-    return baseUserRepository.getIdByEmail(email);
+  public Long findIdByEmail(String email) {
+    return baseUserRepository.findByEmail(email).getId();
   }
 
   public boolean checkCredentials(String email, String password) {
