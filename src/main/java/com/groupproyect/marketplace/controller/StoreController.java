@@ -1,5 +1,7 @@
 package com.groupproyect.marketplace.controller;
 
+import com.groupproyect.marketplace.service.cite.DepartmentService;
+import com.groupproyect.marketplace.service.cite.DistrictService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -17,12 +19,18 @@ public class StoreController {
   @Autowired
   private StoreService storeService;
 
+  @Autowired
+  private DepartmentService departmentService;
+
+  @Autowired
+  private DistrictService districtService;
+
   @GetMapping({"/new", "/new/"})
   public String showCreateForm(Model model) {
     model.addAttribute("store", new Store());
-    model.addAttribute("departments", departmentService.findAll());
-    model.addAttribute("districts", districtService.findAll());
-    return "store/store-form";
+    model.addAttribute("departments", departmentService.getAllDepartments());
+    model.addAttribute("districts", districtService.getAllDistricts());
+    return "store/newstore.jsp";
   }
 
   @PostMapping("/new")
