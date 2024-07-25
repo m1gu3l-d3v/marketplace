@@ -29,9 +29,9 @@ public class StoreController {
 
   @GetMapping({ "/new", "/new/" })
   public String newStore(@ModelAttribute("store") Store store, Model model, HttpSession httpSession) {
-    // if ((httpSession.getAttribute("roleUser")) != "seller" || (httpSession.getAttribute("idUser")) == null) {
-    //   return "redirect:/login";
-    // }
+     if ((httpSession.getAttribute("roleUser")) != "seller" || (httpSession.getAttribute("idUser")) == null) {
+       return "redirect:/login";
+     }
     Long idUser = ((Long) httpSession.getAttribute("idUser"));
     model.addAttribute("seller", sellerService.findById(idUser));
     return "store/new.jsp";
@@ -40,10 +40,10 @@ public class StoreController {
   @PostMapping({ "/new" })
   public String createStore(@Valid @ModelAttribute("store") Store store, HttpSession httpSession,
       @RequestParam("sellerId") Long sellerId) {
-    // if (((String) httpSession.getAttribute("roleUser")) != "seller"
-    //     || ((Long) httpSession.getAttribute("idUser")) == null) {
-    //   return "redirect:/login";
-    // }
+     if (((String) httpSession.getAttribute("roleUser")) != "seller"
+         || ((Long) httpSession.getAttribute("idUser")) == null) {
+       return "redirect:/login";
+     }
     Seller seller = sellerService.findById(sellerId);
     seller.setStore(store);
     storeService.save(store);
