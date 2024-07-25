@@ -2,7 +2,6 @@ package com.groupproyect.marketplace.model.cite;
 
 import java.util.List;
 
-import com.groupproyect.marketplace.model.BaseModel;
 import com.groupproyect.marketplace.model.order.Order;
 import com.groupproyect.marketplace.model.store.Local;
 import com.groupproyect.marketplace.model.user.Client;
@@ -22,9 +21,7 @@ import lombok.Setter;
 @Table(name = "districts")
 @Getter
 @Setter
-public class District extends BaseModel {
-  private String name;
-
+public class District extends BaseCite {
   // Table with Foreign Key
   // Table: departments FK
   @ManyToOne(fetch = FetchType.LAZY)
