@@ -20,19 +20,19 @@ public class ClientApi {
     this.clientService = clientService;
   }
 
-  @GetMapping("")
+  @GetMapping({ "", "/" })
   public List<Client> findAllClients() {
-      return clientService.findAll();
+    return clientService.findAll();
   }
 
-  @GetMapping("/{id}")
+  @GetMapping({ "/{id}", "/{id}/" })
   public Client findByIdClient(@PathVariable("id") Long id) {
     return clientService.findById(id);
   }
 
   // @PostMapping("")
   // public Client createClient(@Valid @ModelAttribute("client") Client client) {
-  //   return clientService.save(client);
+  // return clientService.save(client);
   // }
 
   @DeleteMapping("/{id}")

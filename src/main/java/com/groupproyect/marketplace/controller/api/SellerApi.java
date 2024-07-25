@@ -20,19 +20,19 @@ public class SellerApi {
     this.sellerService = sellerService;
   }
 
-  @GetMapping("")
+  @GetMapping({ "", "/" })
   public List<Seller> findAllSellers() {
     return sellerService.findAll();
   }
 
-  @GetMapping("/{id}")
+  @GetMapping({ "/{id}", "/{id}/" })
   public Seller findByIdSeller(@PathVariable("id") Long id) {
     return sellerService.findById(id);
   }
 
   // @PostMapping("")
   // public Seller createSeller(@Valid @ModelAttribute Seller seller) {
-  //   return sellerService.save(seller);
+  // return sellerService.save(seller);
   // }
 
   @DeleteMapping("/{id}")

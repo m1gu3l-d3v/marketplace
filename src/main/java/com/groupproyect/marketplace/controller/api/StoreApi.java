@@ -20,12 +20,12 @@ public class StoreApi {
     this.storeService = storeService;
   }
 
-  @GetMapping({"", "/"})
+  @GetMapping({ "", "/" })
   public List<Store> findAllStores() {
     return storeService.findAll();
   }
 
-  @GetMapping({"/{id}", "/{id}/"})
+  @GetMapping({ "/{id}", "/{id}/" })
   public Store findByIdStore(@PathVariable("id") Long id) {
     return storeService.findById(id);
   }
