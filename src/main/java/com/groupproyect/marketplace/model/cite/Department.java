@@ -2,8 +2,6 @@ package com.groupproyect.marketplace.model.cite;
 
 import java.util.List;
 
-import com.groupproyect.marketplace.model.BaseModel;
-
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.OneToMany;
@@ -15,9 +13,7 @@ import lombok.Setter;
 @Table(name = "departments")
 @Getter
 @Setter
-public class Department extends BaseModel {
-  private String name;
-
+public class Department extends BaseCite {
   // Referenced Table
   // Table: districts
   @OneToMany(mappedBy="department", fetch = FetchType.LAZY)

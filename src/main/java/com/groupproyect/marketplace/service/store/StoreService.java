@@ -16,11 +16,16 @@ public class StoreService extends BaseWithDateService<Store> {
     this.storeRepository = storeRepository;
   }
 
+<<<<<<< HEAD
   public Store findBySeller(Seller seller) {
     return storeRepository.findBySeller(seller);
   }
 
   public Store findBySellerId(Long id) {
     return storeRepository.findBySellerId(id);
+=======
+  public Store save(Store store) {
+    return storeRepository.save(store);
+>>>>>>> main
   }
 }

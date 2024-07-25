@@ -55,7 +55,7 @@ public class AuthenticationController {
     } else if (role.equals("seller")) {
       httpSession.setAttribute("idUser", (sellerService.save(sellerService.castFromBaseUser(user))).getId());
       httpSession.setAttribute("roleUser", "seller");
-      return "redirect:/store/new";
+      return "redirect:/stores/new";
     }
     return "redirect:/register";
   }
