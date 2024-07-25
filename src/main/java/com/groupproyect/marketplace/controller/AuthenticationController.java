@@ -79,11 +79,13 @@ public class AuthenticationController {
     if (clientService.checkCredentials(email, password)) {
       httpSession.setAttribute("idUser", clientService.findIdByEmail(email));
       httpSession.setAttribute("roleUser", "client");
+      System.out.println(httpSession.getAttribute("roleUser").toString());
       return "redirect:/";
     }
     if (sellerService.checkCredentials(email, password)) {
       httpSession.setAttribute("idUser", sellerService.findIdByEmail(email));
       httpSession.setAttribute("roleUser", "seller");
+      System.out.println(httpSession.getAttribute("roleUser").toString());
       return "redirect:/";
     }
     return "redirect:/login";

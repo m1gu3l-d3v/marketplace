@@ -3,12 +3,14 @@ package com.groupproyect.marketplace.controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.groupproyect.marketplace.service.category.CategoryOneService;
 import com.groupproyect.marketplace.service.category.CategoryThreeService;
 import com.groupproyect.marketplace.service.category.CategoryTwoService;
 
 @Controller
+@RequestMapping("/categories")
 public class CategoryController {
   private final CategoryOneService categoryOneService;
   private final CategoryTwoService categoryTwoService;
@@ -21,21 +23,12 @@ public class CategoryController {
     this.categoryThreeService = categoryThreeService;
   }
 
-@GetMapping("/categories")
-public String getCategories(Model model) {
-    var categoriesOnes = categoryOneService.findAll();
-    var categoriesTwos = categoryTwoService.findAll();
-    var categoriesThrees = categoryThreeService.findAll();
-    
-    // Log the data
-    System.out.println("Categories One: " + categoriesOnes);
-    System.out.println("Categories Two: " + categoriesTwos);
-    System.out.println("Categories Three: " + categoriesThrees);
-
-    model.addAttribute("categoriesOnes", categoriesOnes);
-    model.addAttribute("categoriesTwos", categoriesTwos);
-    model.addAttribute("categoriesThrees", categoriesThrees);
+  @GetMapping("")
+  public String getCategories(Model model) {
+    model.addAttribute("categoriesOnes", categoryOneService.findAll());
+    model.addAttribute("categoriesTwos", categoryTwoService.findAll());
+    model.addAttribute("categoriesThrees", categoryThreeService.findAll());
 
     return "categories/categories.jsp";
-}
+  }
 }
