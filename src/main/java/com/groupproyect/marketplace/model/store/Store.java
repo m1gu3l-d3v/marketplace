@@ -29,6 +29,9 @@ import lombok.Setter;
 @Setter
 public class Store extends BaseModelWithDate {
   private String name;
+  private String telephoneNumber;
+  private String email;
+  private String ruc;
   private Boolean isEnable;
 
   // Table with Foreign Key

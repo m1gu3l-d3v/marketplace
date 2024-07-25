@@ -7,7 +7,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Register</title>
+  <title>Crear Tienda</title>
   <link rel="stylesheet" href="/styles/main.css">
   <link rel="stylesheet" href="/styles/form.css">
   <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
@@ -20,8 +20,8 @@
     <div class="content">
       <h2 class="logo"><i class='logo-main-content'></i> Tienda X</h2>
       <div class="text-sci">
-        <h2>Bienvenido...<br><span>Q tal tu dia?<span></h2>
-        <p>Hoy es un buen dia para comprar un poco ;)</p>
+        <h2>Bienvenido<br><span> <c:out value="${seller.firstName} ${seller.lastName}"/></span></h2>
+        <p>¡Hoy es un buen día para dar a conocer tu negocio!</p>
         <div class="social-icons">
           <a href="https://www.linkedin.com/"><i class='bx bxl-linkedin' ></i></a>
           <a href="https://www.facebook.com/"><i class='bx bxl-facebook' ></i></a>
@@ -32,24 +32,17 @@
     </div>
     <div class="logreg-box">
       <div class="form-box register">
-        <form:form action="/register" method="post" modelAttribute="user" class="form">
+        <form:form action="/stores/new" method="post" modelAttribute="store" class="form">
           <div>
-            <h2>Crear Cuenta</h2>
+            <h2>Crear Tienda Virtual</h2>
           </div>
 
           <div class="input-group-row">
             <div class="input-box">
               <span class="icon"><i class='bx bxs-user'></i></span>
-              <form:input required="required" path="firstName" type="text" id="first-name" />
-              <form:errors path="firstName" class="text-danger" />
-              <form:label path="firstName">Nombres</form:label>
-            </div>
-            
-            <div class="input-box">
-              <span class="icon"><i class='bx bxs-user'></i></span>
-              <form:input required="required" path="lastName" type="text" id="last-name" />
-              <form:errors path="lastName" class="text-danger" />
-              <form:label path="lastName">Apellidos</form:label>
+              <form:input required="required" path="name" type="text" id="name" />
+              <form:errors path="name" class="text-danger" />
+              <form:label path="name">Name</form:label>
             </div>
           </div>
 
@@ -58,30 +51,7 @@
               <span class="icon"><i class='bx bxs-envelope'></i></span>
               <form:input required="required" path="email" type="email" id="email" />
               <form:errors path="email" class="text-danger" />
-              <form:label path="email">Correo</form:label>
-            </div>
-
-            <div class="option-box">
-              <label>Rol</label>
-
-              <div class="radio-container">
-                <div class="radio-wrapper">
-                  <label class="radio-button">
-                    <input name="radio-group" type="radio" value="client" checked>
-                    <span class="radio-checkmark"></span>
-                    <span class="radio-label">Cliente</span>
-                  </label>
-                </div>
-
-                <div class="radio-wrapper">
-                  <label class="radio-button">
-                    <input name="radio-group" type="radio" value="seller">
-                    <span class="radio-checkmark"></span>
-                    <span class="radio-label">Vendedor</span>
-                  </label>
-                </div>
-                <!-- <span class="icon"><i class='bx bxs-id-card'></i></span> -->
-              </div>
+              <form:label path="email">Ruc</form:label>
             </div>
           </div>
 
@@ -95,36 +65,28 @@
 
             <div class="input-box">
               <span class="icon"><i class='bx bxs-id-card'></i></span>
-              <form:input required="required" path="numberDocumentIdentity" type="tel" id="numberDocumentIdentity" />
-              <form:errors path="numberDocumentIdentity" class="text-danger" />
-              <form:label path="numberDocumentIdentity">DNI</form:label>
+              <form:input required="required" path="ruc" type="tel" id="ruc" />
+              <form:errors path="ruc" class="text-danger" />
+              <form:label path="ruc">DNI</form:label>
             </div>
           </div>
 
           <div class="input-group-row">
             <div class="input-box">
               <span class="icon"><i class='bx bxs-lock'></i></span>
-              <form:input required="required" path="password" type="password" id="password" />
-              <form:errors path="password" class="text-danger" />
-              <form:label path="password">Contraseña</form:label>
-            </div>
-
-            <div class="input-box">
-              <span class="icon"><i class='bx bxs-lock'></i></span>
-              <form:input required="required" path="confirmPassword" type="password" id="confirmPassword" />
-              <form:errors path="confirmPassword" class="text-danger" />
-              <form:label path="confirmPassword">Confirmar Contraseña</form:label>
+              <input required="required" path="password" type="password" id="password" />
+              <label path="password">Contraseña</label>
             </div>
           </div>
 
           <div class="remember-forgot">
-            <label class="checkbox-label"><input type="checkbox" required />Estoy de acuerdo con los términos y condiciones</label>
+            <label class="checkbox-label"><input type="checkbox" required />Estoy de acuerdo con los <a href="#"> términos y condiciones</a></label>
           </div>
 
           <button type="submit" class="btn">Registrate</button>
 
           <div class="login-register">
-            <p>¿Ya tienes una cuenta? <a href="#" class="login-link">Iniciar Sesión</a></p>
+            <p>¿Ya tienes una cuenta? <a href="#" class="login-link"> Iniciar Sesión</a></p>
           </div>
         </form:form>
       </div>

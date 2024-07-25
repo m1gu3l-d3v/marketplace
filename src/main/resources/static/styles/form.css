@@ -337,13 +337,14 @@ body {
 }
 
 a {
-    display: inline-block;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: inline-block;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  margin-left: 5px;
 }
 
 a:focus {
-    outline: none;
-    transform: scale(1.2);
+  outline: none;
+  transform: scale(1.08);
 }
 
 .radio-container {

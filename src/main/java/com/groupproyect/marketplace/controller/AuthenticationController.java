@@ -35,7 +35,8 @@ public class AuthenticationController {
   public String register(
       @ModelAttribute("user") BaseUser user,
       BindingResult bindingResult,
-      @RequestParam("radio-group") String role) {
+      @RequestParam("radio-group") String role,
+      HttpSession httpSession) {
     if (!(user.getPassword().equals(user.getConfirmPassword()))) {
       FieldError error = new FieldError("confirmPassword", "confirmPassword", "Las contraseñas no coinciden");
       bindingResult.addError(error);
@@ -45,13 +46,15 @@ public class AuthenticationController {
       bindingResult.addError(error);
     }
     if (bindingResult.hasErrors()) {
-    return "authentication/register.jsp";
+      return "authentication/register.jsp";
     }
     if (role.equals("client")) {
-      clientService.save(clientService.castFromBaseUser(user));
+      httpSession.setAttribute("idUser", (clientService.save(clientService.castFromBaseUser(user))).getId());
+      httpSession.setAttribute("roleUser", "client");
       return "redirect:/";
     } else if (role.equals("seller")) {
-      sellerService.save(sellerService.castFromBaseUser(user));
+      httpSession.setAttribute("idUser", (sellerService.save(sellerService.castFromBaseUser(user))).getId());
+      httpSession.setAttribute("roleUser", "seller");
       return "redirect:/store/new";
     }
     return "redirect:/register";
@@ -75,12 +78,12 @@ public class AuthenticationController {
       HttpSession httpSession) {
     if (clientService.checkCredentials(email, password)) {
       httpSession.setAttribute("idUser", clientService.getIdByEmail(email));
-      httpSession.setAttribute("role", "client");
+      httpSession.setAttribute("roleUser", "client");
       return "redirect:/";
     }
     if (sellerService.checkCredentials(email, password)) {
       httpSession.setAttribute("idUser", sellerService.getIdByEmail(email));
-      httpSession.setAttribute("role", "seller");
+      httpSession.setAttribute("roleUser", "seller");
       return "redirect:/";
     }
     return "redirect:/login";

@@ -26,6 +26,14 @@ public class BaseService<T> {
     }
   }
 
+  public T findById(Integer id) {
+    return findById(castFromIntegerToLong(id));
+  }
+
+  public T findById(String id) {
+    return findById(castFromStringToLong(id));
+  }
+
   public void update(T entity) {
     baseRepository.save(entity);
   }
@@ -40,5 +48,25 @@ public class BaseService<T> {
 
   public void delete(T entity) {
     baseRepository.delete(entity);
+  }
+
+  public Long castFromIntegerToLong(Integer auxInt) {
+    if (auxInt == null) {
+      return null;
+    }
+    return Long.valueOf(auxInt);
+  }
+
+  public Long castFromStringToLong(String auxString) {
+    System.out.println("1111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111");
+    if (auxString == null) {
+      return null;
+    }
+    try {
+      return Long.valueOf(auxString);
+    } catch (NumberFormatException e) {
+      System.err.println("Error: el string no se puede convertir a Long. " + e.getMessage());
+      return null;
+    }
   }
 }

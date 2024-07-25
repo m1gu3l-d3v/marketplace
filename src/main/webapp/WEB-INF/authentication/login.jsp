@@ -31,8 +31,8 @@
     <div class="content">
       <h2 class="logo"><i class='logo-main-content'></i> Tienda X</h2>
       <div class="text-sci">
-        <h2>Welcome!<br><span>To Our New Website.</span></h2>
-        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Id, consectetur?</p>
+        <h2>Bienvenido...<br><span>¡Denuevo!</span></h2>
+        <p>Hoy es un buen dia para comprar un poco ;)</p>
         <div class="social-icons">
           <a href="#"><i class='bx bxl-linkedin' ></i></a>
           <a href="#"><i class='bx bxl-facebook' ></i></a>
