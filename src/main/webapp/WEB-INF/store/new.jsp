@@ -90,7 +90,7 @@
             <label class="checkbox-label"><input type="checkbox" required />Estoy de acuerdo con los <a href="#"> términos y condiciones</a></label>
           </div>
 
-          <button type="submit" class="btn">Registrate</button>
+          <button type="submit" class="btn">Crear</button>
 
           <div class="login-register">
             <p>¿Ya tienes una cuenta? <a href="#" class="login-link"> Iniciar Sesión</a></p>
