@@ -1,5 +1,7 @@
 package com.groupproyect.marketplace.controller;
 
+import com.groupproyect.marketplace.service.cite.DepartmentService;
+import com.groupproyect.marketplace.service.cite.DistrictService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -21,10 +23,15 @@ import jakarta.validation.Valid;
 public class StoreController {
   private final SellerService sellerService;
   private final StoreService storeService;
+  private final DepartmentService departmentService;
+  private final DistrictService districtService;
 
-  public StoreController(StoreService storeService, SellerService sellerService) {
+  public StoreController(StoreService storeService, SellerService sellerService, DepartmentService departmentService,
+                         DistrictService districtService) {
     this.storeService = storeService;
     this.sellerService = sellerService;
+    this.departmentService = departmentService;
+    this.districtService = districtService;
   }
 
   @GetMapping({ "/new", "/new/" })
@@ -34,7 +41,11 @@ public class StoreController {
      }
     Long idUser = ((Long) httpSession.getAttribute("idUser"));
     model.addAttribute("seller", sellerService.findById(idUser));
+    model.addAttribute("store", new Store());
+    model.addAttribute("departments", departmentService.getAllDepartments());
+    model.addAttribute("districts", districtService.getAllDistricts());
     return "store/new.jsp";
+//    return "store/newstore.jsp";
   }
 
   @PostMapping({ "/new" })

@@ -15,4 +15,8 @@ public class StoreService extends BaseWithDateService<Store> {
     super(storeRepository);
     this.storeRepository = storeRepository;
   }
+
+  public Store save(Store store) {
+    return storeRepository.save(store);
+  }
 }
