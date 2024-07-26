@@ -1,5 +1,7 @@
 package com.groupproyect.marketplace.service.user;
 
+import org.mindrot.jbcrypt.BCrypt;
+
 import com.groupproyect.marketplace.repository.user.BaseUserRepository;
 import com.groupproyect.marketplace.service.BaseWithDateService;
 
@@ -13,6 +15,7 @@ public class BaseUserService<T extends IAuxBaseUser> extends BaseWithDateService
 
   @Override
   public T save(T user) {
+    user.setPassword(getHashedPassword(user.getPassword()));
     return baseUserRepository.save(user);
   }
 
@@ -34,7 +37,7 @@ public class BaseUserService<T extends IAuxBaseUser> extends BaseWithDateService
 
   public boolean checkCredentials(String email, String password) {
     if (existsByEmail(email)) {
-      if (findByEmail(email).getPassword().equals(password)) {
+      if (compareHashedPassword(password, findByEmail(email).getPassword())) {
         return true;
       }
     }
@@ -43,10 +46,18 @@ public class BaseUserService<T extends IAuxBaseUser> extends BaseWithDateService
 
   public boolean checkCredentials(Long id, String password) {
     if (existsbyId(id)) {
-      if (findById(id).getPassword().equals(password)) {
+      if (compareHashedPassword(password, findById(id).getPassword())) {
         return true;
       }
     }
     return false;
+  }
+
+  private String getHashedPassword(String password) {
+    return BCrypt.hashpw(password, BCrypt.gensalt());
+  }
+
+  private boolean compareHashedPassword(String paswordInput, String paswordReal) {
+    return BCrypt.checkpw(paswordInput, paswordReal);
   }
 }
