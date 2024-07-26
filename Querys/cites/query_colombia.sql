@@ -1141,9 +1141,3 @@ VALUES
 (1098,'Íquira',41),
 (1099,'Úmbita',15),
 (1100,'Útica',25);
-
-ALTER TABLE `districts`
-  ADD PRIMARY KEY (`id`);
-
-ALTER TABLE `departments`
-  ADD PRIMARY KEY (`id`);

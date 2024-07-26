@@ -127,6 +127,7 @@
           <div class="remember-forgot">
             <label class="checkbox-label"><input type="checkbox" required />Estoy de acuerdo con los <a href="#"> términos y condiciones</a></label>
           </div>
+          <span class="text-danger"><c:out value="${userError}"/></span>
           <span class="text-danger"><c:out value="${roleError}"/></span>
           <span class="text-danger"><c:out value="${passwordError}"/></span>
 
