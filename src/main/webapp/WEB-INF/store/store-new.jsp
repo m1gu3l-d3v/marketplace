@@ -140,7 +140,6 @@
     </div>
   </div>
 </body>
-
 <script>
   function updateDistricts() {
     // Obtén el departamento seleccionado

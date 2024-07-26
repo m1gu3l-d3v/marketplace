@@ -18,6 +18,9 @@ public class BaseService<T> {
   }
 
   public T findById(Long id) {
+    if (id == null) {
+      return null;
+    }
     Optional<T> optionalEntity = baseRepository.findById(id);
     if (optionalEntity.isPresent()) {
       return baseRepository.findById(id).get();

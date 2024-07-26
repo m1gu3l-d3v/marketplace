@@ -63,8 +63,11 @@ public class StoreController {
       RedirectAttributes redirectAttributes, @RequestParam("password") String password,
       @RequestParam("direction") String direction, @RequestParam("idDistrict") Long idDistrict,
       @RequestParam("categoryOne") Long idCategoryOne) {
-    if (((String) httpSession.getAttribute("roleUser")) != "seller"
-        || ((Long) httpSession.getAttribute("idUser")) == null) {
+    if (((Long) httpSession.getAttribute("idUser")) == null) {
+      redirectAttributes.addFlashAttribute("userError", "No estas logeado.");
+      return "redirect:/stores/new";
+    }
+    if (((String) httpSession.getAttribute("roleUser")) != "seller") {
       redirectAttributes.addFlashAttribute("roleError",
           "Solo los vendedores pueden registar su tienda, puedes crear otra cuenta.");
       return "redirect:/stores/new";
