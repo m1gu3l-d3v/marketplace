@@ -18,7 +18,7 @@
   <div class="container">
     <section class="userProfile card">
       <div class="profile">
-        <figure><img src="profile.png" alt="profile" width="250px" height="250px"></figure>
+        <figure><img src="" alt="profile" width="250px" height="250px"></figure>
       </div>
     </section>
     <section class="work_skills card">
