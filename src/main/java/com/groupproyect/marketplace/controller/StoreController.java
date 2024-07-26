@@ -11,11 +11,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.groupproyect.marketplace.model.direction.DirectionLocal;
+import com.groupproyect.marketplace.model.store.Local;
 import com.groupproyect.marketplace.model.store.Store;
 import com.groupproyect.marketplace.model.user.Seller;
 import com.groupproyect.marketplace.service.category.CategoryOneService;
 import com.groupproyect.marketplace.service.cite.DepartmentService;
 import com.groupproyect.marketplace.service.cite.DistrictService;
+import com.groupproyect.marketplace.service.direction.DirectionLocalService;
+import com.groupproyect.marketplace.service.store.LocalService;
 import com.groupproyect.marketplace.service.store.StoreService;
 import com.groupproyect.marketplace.service.user.SellerService;
 
@@ -30,14 +34,19 @@ public class StoreController {
   private final DepartmentService departmentService;
   private final DistrictService districtService;
   private final CategoryOneService categoryOneService;
+  private final DirectionLocalService directionLocalService;
+  private final LocalService localService;
 
   public StoreController(StoreService storeService, SellerService sellerService, DepartmentService departmentService,
-      DistrictService districtService, CategoryOneService categoryOneService) {
+      DistrictService districtService, CategoryOneService categoryOneService,
+      DirectionLocalService directionLocalService, LocalService localService) {
     this.storeService = storeService;
     this.sellerService = sellerService;
     this.departmentService = departmentService;
     this.districtService = districtService;
     this.categoryOneService = categoryOneService;
+    this.directionLocalService = directionLocalService;
+    this.localService = localService;
   }
 
   @GetMapping({ "/new", "/new/" })
@@ -80,11 +89,20 @@ public class StoreController {
     if (result.hasErrors()) {
       return "redirect:/login";
     }
+    store = storeService.save(store);
     Seller seller = sellerService.findById(idSeller);
+    Local local = new Local();
+    DirectionLocal directionLocal = new DirectionLocal();
+    Long idStore = store.getId();
     store.setCategoryOne(categoryOneService.findById(idCategoryOne));
     seller.setStore(store);
-    Long idStore = storeService.save(store).getId();
-    sellerService.save(seller);
+    local.setStore(store);
+    seller = sellerService.save(seller);
+    local = localService.save(local);
+    directionLocal.setLocal(local);
+    directionLocal.setAdress(direction);
+    directionLocal.setDistrict(districtService.findById(idDistrict));
+    directionLocal = directionLocalService.save(directionLocal);
     return "redirect:/stores/" + idStore;
   }
 }
