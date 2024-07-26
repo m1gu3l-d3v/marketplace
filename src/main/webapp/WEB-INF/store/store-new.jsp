@@ -36,14 +36,24 @@
           <div>
             <h2>Crear Tienda Virtual</h2>
           </div>
-          <input path="sellerId" type="hidden" name="sellerId" value="${seller.id}" id="sellerId" />
+          <input type="hidden" name="idSeller" value="${seller.id}" id="sellerId" />
 
           <div class="input-group-row">
             <div class="input-box">
-              <span class="icon"><i class='bx bxs-user'></i></span>
+              <span class="icon"><i class='bx bxs-store-alt'></i></span>
               <form:input required="required" path="name" type="text" id="name" />
               <form:errors path="name" class="text-danger" />
               <form:label path="name">Nombre de la empresa</form:label>
+            </div>
+
+            <div class="select-box">
+              <label for="categoryOne">Categoria:
+              <select name="categoryOne" path="categoryOne" id="categoryOne" class="btn select">
+                <c:forEach items="${categoriesOnes}" var="categoryOne">
+                  <option value="${categoryOne.id}">${categoryOne.name}</option>
+                </c:forEach>
+              </select>
+              </label>
             </div>
           </div>
 
@@ -54,6 +64,7 @@
               <form:errors path="email" class="text-danger" />
               <form:label path="email">Email de la empresa</form:label>
             </div>
+
             <div class="input-box">
               <span class="icon"><i class='bx bxs-envelope'></i></span>
               <form:input required="required" path="ruc" type="text" id="ruc" />
@@ -79,17 +90,9 @@
           </div>
 
           <div class="input-group-row">
-            <div class="input-box">
-              <span class="icon"><i class='bx bxs-lock'></i></span>
-              <input required="required" path="password" type="password" id="password" />
-              <label path="password">Contraseña</label>
-            </div>
-          </div>
-
-          <div class="input-group-row">
-            <div class="">
+            <div class="select-box">
               <label for="department">Departamento:
-                <select name="department" id="department" onchange="updateDistricts()">
+                <select name="department" id="department" onchange="updateDistricts()" class="btn select">
                   <c:forEach items="${departments}" var="department">
                     <option value="${department.id}">${department.name}</option>
                   </c:forEach>
@@ -97,9 +100,9 @@
               </label>
             </div>
 
-            <div class="">
+            <div class="select-box">
               <label for="district">Distrito:
-                <select name="district" id="district">
+                <select name="idDistrict" id="district" class="btn select">
                   <c:forEach items="${districts}" var="district">
                     <option value="${district.id}" class="${district.department.id}">${district.name}</option>
                   </c:forEach>
@@ -108,45 +111,31 @@
             </div>
           </div>
 
+          <div class="input-group-row">
+            <div class="input-box">
+                <span class="icon"><i class='bx bxs-map'></i></span>
+                <input type="text" name="direction" id="direction" required>
+                <label>Direction</label>
+            </div>
+            <div class="input-box">
+              <span class="icon"><i class='bx bxs-lock'></i></span>
+              <input required="required" name="password" type="password" id="password" />
+              <label path="password">Contraseña</label>
+            </div>
+          </div>
+
           <div class="remember-forgot">
             <label class="checkbox-label"><input type="checkbox" required />Estoy de acuerdo con los <a href="#"> términos y condiciones</a></label>
           </div>
+          <span class="text-danger"><c:out value="${roleError}"/></span>
+          <span class="text-danger"><c:out value="${passwordError}"/></span>
 
           <button type="submit" class="btn">Crear</button>
 
           <div class="login-register">
-            <p>¿Ya tienes una cuenta? <a href="#" class="login-link"> Iniciar Sesión</a></p>
+            <p>¿No tienes una cuenta? <a href="/login" class=""> Crear Cuenta</a></p>
           </div>
         </form:form>
-      </div>
-
-      <div class="form-box login">
-        <form action="/login" method="post">
-          <h2>Iniciar Sesión</h2>
-          <div class="input-box">
-              <span class="icon"><i class='bx bxs-envelope'></i></span>
-              <input type="email" name="email" id="email" required>
-              <label>Correo</label>
-          </div>
-
-          <div class="input-box">
-              <span class="icon"><i class='bx bxs-lock-alt'></i></span>
-              <input type="password" name="password" id="password" required>
-              <label>Contraseña</label>
-          </div>
-
-          <div class="remember-forgot">
-            <label class="checkbox-label"><input type="checkbox" />Recordar contraseña</label>
-            <a href="#">¿Olvidaste tu contraseña?</a>
-          </div>
-
-
-          <button type="submit" class="btn">Sign In</button>
-
-          <div class="login-register">
-            <p>¿No tienes una cuenta? <a href="#" class="register-link">Crear cuenta nueva</a></p>
-          </div>
-        </form>
       </div>
     </div>
   </div>

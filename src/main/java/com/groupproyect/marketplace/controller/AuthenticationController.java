@@ -68,7 +68,7 @@ public class AuthenticationController {
   @GetMapping("/logout")
   public String logOut(HttpSession httpSession) {
     httpSession.invalidate();
-    return "redirect:/";
+    return "redirect:/login";
   }
 
   @PostMapping("/login")

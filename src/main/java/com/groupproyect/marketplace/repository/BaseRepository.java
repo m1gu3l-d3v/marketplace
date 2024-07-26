@@ -9,4 +9,5 @@ import org.springframework.data.repository.NoRepositoryBean;
 public interface BaseRepository<T> extends CrudRepository<T, Long> {
   @SuppressWarnings("null")
   List<T> findAll();
+  boolean existsById(@SuppressWarnings("null") Long id);
 }

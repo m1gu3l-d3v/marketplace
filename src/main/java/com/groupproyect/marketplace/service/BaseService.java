@@ -34,6 +34,13 @@ public class BaseService<T> {
     return findById(castFromStringToLong(id));
   }
 
+  public boolean existsbyId(Long id) {
+    if (id == null) {
+      return false;
+    }
+    return baseRepository.existsById(id);
+  }
+
   public void update(T entity) {
     baseRepository.save(entity);
   }

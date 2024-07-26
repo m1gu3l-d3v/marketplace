@@ -11,6 +11,11 @@ public class BaseUserService<T extends IAuxBaseUser> extends BaseWithDateService
     this.baseUserRepository = baseUserRepository;
   }
 
+  @Override
+  public T save(T user) {
+    return baseUserRepository.save(user);
+  }
+
   public boolean existsByEmail(String email) {
     return baseUserRepository.existsByEmail(email);
   }
@@ -30,6 +35,15 @@ public class BaseUserService<T extends IAuxBaseUser> extends BaseWithDateService
   public boolean checkCredentials(String email, String password) {
     if (existsByEmail(email)) {
       if (findByEmail(email).getPassword().equals(password)) {
+        return true;
+      }
+    }
+    return false;
+  }
+
+  public boolean checkCredentials(Long id, String password) {
+    if (existsbyId(id)) {
+      if (findById(id).getPassword().equals(password)) {
         return true;
       }
     }

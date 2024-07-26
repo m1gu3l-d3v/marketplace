@@ -2,6 +2,7 @@ package com.groupproyect.marketplace.service.user;
 
 import org.springframework.stereotype.Service;
 
+import com.groupproyect.marketplace.model.store.Store;
 import com.groupproyect.marketplace.model.user.BaseUser;
 import com.groupproyect.marketplace.model.user.Seller;
 import com.groupproyect.marketplace.repository.user.SellerRepository;
@@ -14,6 +15,14 @@ public class SellerService extends BaseUserService<Seller> {
   public SellerService(SellerRepository sellerRepository) {
     super(sellerRepository);
     this.sellerRepository = sellerRepository;
+  }
+
+  public Seller findByStoreId(Long id) {
+    return sellerRepository.findByStoreId(id);
+  }
+
+  public Seller findByStore(Store store) {
+    return sellerRepository.findByStore(store);
   }
 
   public Seller castFromBaseUser(BaseUser baseUser) {

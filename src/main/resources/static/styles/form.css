@@ -308,6 +308,7 @@ body {
   font-weight: 500;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
   transition: transform 0.5s ease;
+  margin: 10px;
 }
 
 .btn:hover, .btn:focus {
@@ -417,4 +418,21 @@ a:focus {
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
+}
+
+.select-box {
+  margin: 8px;
+  width: 100%;
+}
+
+.select-box label {
+  display: flex;
+  font-weight: 500;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+select {
+  padding: 10px;
 }
