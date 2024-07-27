@@ -29,6 +29,12 @@
       </div>
       <div class="container-valoration subcontainer-2">
         <h1 class="title-2">Valoraciones</h1>
+        <c:forEach begin="1" step="1" end="10" var="i">
+          <span class="data-info">Valoración ${i}:</span><br/>
+          <span class="data-info">User: <c:out value="${valoration.user.firstName} ${valoration.user.lastName}" /> name User<br/></span>
+          <span class="data-info">Estrellas: <c:out value="${valorationStore.stars}" /> estrellas<br/></span>
+          <span class="data-info"><c:out value="${valoration.review}" /> texto de reseña<br/></span>
+        </c:forEach>
       </div>
     </div>
     <div class="container-right">
@@ -37,6 +43,11 @@
       </div>
       <div class="container-items subcontainer-2">
         <h1 class="title-2">Products</h1>
+        <c:forEach begin="1" step="1" end="10" var="i">
+          <span class="data-info">Producto ${i}:</span><br/>
+          <span class="data-info"><c:out value="${product.store.name}" /> texto de reseña<br/></span>
+          <span class="data-info">Estrellas: <c:out value="${product.stars}" /> Stars Product<br/></span>
+        </c:forEach>
       </div>
     </div>
   </div>
