@@ -145,12 +145,11 @@
           </div>
 
           <div class="remember-forgot">
-            <label class="checkbox-label"><input type="checkbox" />Recordar contraseña</label>
+            <label><input type="checkbox">Recordar contraseña</label>
             <a href="#">¿Olvidaste tu contraseña?</a>
           </div>
 
-
-          <button type="submit" class="btn">Entrar</button>
+          <button type="submit" class="btn select">Entrar</button>
 
           <div class="login-register">
             <p>¿No tienes una cuenta? <a href="#" class="register-link">Crear cuenta nueva</a></p>

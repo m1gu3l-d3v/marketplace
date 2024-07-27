@@ -317,9 +317,16 @@ body {
   font-weight: 500;
   display: flex;
   align-items: center;
+  margin: 10px 0;
 }
 
 .remember-forgot label input {
+  accent-color: var(--colormain1);
+  margin-right: 5px;
+}
+
+.remember-forgot {
+  transform: translateX(10px);
   accent-color: var(--colormain1);
   margin-right: 5px;
 }

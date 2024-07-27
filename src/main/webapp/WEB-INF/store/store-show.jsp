@@ -45,7 +45,7 @@
         <h1 class="title-2">Products</h1>
         <c:forEach begin="1" step="1" end="10" var="i">
           <span class="data-info">Producto ${i}:</span><br/>
-          <span class="data-info"><c:out value="${product.store.name}" /> texto de reseña<br/></span>
+          <span class="data-info"><c:out value="${product.store.name}" /> Nombre de la tienda<br/></span>
           <span class="data-info">Estrellas: <c:out value="${product.stars}" /> Stars Product<br/></span>
         </c:forEach>
       </div>

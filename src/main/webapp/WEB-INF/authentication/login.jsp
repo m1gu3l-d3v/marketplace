@@ -62,7 +62,7 @@
             <a href="#">¿Olvidaste tu contraseña?</a>
           </div>
 
-          <button type="submit" class="btn">Entrar</button>
+          <button type="submit" class="btn select">Entrar</button>
 
           <div class="login-register">
             <p>¿No tienes una cuenta? <a href="/register" class="register-link">Crear Cuenta</a></p>
