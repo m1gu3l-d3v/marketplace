@@ -16,7 +16,7 @@
   <div class="container-main">
     <div class="container-left">
       <div class="container-info subcontainer-2">
-        <h1 class="title-1"><c:out value="${store.name} STOR3"/></h1>
+        <h1 class="title-1"><span class="icon"><i class='bx bxs-store-alt'></i> </span> <c:out value="${store.name} STOR3"/></h1>
         <span class="data">
           <span class="data-info">Empresa del rubro de <c:out value="${store.categoryOne.name}"/><br/></span>
           <span class="data-info">Teléfono: <c:out value="${store.telephoneNumber}"/><br/></span>
