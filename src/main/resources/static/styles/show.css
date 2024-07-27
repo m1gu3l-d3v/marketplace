@@ -80,59 +80,28 @@ html {
   font-size: 10px;
 }
 
-/* ===== =====>> Css Variables  <<===== =====  */
 :root {
-  /* =====>>  Font Color  <<===== */
-  --f1-color: #fff;
-  --f2-color: #000;
-  --f3-color: rgba(0, 0, 0, 0.8);
-  --f4-color: rgba(0, 0, 0, 0.6);
-  --f5-color: #0099cc;
-  --f6-color: #88cee6;
-
-  /* =====>>  Background Color  <<===== */
-  --bg1-color: #fff;
-  --bg2-color: #000;
-  --bg3-color: #33ccff;
-  --bg4-color: #33cc33;
-  --bg5-color: #0099cc;
-  --bg6-color: rgba(0, 0, 0, 0.4);
-  --bg7-color: rgba(0, 0, 0, 0.2);
-  --glass-bg: linear-gradient(
-    to right bottom,
-    rgba(255, 255, 255, 0.5),
-    rgba(255, 255, 255, 0.3)
-  );
-  --C-lg-bg: linear-gradient(45deg, #ff3399, #ff9933);
-
-  /* ===== =====>>  Font Size  <<===== =====  */
-  --xxxl-fs: 2.2rem;
-  --xxl-fs: 1.8rem;
-  --xl-fs: 1.6rem;
-  --l-fs: 1.4rem;
-  --m-fs: 1.2rem;
-  --s-fs: 1.1rem;
-  --xs-fs: 1rem;
-
-  /* =====>>  Margin  <<===== */
-  --m-2-5: 2.5rem;
-  --m-1-8: 1.8rem;
-  --m-1-5: 1.5rem;
-  --m-0-6: 0.6rem;
-  --m-0-5: 0.5rem;
-  --m-0-3: 0.3rem;
-
-  /* =====>>  Padding  <<===== */
-  --p-2-5: 2.5rem;
-  --p-1-5: 1.5rem;
-  --p-1-0: 1rem;
-  --p-0-8: 0.8rem;
-  --p-0-5: 0.5rem;
-  --p-0-4: 0.4rem;
-  --p-0-3: 0.3rem;
+  --colorbg: #2e3440;
+  --colorfg: #eceff4;
+  --colormain1: #81a1c1;
+  --color0: #3b4252;
+  --color1: #bf616a;
+  --color2: #a3be8c;
+  --color3: #ebcb8b;
+  --color4: #81a1c1;
+  --color5: #b48ead;
+  --color6: #88c0d0;
+  --color7: #e5e9f0;
+  --color8: #4c566a;
+  --color9: #bf616a;
+  --color10: #a3be8c;
+  --color11: #ebcb8b;
+  --color12: #81a1c1;
+  --color13: #b48ead;
+  --color14: #8fbcbb;
+  --color15: #eceff4;
 }
 
-/* ===== =====>>  Body Css  <<===== =====  */
 body {
   display: flex;
   justify-content: center;
@@ -140,20 +109,16 @@ body {
   min-height: 100vh;
 }
 
-/* ===== =====>>  Body Main-Background Css  <<===== =====  */
 .main_bg {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: url(bg.png);
+  background: var(--colorbg);
   background-position: left;
-  z-index: -1;
-  filter: blur(10px);
 }
 
-/* ===== =====>>  Main-Container Css  <<===== =====  */
 .container {
   position: relative;
   display: grid;
@@ -165,12 +130,11 @@ body {
     "work_skills timeline_about";
   width: 85%;
   height: 90vh;
-  background: var(--glass-bg);
+  background: var(--color0);
   padding: var(--p-1-5);
-  box-shadow: 0 0 5px rgba(255, 255, 255, 0.5), 0 0 25px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 0 5px var(--colormain1), 0 0 25px var(--colormain1);
 }
 
-/* ===== =====>>  Container Cards Grid-Area Css Start  <<===== =====  */
 header {
   grid-area: header;
 }
@@ -191,16 +155,14 @@ header {
   grid-area: timeline_about;
 }
 
-/* ===== =====>>  Container Cards Css  <<===== =====  */
 .container .card {
-  background: var(--glass-bg);
+  background: var(--color0);
   backdrop-filter: blur(3rem);
   border-radius: 0.5rem;
-  box-shadow: 0 0 25px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 0 25px var(--colormain1);
   padding: var(--p-1-5);
 }
 
-/* ===== =====>>  Container Header/Navbar Css  <<===== =====  */
 .container header {
   padding: 0 var(--p-2-5);
 }
@@ -219,9 +181,9 @@ header {
   font-size: var(--xl-fs);
   font-weight: 700;
   margin-left: var(--m-0-5);
+  color: var(--colormain1);
 }
 
-/* ===== =====>>  User Main-Profile Css Start  <<===== ===== */
 .container .userProfile {
   position: relative;
   display: flex;
@@ -239,7 +201,6 @@ header {
   border-radius: 50%;
 }
 
-/* ===== =====>>  Work & Skills Css Start  <<===== ===== */
 .container .work_skills {
   padding: var(--p-1-5);
 }
@@ -248,7 +209,7 @@ header {
 .work_skills .skills .heading {
   position: relative;
   font-size: var(--xs-fs);
-  color: rgba(0, 0, 0, 0.6);
+  color: var(--colormain1);
   text-transform: uppercase;
   margin-bottom: var(--m-1-5);
 }
@@ -261,7 +222,7 @@ header {
   right: 0;
   height: 0.1rem;
   width: 88%;
-  background: var(--bg6-color);
+  background: var(--colormain1);
 }
 
 .work_skills .work .primary,
@@ -272,7 +233,7 @@ header {
 .work_skills .work .primary h1,
 .work_skills .work .secondary h1 {
   font-size: var(--l-fs);
-  color: var(--f3-color);
+  color: var(--colormain1);
   margin-bottom: var(--m-0-6);
 }
 
@@ -283,8 +244,8 @@ header {
   right: 3rem;
   font-weight: 700;
   font-size: var(--s-fs);
-  color: var(--f5-color);
-  background: #e6f2ff;
+  color: var(--color0);
+  background: var(--colormain1);
   padding: var(--p-0-4) var(--p-1-0);
   border-radius: 0.4rem;
 }
@@ -293,17 +254,16 @@ header {
 .work_skills .work .secondary p {
   margin-bottom: var(--m-1-8);
   font-size: var(--m-fs);
-  color: rgba(0, 0, 0, 0.6);
+  color: var(--colormain1);
   line-height: 1.6rem;
 }
 
-/* =====>>  Skills Bars Css  <<===== */
 .work_skills .skills ul li {
   position: relative;
   font-size: var(--m-fs);
   line-height: 1.8rem;
   margin: var(--m-0-5);
-  color: var(--f2-color);
+  color: var(--colormain1);
   font-weight: 500;
 }
 
@@ -336,7 +296,6 @@ header {
   }
 }
 
-/* ===== =====>>  User Details Css Start  <<===== ===== */
 .userDetails {
   position: relative;
   padding: var(--p-1-5) var(--p-2-5);
@@ -344,6 +303,7 @@ header {
 
 .userDetails .userName h1 {
   font-size: var(--xxxl-fs);
+  color: var(--colormain1);
 }
 
 .userDetails .userName .map {
@@ -362,14 +322,14 @@ header {
 
 .userDetails .userName .map span {
   font-size: var(--s-fs);
-  color: var(--f3-color);
+  color: var(--colormain1);
   font-weight: 700;
 }
 
 .userDetails .userName p {
   font-size: var(--m-fs);
   font-weight: 700;
-  color: var(--f5-color);
+  color: var(--colormain1);
   margin-bottom: var(--m-1-8);
 }
 
@@ -380,7 +340,7 @@ header {
 
 .userDetails .rank .heading {
   font-size: var(--xs-fs);
-  color: var(--f4-color);
+  color: var(--colormain1);
   text-transform: uppercase;
   margin-bottom: var(--m-0-6);
 }
@@ -388,6 +348,7 @@ header {
 .userDetails .rank span {
   font-size: var(--xxl-fs);
   font-weight: 700;
+  color: var(--colormain1);
 }
 
 .userDetails .rank .rating {
@@ -397,12 +358,12 @@ header {
 }
 
 .userDetails .rank .rating .rate {
-  color: var(--f5-color);
+  color: var(--colormain1);
   font-size: var(--l-fs);
 }
 
 .userDetails .rank .rating .underrate {
-  color: var(--f6-color);
+  color: var(--color6);
 }
 
 .userDetails .btns ul,
@@ -423,102 +384,57 @@ header {
 
 .userDetails .btns ul li a {
   font-size: var(--l-fs);
-  color: var(--f2-color);
+  color: var(--colormain1);
   font-weight: 500;
 }
 
-.userDetails .btns ul .active {
-  background: #e6f2ff;
-  padding: var(--p-0-5) var(--p-1-5);
+.userDetails .btns ul li a:hover {
+  color: var(--colormain1);
 }
 
-.userDetails .btns ul .active a,
-.userDetails .btns ul .active .ri {
-  color: var(--f5-color);
-}
-
-/* ===== =====>>  Timeline & About Css Start  <<===== ===== */
 .timeline_about {
-  padding: var(--p-2-5);
+  padding: var(--p-1-5);
 }
 
-.timeline_about .tabs ul {
+.timeline_about .timeline {
   position: relative;
-  display: flex;
-  align-items: center;
-  margin-bottom: var(--m-2-5);
+  padding: var(--p-0-5);
 }
 
-.timeline_about .tabs ul::before {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  width: 100%;
-  height: 1px;
-  background: var(--bg7-color);
-}
-
-.timeline_about .tabs ul li {
-  position: relative;
-  display: flex;
-  align-items: center;
-  margin-right: var(--m-2-5);
-  padding-bottom: var(--p-0-8);
-  cursor: pointer;
-}
-
-.timeline_about .tabs ul li span {
-  font-size: var(--l-fs);
-  font-weight: 500;
-}
-
-.timeline_about .tabs ul li .ri {
-  margin-right: var(--m-0-5);
-}
-
-.timeline_about .tabs ul .active::before {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  height: 2px;
-  background: var(--bg5-color);
-}
-
-.timeline_about .contact_info .heading,
-.timeline_about .basic_info .heading {
+.timeline_about .timeline .heading {
   font-size: var(--xs-fs);
-  color: var(--f4-color);
+  color: var(--colormain1);
   text-transform: uppercase;
-  margin-bottom: var(--m-1-5);
+  margin-bottom: var(--m-0-6);
 }
 
-.timeline_about .contact_info ul,
-.timeline_about .basic_info ul {
-  margin-bottom: var(--m-1-5);
+.timeline_about .timeline .year {
+  position: relative;
+  font-size: var(--xxl-fs);
+  font-weight: 700;
+  color: var(--colormain1);
+  margin-bottom: var(--m-0-6);
 }
 
-.timeline_about .contact_info ul li,
-.timeline_about .basic_info ul li {
-  display: flex;
-  margin: var(--m-0-5) 0;
-}
-
-.timeline_about .contact_info ul li h1,
-.timeline_about .basic_info ul li h1 {
-  font-weight: 500;
+.timeline_about .timeline .description {
   font-size: var(--m-fs);
-  min-width: 12rem;
+  color: var(--colormain1);
+  line-height: 1.7rem;
 }
 
-.timeline_about .contact_info ul li span,
-.timeline_about .basic_info ul li span {
+.timeline_about .about {
+  padding: var(--p-1-5);
+}
+
+.timeline_about .about .heading {
+  font-size: var(--xs-fs);
+  color: var(--colormain1);
+  text-transform: uppercase;
+  margin-bottom: var(--m-0-6);
+}
+
+.timeline_about .about .description {
   font-size: var(--m-fs);
-}
-
-.timeline_about .contact_info ul .phone span,
-.timeline_about .contact_info ul .email span,
-.timeline_about .contact_info ul .site span {
-  color: var(--f5-color);
+  color: var(--colormain1);
+  line-height: 1.7rem;
 }

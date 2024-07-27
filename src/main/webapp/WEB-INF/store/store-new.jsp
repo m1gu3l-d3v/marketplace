@@ -48,11 +48,11 @@
 
             <div class="select-box">
               <label for="categoryOne">Categoria:
-              <select name="categoryOne" path="categoryOne" id="categoryOne" class="btn select">
-                <c:forEach items="${categoriesOnes}" var="categoryOne">
-                  <option value="${categoryOne.id}">${categoryOne.name}</option>
-                </c:forEach>
-              </select>
+                <select name="categoryOne" path="categoryOne" id="categoryOne" class="btn select">
+                  <c:forEach items="${categoriesOnes}" var="categoryOne">
+                    <option value="${categoryOne.id}">${categoryOne.name}</option>
+                  </c:forEach>
+                </select>
               </label>
             </div>
           </div>
@@ -127,14 +127,18 @@
           <div class="remember-forgot">
             <label class="checkbox-label"><input type="checkbox" required />Estoy de acuerdo con los <a href="#"> términos y condiciones</a></label>
           </div>
-          <span class="text-danger"><c:out value="${userError}"/></span>
-          <span class="text-danger"><c:out value="${roleError}"/></span>
-          <span class="text-danger"><c:out value="${passwordError}"/></span>
+
+          <div class="error-box">
+            <span class="text-danger"><c:out value="${userError}"/></span>
+            <span class="text-danger"><c:out value="${roleError}"/></span>
+            <span class="text-danger"><c:out value="${passwordError}"/></span>
+          </div>
 
           <button type="submit" class="btn">Crear</button>
 
           <div class="login-register">
-            <p>¿No tienes una cuenta? <a href="/login" class=""> Crear Cuenta</a></p>
+            <p>¿No estas logeado? <a href="/login" class=""> Iniciar Sesión</a></p>
+            <p>¿No tienes una cuenta? <a href="/register" class=""> Crear Cuenta</a></p>
           </div>
         </form:form>
       </div>
