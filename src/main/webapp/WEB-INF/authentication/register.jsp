@@ -150,7 +150,7 @@
           </div>
 
 
-          <button type="submit" class="btn">Sign In</button>
+          <button type="submit" class="btn">Entrar</button>
 
           <div class="login-register">
             <p>¿No tienes una cuenta? <a href="#" class="register-link">Crear cuenta nueva</a></p>

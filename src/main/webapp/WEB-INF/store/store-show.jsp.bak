@@ -1,6 +1,6 @@
 <%@ page isErrorPage="true" %>
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
@@ -12,44 +12,39 @@
   <link rel="stylesheet" href="/styles/show.css">
   <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
+
 <body>
-  <div class="main_bg"></div>
+  <span class="main_bg"></span>
   <div class="container">
-    <header>
-      <!-- Add header content if necessary -->
-    </header>
-    
     <section class="userProfile card">
       <div class="profile">
-        <figure>
-          <img src="" alt="profile" width="250" height="250">
-        </figure>
+        <figure><img src="" alt="profile" width="250px" height="250px"></figure>
       </div>
     </section>
-    
     <section class="work_skills card">
       <div class="work">
-        <h1 class="heading">Work</h1>
+        <h1 class="heading">work</h1>
         <div class="primary">
-          <h2>Empresa Latinoamericana</h2>
-          <p><c:out value="${direction}"/> <br> Dirección</p>
+          <h1>Empresa Latinoamericana</h1>
+          <span>Primary</span>
+          <p><c:out value="${direction}"/> <br> direction ..</p>
         </div>
         <div class="primary">
-          <h2>Vendedor Principal</h2>
-          <p><c:out value="${direction}"/> <br> <a href="/sellers/${seller.id}"><c:out value="${seller.firstName} ${seller.lastName}"/></a></p>
+          <h1>Vendedor Principal</h1>
+          <span>Primary</span>
+          <p><c:out value="${direction}"/> <br> <a href="/sellers/${seller.id}"><c:out value="${seller.firstName} ${seller.lastName}"/></a> ..</p>
         </div>
       </div>
-      <div class="category">
-        <h1 class="heading">Categoría</h1>
+      <div class="Categoria">
+        <h1 class="heading">Categoria</h1>
         <ul>
-          <li><c:out value="${store.categoryOne.name}"/></li>
+          <li style="--i:0"><c:out value="${store.categoryOne.name}"/></li>
         </ul>
       </div>
     </section>
-    
     <section class="userDetails card">
       <div class="userName">
-        <h1 class="name"><c:out value="${store.name}"/></h1>
+        <h1 class="name"><c:out value="${store.name}"/></h1></h1>
         <div class="map">
           <i class="ri-map-pin-fill ri"></i>
           <span>New York, NY</span>
@@ -58,7 +53,7 @@
       </div>
       <div class="rank">
         <h1 class="heading">Rankings</h1>
-        <span>8.6</span>
+        <span>8,6</span>
         <div class="rating">
           <i class="ri-star-fill rate"></i>
           <i class="ri-star-fill rate"></i>
@@ -83,7 +78,6 @@
         </ul>
       </div>
     </section>
-    
     <section class="timeline_about card">
       <div class="tabs">
         <ul>
@@ -98,31 +92,31 @@
         </ul>
       </div>
       <div class="contact_Info">
-        <h1 class="heading">Información de Contacto</h1>
+        <h1 class="heading">Informacion de Contacto</h1>
         <ul>
           <li class="address">
-            <h2 class="label">Dirección:</h2>
+            <h1 class="label">Dirección:</h1>
             <span class="info">S34 E 65th Street <br> New York, NY 10651-78 156-187-60</span>
           </li>
           <li class="email">
-            <h2 class="label">E-mail:</h2>
+            <h1 class="label">E-mail:</h1>
             <span class="info"><c:out value="${store.email}"/></span>
           </li>
           <li class="site">
-            <h2 class="label">Sitio:</h2>
+            <h1 class="label">Site:</h1>
             <span class="info">www.rsmarquetech.com</span>
           </li>
         </ul>
       </div>
       <div class="basic_info">
-        <h1 class="heading">Información Básica</h1>
+        <h1 class="heading">Basic Information</h1>
         <ul>
           <li class="number">
-            <h2 class="label">Teléfono:</h2>
+            <h1 class="label">Teléfono:</h1>
             <span class="info"><c:out value="${store.telephoneNumber}"/></span>
           </li>
           <li class="ruc">
-            <h2 class="label">RUC:</h2>
+            <h1 class="label">RUC:</h1>
             <span class="info"><c:out value="${store.ruc}"/></span>
           </li>
         </ul>
@@ -130,4 +124,5 @@
     </section>
   </div>
 </body>
+
 </html>

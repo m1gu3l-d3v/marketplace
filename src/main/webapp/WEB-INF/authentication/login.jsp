@@ -8,7 +8,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Log In</title>
   <link rel="stylesheet" href="styles/main.css">
-  <link rel="stylesheet" href="styles/form.css">
+  <link rel="stylesheet" href="/styles/form.css">
   <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
 <body>
@@ -62,10 +62,10 @@
             <a href="#">¿Olvidaste tu contraseña?</a>
           </div>
 
-          <button type="submit" class="btn">Sign In</button>
+          <button type="submit" class="btn">Entrar</button>
 
           <div class="login-register">
-            <p>¿No tienes una cuenta? <a href="/register" class="register-link">Sign up</a></p>
+            <p>¿No tienes una cuenta? <a href="/register" class="register-link">Crear Cuenta</a></p>
           </div>
         </form>
       </div>
