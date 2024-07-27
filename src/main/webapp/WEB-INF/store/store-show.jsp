@@ -43,11 +43,18 @@
       </div>
       <div class="container-items subcontainer-2">
         <h1 class="title-2">Products</h1>
-        <c:forEach begin="1" step="1" end="10" var="i">
-          <span class="data-info">Producto ${i}:</span><br/>
-          <span class="data-info"><c:out value="${product.store.name}" /> Nombre de la tienda<br/></span>
-          <span class="data-info">Estrellas: <c:out value="${product.stars}" /> Stars Product<br/></span>
-        </c:forEach>
+        <c:if test="${empty products}">
+          <span class="data-info text-danger">Aún no tienes productos Añadidos!</span>
+          <a href="/products/new" class="data-info text-danger">Crear Aquí</a><br>
+        </c:if>
+        <c:if test="${not empty products}">
+          <c:forEach items="${products}" var="product">
+            <span class="data-info">-----------------------------<br/></span>
+            <span class="data-info"><c:out value="${product.name}" /><br/></span>
+            <span class="data-info"><c:out value="${product.store.name}" /><br/></span>
+            <span class="data-info">-----------------------------<br/></span>
+          </c:forEach>
+        </c:if>
       </div>
     </div>
   </div>

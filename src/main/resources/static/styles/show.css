@@ -61,7 +61,9 @@
 
   --m-data-info: clamp(0.2em, 0.5vw, 1em);
   --p-data-info: clamp(0.1em, 0.3vw, 0.5em);
-  --font-size-data-info: clamp(0.8em, 1.5vw, 3.0em);
+  --fs-data-info: clamp(0.8em, 1.5vw, 3.0em);
+
+  --fs-text-danger: clamp(0.5em, 1.2vw, 2.0em);
 }
 
 * {
@@ -144,9 +146,15 @@ body {
 .data-info {
   margin: var(--m-data-info);
   padding: var(--p-data-info);
-  font-size: var(--font-size-data-info);
+  font-size: var(--fs-data-info);
 }
 
 .icon {
   transform: translateY(0.1em);
+}
+
+.text-danger {
+  font-size: var(--fs-text-danger);
+  color: var(--color1);
+  text-shadow: 3px 3px 3px rgba(0, 0, 0, 0.2);
 }

@@ -19,6 +19,7 @@ import com.groupproyect.marketplace.service.category.CategoryOneService;
 import com.groupproyect.marketplace.service.cite.DepartmentService;
 import com.groupproyect.marketplace.service.cite.DistrictService;
 import com.groupproyect.marketplace.service.direction.DirectionLocalService;
+import com.groupproyect.marketplace.service.product.ProductService;
 import com.groupproyect.marketplace.service.store.LocalService;
 import com.groupproyect.marketplace.service.store.StoreService;
 import com.groupproyect.marketplace.service.user.SellerService;
@@ -36,10 +37,11 @@ public class StoreController {
   private final CategoryOneService categoryOneService;
   private final DirectionLocalService directionLocalService;
   private final LocalService localService;
+  private final ProductService productService;
 
   public StoreController(StoreService storeService, SellerService sellerService, DepartmentService departmentService,
       DistrictService districtService, CategoryOneService categoryOneService,
-      DirectionLocalService directionLocalService, LocalService localService) {
+      DirectionLocalService directionLocalService, LocalService localService, ProductService productService) {
     this.storeService = storeService;
     this.sellerService = sellerService;
     this.departmentService = departmentService;
@@ -47,6 +49,7 @@ public class StoreController {
     this.categoryOneService = categoryOneService;
     this.directionLocalService = directionLocalService;
     this.localService = localService;
+    this.productService = productService;
   }
 
   @GetMapping({ "/new", "/new/" })
@@ -64,6 +67,7 @@ public class StoreController {
   public String showStore(@PathVariable("id") Long id, Model model) {
     model.addAttribute("store", storeService.findById(id));
     model.addAttribute("seller", sellerService.findByStoreId(id));
+    model.addAttribute("products", productService.findByStoreId(id));
     return "store/store-show.jsp";
   }
 
