@@ -45,14 +45,14 @@
   --color14:#ebbcba;
   --color15:#e0def4;
 
-  --m-container-main: 2em;
-  --p-container-main: 1em;
+  --m-container-main: clamp(1em, 2vw, 3em);
+  --p-container-main: clamp(0.5em, 1vw, 2em);
   --h-container-main: calc(100vh - 2 * (var(--m-container-main) + var(--p-container-main)));
   --w-container-main: calc(100vw - 2 * (var(--m-container-main) + var(--p-container-main)));
-  --b-container-main: 0.5em;
+  --b-container-main: clamp(0.25em, 0.5vw, 1em);
 
-  --m-subcontainer-1: 0.2em;
-  --m-subcontainer-2: 0.5em;
+  --m-subcontainer-1: clamp(0.1em, 0.2vw, 0.4em);
+  --m-subcontainer-2: clamp(0.25em, 0.5vw, 1em);
 
   --title-1: clamp(1em, 4vw, 10em);
   --title-2: clamp(0.5em, 2vw, 5em);
