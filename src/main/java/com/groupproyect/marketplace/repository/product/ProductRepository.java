@@ -8,5 +8,6 @@ import com.groupproyect.marketplace.repository.BaseRepository;
 
 public interface ProductRepository extends BaseRepository<Product> {
   List<Product> findByStoreId(Long idStore);
+
   List<Product> findByStore(Store store);
 }
