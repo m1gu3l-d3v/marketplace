@@ -15,6 +15,7 @@ import com.groupproyect.marketplace.model.direction.DirectionLocal;
 import com.groupproyect.marketplace.model.store.Local;
 import com.groupproyect.marketplace.model.store.Store;
 import com.groupproyect.marketplace.model.user.Seller;
+import com.groupproyect.marketplace.model.valoration.ValorationStore;
 import com.groupproyect.marketplace.service.category.CategoryOneService;
 import com.groupproyect.marketplace.service.cite.DepartmentService;
 import com.groupproyect.marketplace.service.cite.DistrictService;
@@ -64,7 +65,7 @@ public class StoreController {
   }
 
   @GetMapping({ "/{id}", "/{id}/" })
-  public String showStore(@PathVariable("id") Long id, Model model) {
+  public String showStore(@PathVariable("id") Long id, Model model, @ModelAttribute("valorationStore") ValorationStore valorationStore) {
     model.addAttribute("store", storeService.findById(id));
     model.addAttribute("seller", sellerService.findByStoreId(id));
     model.addAttribute("products", productService.findByStoreId(id));
