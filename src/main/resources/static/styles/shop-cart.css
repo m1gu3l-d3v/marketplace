@@ -45,11 +45,12 @@
   --color14:#ebbcba;
   --color15:#e0def4;
 
+  --b-radius: clamp(0.25em, 0.5vw, 1em);
+
   --m-container-main: clamp(1em, 2vw, 3em);
   --p-container-main: clamp(0.5em, 1vw, 2em);
   --h-container-main: calc(100vh - 2 * (var(--m-container-main) + var(--p-container-main)));
   --w-container-main: calc(100vw - 2 * (var(--m-container-main) + var(--p-container-main)));
-  --b-container-main: clamp(0.25em, 0.5vw, 1em);
 
   --m-subcontainer-1: clamp(0.1em, 0.2vw, 0.4em);
   --m-subcontainer-2: clamp(0.25em, 0.5vw, 1em);
@@ -87,7 +88,7 @@ body {
   width: var(--w-container-main);
   height: var(--h-container-main);
   background-color: var(--color0);
-  border-radius: var(--b-container-main);
+  border-radius: var(--b-radius);
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -111,7 +112,7 @@ body {
   color: var(--color0);
   background-color: var(--color5);
   overflow-y: scroll;
-  border-radius: var(--b-container-main);
+  border-radius: var(--b-radius);
   padding: var(--p-container-main);
 }
 
@@ -120,14 +121,14 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  border-radius: var(--b-container-main);
+  border-radius: var(--b-radius);
 }
 
 .container-msc {
   height: 18%;
   color: var(--color0);
   background-color: var(--color3);
-  border-radius: var(--b-container-main);
+  border-radius: var(--b-radius);
 }
 
 .container-items {
@@ -135,7 +136,7 @@ body {
   color: var(--color0);
   background-color: var(--color10);
   overflow-y: scroll;
-  border-radius: var(--b-container-main);
+  border-radius: var(--b-radius);
 }
 
 .subcontainer-2 {
@@ -269,4 +270,18 @@ input[type="number"] {
   border: none;
   height: 1.5em;
   align-self: center;
+}
+
+.submit-form {
+  width: 98.5%;
+  display: flex;
+  background-color: var(--color2);
+  border-radius: var(--b-radius);
+}
+
+.submit-form button {
+  background-color: var(--color0);
+  color: var(--colorfg);
+  border: none;
+  border-radius: var(--b-radius);
 }

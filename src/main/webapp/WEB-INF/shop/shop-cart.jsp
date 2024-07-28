@@ -139,6 +139,12 @@
           </div>
         </div>
       </div>
+      <div class="submit-form subcontainer-2">
+        <form action="/shop/payment">
+          <input type="hidden" name="listProducts" id="listProducts" />
+          <button>Continuar Con la Compra</button>
+        </form>
+      </div>
     </div>
     <div class="container-right">
       <div class="container-msc subcontainer-2">
