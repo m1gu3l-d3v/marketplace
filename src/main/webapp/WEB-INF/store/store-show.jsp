@@ -30,6 +30,7 @@
       </div>
       <div class="container-valoration subcontainer-2">
         <h1 class="title-2">Valoraciones</h1>
+        <h1 class="title-3">Valoralo Aqui</h1>
         <form:form  action="/valoration-store/new" method="post" modelAttribute="valorationStore">
           <form:input path="store" type="hidden" value="${store.id}" id="store" class="form-pt"/>
           <div class="input-group-row">
@@ -46,12 +47,18 @@
             </div>
           </div>
         </form:form>
-        <c:forEach begin="1" step="1" end="10" var="i">
-          <span class="data-info">Valoración ${i}:</span><br/>
-          <span class="data-info">User: <c:out value="${valoration.user.firstName} ${valoration.user.lastName}" /> name User<br/></span>
-          <span class="data-info">Estrellas: <c:out value="${valorationStore.stars}" /> estrellas<br/></span>
-          <span class="data-info"><c:out value="${valoration.review}" /> texto de reseña<br/></span>
-        </c:forEach>
+        <c:if test="${empty valorationsStore}">
+          <span class="data-info text-danger">Aún no hay valoraciones!</span><br/>
+        </c:if>
+        <c:if test="${not empty valorationsStore}">
+          <c:forEach items="${valorationsStore}" var="valoration">
+            <span class="data-info">-----------------------------<br/></span>
+            <span class="data-info"><c:out value="${valoration.stars}"/> Estrellas<br/></span>
+            <span class="data-info"><c:out value="${valoration.createdAt}" /><br/></span>
+            <span class="data-info"><c:out value="${valoration.review}" /><br/></span>
+            <span class="data-info">-----------------------------<br/></span>
+          </c:forEach>
+        </c:if>
       </div>
     </div>
     <div class="container-right">

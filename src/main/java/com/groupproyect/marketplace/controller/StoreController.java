@@ -24,6 +24,7 @@ import com.groupproyect.marketplace.service.product.ProductService;
 import com.groupproyect.marketplace.service.store.LocalService;
 import com.groupproyect.marketplace.service.store.StoreService;
 import com.groupproyect.marketplace.service.user.SellerService;
+import com.groupproyect.marketplace.service.valoration.ValorationStoreService;
 
 import jakarta.servlet.http.HttpSession;
 import jakarta.validation.Valid;
@@ -39,10 +40,11 @@ public class StoreController {
   private final DirectionLocalService directionLocalService;
   private final LocalService localService;
   private final ProductService productService;
+  private final ValorationStoreService valorationStoreService;
 
   public StoreController(StoreService storeService, SellerService sellerService, DepartmentService departmentService,
       DistrictService districtService, CategoryOneService categoryOneService,
-      DirectionLocalService directionLocalService, LocalService localService, ProductService productService) {
+      DirectionLocalService directionLocalService, LocalService localService, ProductService productService, ValorationStoreService valorationStoreService) {
     this.storeService = storeService;
     this.sellerService = sellerService;
     this.departmentService = departmentService;
@@ -51,6 +53,7 @@ public class StoreController {
     this.directionLocalService = directionLocalService;
     this.localService = localService;
     this.productService = productService;
+    this.valorationStoreService = valorationStoreService;
   }
 
   @GetMapping({ "/new", "/new/" })
@@ -69,6 +72,7 @@ public class StoreController {
     model.addAttribute("store", storeService.findById(id));
     model.addAttribute("seller", sellerService.findByStoreId(id));
     model.addAttribute("products", productService.findByStoreId(id));
+    model.addAttribute("valorationsStore", valorationStoreService.findByStoreId(id));
     return "store/store-show.jsp";
   }
 

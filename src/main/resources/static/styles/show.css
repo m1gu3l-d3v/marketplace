@@ -56,7 +56,7 @@
 
   --title-1: clamp(1em, 4vw, 10em);
   --title-2: clamp(0.5em, 2vw, 5em);
-  --title-3: clamp(0.3em, 1vw, 2.5em);
+  --title-3: clamp(0.4em, 1.5vw, 3em);
   --m-title: clamp(0.2em, 0.5vw, 1em) clamp(0.2em, 0.5vw, 1em) 0 clamp(0.2em, 0.5vw, 1em);
 
   --m-txt: clamp(0.2em, 0.5vw, 1em);
@@ -144,6 +144,11 @@ body {
 
 .title-2 {
   font-size: var(--title-2);
+  margin: var(--m-title);
+}
+
+.title-3 {
+  font-size: var(--title-3);
   margin: var(--m-title);
 }
 
