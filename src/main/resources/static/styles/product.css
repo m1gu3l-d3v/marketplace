@@ -40,7 +40,6 @@
 
 .foto{
   padding-top: 10px;
-  
   padding-bottom: 10px;
 }
 
@@ -60,7 +59,6 @@ h2{
   box-sizing: border-box;
   font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   text-align: center;
-
 }
 
 
@@ -71,7 +69,6 @@ h2{
 }
 
 .prod{
-  width: 18rem;
   text-align: center;
   padding: 2% 0% 2% 0%;
   border-radius: 5%;
@@ -79,7 +76,8 @@ h2{
 }
 
 .imagen-producto{
-  width: 250px;
-  height: 250px;
+  width: 200px;
+  height: 200px;
   border-radius: 2%;
+  margin: 7%;
 }
