@@ -24,4 +24,12 @@ public class ValorationStoreService extends BaseValorationService<ValorationStor
   public List<ValorationStore> findByStore(Store store) {
     return valorationStoreRepository.findByStore(store);
   }
+
+  public List<ValorationStore> findByStoreIdOrderByCreatedAtDesc(Long idStore) {
+    return valorationStoreRepository.findByStoreIdOrderByCreatedAtDesc(idStore);
+  }
+
+  public List<ValorationStore> findByStoreOrderByCreatedAtDesc(Store store) {
+    return valorationStoreRepository.findByStoreOrderByCreatedAtDesc(store);
+  }
 }

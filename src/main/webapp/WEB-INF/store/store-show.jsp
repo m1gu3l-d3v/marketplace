@@ -21,10 +21,19 @@
         <span class="data">
           <span class="data-info">Empresa del rubro de <c:out value="${store.categoryOne.name}"/><br/></span>
           <span class="data-info">Teléfono: <c:out value="${store.telephoneNumber}"/><br/></span>
+          <c:if test="${empty valorationsStore}">
+            <span class="data-info">Cede: Virtual</span><br/>
+          </c:if>
+          <c:if test="${not empty valorationsStore}">
+            <c:forEach items="${locales}" var="local">
+              <!-- <span class="data-info"><c:out value="${local.openingHours}"/> Estrellas<br/></span>
+              <span class="data-info"><c:out value="${local.closingHours}" /><br/></span> -->
+              <span class="data-info">Cede:
+                <c:out value="${local.districts.get(0).name}"/>,
+              <c:out value="${local.districts.get(0).department.name}"/>-Colombia<br/></span>
+            </c:forEach>
+          </c:if>
           <span class="data-info">Email: <c:out value="${store.email}"/><br/></span>
-          <span class="data-info">Dirección: <c:out value="${direction}direction"/>,
-            <c:out value="${district}district"/>,
-            <c:out value="${department}department"/>-Colombia<br/></span>
           <span class="data-info">RUC: <c:out value="${store.ruc}"/></span>
         </span>
       </div>

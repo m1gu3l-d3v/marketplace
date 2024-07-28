@@ -101,6 +101,7 @@ body {
 }
 
 .container-info {
+  overflow-y: scroll;
   height: 49%;
   color: var(--colorfg);
 }
@@ -186,6 +187,8 @@ form {
   color: var(--color5);
   background-color: var(--color0);
   font-weight: 500;
+  border: none;
+  outline: none;
 }
 
 .input-box {
@@ -208,7 +211,6 @@ form {
 }
 
 input[type="number"] {
-  border: 1px solid var(--color0);
   background-color: var(--color0);
   color: var(--color5);
   appearance: none;

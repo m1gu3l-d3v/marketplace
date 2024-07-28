@@ -9,4 +9,8 @@ public interface ValorationStoreRepository extends BaseValorationRepository<Valo
   List<ValorationStore> findByStoreId(Long idStore);
 
   List<ValorationStore> findByStore(Store store);
+
+  List<ValorationStore> findByStoreIdOrderByCreatedAtDesc(Long idStore);
+
+  List<ValorationStore> findByStoreOrderByCreatedAtDesc(Store store);
 }

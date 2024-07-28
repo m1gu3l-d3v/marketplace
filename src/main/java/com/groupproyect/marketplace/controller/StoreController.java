@@ -64,6 +64,7 @@ public class StoreController {
     model.addAttribute("departments", departmentService.findAllByOrderByNameAsc());
     model.addAttribute("districts", districtService.findAll());
     model.addAttribute("categoriesOnes", categoryOneService.findAll());
+    model.addAttribute("locales", localService.findAll());
     return "store/store-new.jsp";
   }
 
@@ -72,7 +73,8 @@ public class StoreController {
     model.addAttribute("store", storeService.findById(id));
     model.addAttribute("seller", sellerService.findByStoreId(id));
     model.addAttribute("products", productService.findByStoreId(id));
-    model.addAttribute("valorationsStore", valorationStoreService.findByStoreId(id));
+    model.addAttribute("valorationsStore", valorationStoreService.findByStoreIdOrderByCreatedAtDesc(id));
+    model.addAttribute("locales", localService.findByStoreId(id));
     return "store/store-show.jsp";
   }
 
