@@ -1,0 +1,85 @@
+:root {
+  --colorbg:#191724;
+  --colorfg:#e0def4;
+  --colormain1:#ebbcba;
+  --color0:#26233a;
+  --color1:#eb6f92;
+  --color2:#9ccfd8;
+  --color3:#f6c177;
+  --color4:#31748f;
+  --color5:#c4a7e7;
+  --color6:#ebbcba;
+  --color7:#e0def4;
+  --color8:#6e6a86;
+  --color9:#eb6f92;
+  --color10:#9ccfd8;
+  --color11:#f6c177;
+  --color12:#31748f;
+  --color13:#c4a7e7;
+  --color14:#ebbcba;
+  --color15:#e0def4;
+}
+
+.an{
+  margin-top: 10px;
+  padding: 10px;
+  margin-left: 8px;
+}
+
+.contenido-centro{
+  text-align: center;
+}
+
+.centrado{   
+  padding: 5%;
+}
+
+.espacio{
+  padding-top: 20px;
+}
+
+.foto{
+  padding-top: 10px;
+  
+  padding-bottom: 10px;
+}
+
+
+
+.card{
+  background-color: var(--colorbg);
+}
+
+.bgshow{
+  background-color: var(--colormain1);
+}
+
+h2{
+  font-size: 40px;
+  color: var(--colorfg);
+  box-sizing: border-box;
+  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  text-align: center;
+
+}
+
+
+
+.card{
+  color: var(--colorfg);
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.prod{
+  width: 18rem;
+  text-align: center;
+  padding: 2% 0% 2% 0%;
+  border-radius: 5%;
+  margin: 2%;
+}
+
+.imagen-producto{
+  width: 250px;
+  height: 250px;
+  border-radius: 2%;
+}
