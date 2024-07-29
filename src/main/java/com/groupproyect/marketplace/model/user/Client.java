@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.groupproyect.marketplace.model.cite.District;
 import com.groupproyect.marketplace.model.order.Order;
+import com.groupproyect.marketplace.model.product.Product;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
@@ -33,4 +34,10 @@ public class Client extends BaseUser {
   // Table: orders FK
   @OneToOne(mappedBy = "client", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
   private Order order;
+
+  // Referenced Table
+  // Table: categories_three FK
+  @ManyToMany(fetch = FetchType.LAZY)
+  @JoinTable(name = "products_clients_cache", joinColumns = @JoinColumn(name = "client_id"), inverseJoinColumns = @JoinColumn(name = "product_id"))
+  private List<Product> products;
 }

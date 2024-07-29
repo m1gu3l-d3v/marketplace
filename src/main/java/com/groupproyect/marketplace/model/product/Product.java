@@ -6,6 +6,7 @@ import com.groupproyect.marketplace.model.BaseModelWithDate;
 import com.groupproyect.marketplace.model.category.CategoryThree;
 import com.groupproyect.marketplace.model.order.Order;
 import com.groupproyect.marketplace.model.store.Store;
+import com.groupproyect.marketplace.model.user.Client;
 import com.groupproyect.marketplace.model.valoration.ValorationProduct;
 
 import jakarta.persistence.Entity;
@@ -46,10 +47,16 @@ public class Product extends BaseModelWithDate {
   // Table: valorations_products FK
   @OneToMany(mappedBy = "product", fetch = FetchType.LAZY)
   private List<ValorationProduct> valorationProducts;
-  
+
   // Referenced table
   // Table: orders_products FK
   @ManyToMany(fetch = FetchType.LAZY)
   @JoinTable(name = "orders_products", joinColumns = @JoinColumn(name = "product_id"), inverseJoinColumns = @JoinColumn(name = "order_id"))
   private List<Order> orders;
+
+  // Referenced Table
+  // Table: categories_three FK
+  @ManyToMany(fetch = FetchType.LAZY)
+  @JoinTable(name = "products_clients_cache", joinColumns = @JoinColumn(name = "product_id"), inverseJoinColumns = @JoinColumn(name = "client_id"))
+  private List<Client> clients;
 }
