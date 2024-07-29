@@ -21,6 +21,8 @@ import lombok.Setter;
 @Setter
 public class Membership extends BaseModel {
   private String name;
+  private Double price;
+  private Integer months;
 
   // Referenced table
   // Table: memberships_sellers FK

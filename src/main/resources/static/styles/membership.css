@@ -65,7 +65,7 @@
 
   --m-data-info: clamp(0.2em, 0.5vw, 1em);
   --p-data-info: clamp(0.1em, 0.3vw, 0.5em);
-  --fs-data-info: clamp(0.5em, 1.5vw, 3.0em);
+  --fs-data-info: clamp(0.4em, 1.2vw, 2.5em);
 
   --fs-text-danger: clamp(0.5em, 1.2vw, 2.0em);
 }
@@ -79,6 +79,10 @@
 body {
   padding: 0;
   background-color: var(--colormain1);
+  color: var(--colorfg);
+}
+
+.title {
   color: var(--colorfg);
 }
 
@@ -97,7 +101,7 @@ body {
 }
 
 .container-memership {
-  width: 80%;
+  width: 90%;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -109,6 +113,7 @@ body {
   padding: 2%;
   border-radius: var(--b-container-main);
   transition: 1s;
+  background-color: var(--colormain1);
 }
 
 .membership h1 {
@@ -129,6 +134,7 @@ body {
 
 .text-secondary {
   color: #26233a;
+  font-size: var(--fs-data-info);
 }
 
 .form {
@@ -143,6 +149,8 @@ body {
   border-radius: var(--b-container-main);
   color: var(--colorfg);
   padding: 0.5em;
+  transition: 1s;
+  font-size: var(--fs-data-info);
 }
 
 .btn:hover {
@@ -150,16 +158,4 @@ body {
   border: none;
   transform: scale(110%);
   color: var(--colorbg);
-}
-
-#membership-one {
-  background-color: var(--color1);
-}
-
-#membership-two {
-  background-color: var(--color4);
-}
-
-#membership-three {
-  background-color: var(--color3);
 }
