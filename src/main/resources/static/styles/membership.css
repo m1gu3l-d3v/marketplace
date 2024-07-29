@@ -83,7 +83,9 @@ body {
 }
 
 .title {
+  font-weight: 800;
   color: var(--colorfg);
+  font-size: var(--title-1);
 }
 
 .container-main {
@@ -123,7 +125,8 @@ body {
 }
 
 .membership:hover {
-  transform: scale(105%);
+  transform: scale(115%);
+  width: 30%;
 }
 
 .text-primary {
