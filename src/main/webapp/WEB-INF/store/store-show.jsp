@@ -14,7 +14,6 @@
 </head>
 <body>
   <div class="container-main">
-    <div class="conainer-input"></div>
     <div class="container-left">
       <div class="container-info subcontainer-2">
         <h1 class="title-1"><span class="icon"><i class='bx bxs-store-alt'></i> </span> <c:out value="${store.name}"/></h1>
@@ -75,7 +74,7 @@
         <h1 class="title-2">Miscelanea</h1>
       </div>
       <div class="container-items subcontainer-2">
-        <h1 class="title-2">Productos</h1>
+        <h1 class="title-2">Productos de la Tienda</h1>
         <c:if test="${empty products}">
           <span class="data-info text-danger">Aún no tienes productos añadidos!</span>
           <a href="/products/new" class="data-info text-danger">Crear Aquí</a><br>

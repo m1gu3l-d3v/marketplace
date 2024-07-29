@@ -212,8 +212,8 @@ form {
 }
 
 input[type="number"] {
-  background-color: var(--color5);
-  color: var(--color4);
+  background-color: var(--color0);
+  color: var(--color5);
   appearance: none;
 }
 
@@ -233,10 +233,9 @@ input[type="number"] {
 }
 
 .cart-item {
-  background-color: var(--color4);
-  color: var(--colorfg);
   margin: var(--m-title);
-  background-color: rgba(0, 0, 0, 0.2);
+  border: solid #907AA9;
+  background-color: rgba(0, 0, 0, 0.1);
   display: flex;
 }
 
@@ -263,7 +262,7 @@ input[type="number"] {
 
 .amount-price {
   display: flex;
-  align-self: flex-end;
+  align-items: center;
 }
 
 .number {
@@ -275,13 +274,15 @@ input[type="number"] {
 .submit-form {
   width: 98.5%;
   display: flex;
-  background-color: var(--color2);
+  background-color: var(--colormain1);
   border-radius: var(--b-radius);
 }
 
 .submit-form button {
-  background-color: var(--color0);
-  color: var(--colorfg);
+  padding: 1em;
+  font-weight: 700;
+  background-color: var(--color1);
+  color: var(--color0);
   border: none;
   border-radius: var(--b-radius);
 }
