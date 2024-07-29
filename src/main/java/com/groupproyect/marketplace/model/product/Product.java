@@ -26,6 +26,7 @@ import lombok.Setter;
 public class Product extends BaseModelWithDate {
   private String name;
   private Double price;
+  private String linkImage;
 
   // Table with Foreign Key
   // Table: store FK
