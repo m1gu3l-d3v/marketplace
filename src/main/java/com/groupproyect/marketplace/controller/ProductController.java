@@ -41,7 +41,7 @@ public class ProductController {
     this.categoryThreeService = categoryThreeService;
   }
 
-  @GetMapping("")
+  @GetMapping({ "", "/" })
   public String products(@ModelAttribute("product") Product product, Model model) {
     model.addAttribute("productos", productService.findAll());
     return "/product/products.jsp";
@@ -53,7 +53,7 @@ public class ProductController {
     return "product/product-show.jsp";
   }
 
-  @GetMapping("new")
+  @GetMapping({ "/new", "/new/" })
   public String newProduct(
       @ModelAttribute("product") Product product,
       @ModelAttribute("store") Store store, HttpSession httpSession, Model model) {

@@ -21,4 +21,14 @@ public class ShopController {
     model.addAttribute("products", productService.findAll());
     return "shop/shop-cart.jsp";
   }
+
+  @GetMapping({"/checkout", "/checkout/"})
+  public String methodPayment(Model model) {
+    return "shop/shop-payment-method.jsp";
+  }
+
+  @GetMapping({"/payment", "/payment/"})
+  public String payment(Model model) {
+    return "shop/shop-payment.jsp";
+  }
 }
