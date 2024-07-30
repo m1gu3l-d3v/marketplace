@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
 :root {
   --colorbg:#191724;
   --colorfg:#e0def4;
@@ -18,6 +20,11 @@
   --color13:#c4a7e7;
   --color14:#ebbcba;
   --color15:#e0def4;
+}
+
+* {
+  margin: 0;
+  font-family: 'Poppins', 'sans-serif';
 }
 
 .an{
@@ -44,9 +51,14 @@
 }
 
 
-
 .card{
-  background-color: var(--colorbg);
+  background-color: var(--color0);
+  border: none;
+  transition: 1s;
+}
+
+.card:hover{
+  transform: scale(104%);
 }
 
 .bgshow{
@@ -57,13 +69,11 @@ h2{
   font-size: 40px;
   color: var(--colorfg);
   box-sizing: border-box;
-  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   text-align: center;
 }
 
 .card{
   color: var(--colorfg);
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
 .prod{
@@ -74,8 +84,73 @@ h2{
 }
 
 .imagen-producto{
-  width: 200px;
-  height: 200px;
+  width: 230px;
+  height: 220px;
   border-radius: 2%;
-  margin: 7%;
+  margin: 4%;
+}
+
+.cdstore{
+  background-color: var(--color15);
+  color: var(--color0);
+  font-weight: bolder;
+}
+
+.card-header{
+  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+
+.stars{
+  width: 21%;
+  margin-left: 4%;
+  margin-right: 4%;
+  margin-top: -10%;
+  margin-bottom: 3%;
+  border-radius: 50%;
+}
+
+.enlacetodos{
+  display: flex;
+  text-decoration: none;
+  margin-left: 86%;
+  margin-top: -5%;
+  background-color: rgb(230, 230, 230);
+  color: black;
+  padding: 0.5%;
+  border-radius: 3%;
+  
+}
+
+.enlacetodos:hover{
+  background-color:rgb(250, 253, 255);
+}
+
+
+.imgshow{
+  max-width: 100%;
+  padding: 1%;
+  border-radius: 5%;
+}
+
+.boxshowdeailts{
+  padding: 20px;
+  background-color: var(--color15);
+}
+
+.productnameshow{
+  font-size: 60px;
+}
+
+.btn-dark {
+  background-color: var(--color0);
+  border: none;
+  padding: 1em;
+  transition: 1s;
+  margin: 1em;
+}
+
+.btn-dark:hover {
+  background-color: var(--color0);
+  scale: 105%;
 }

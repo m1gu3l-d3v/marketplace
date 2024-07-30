@@ -34,4 +34,3 @@ public class MembershipSeller extends BaseModelWithDate {
   @JoinColumn(name="membership_id")
   private Membership membership;
 }
-

@@ -1,6 +1,6 @@
 package com.groupproyect.marketplace.model;
 
-import java.util.Date;
+import java.time.LocalDateTime;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.MappedSuperclass;
@@ -14,16 +14,16 @@ import lombok.Setter;
 @Setter
 public class BaseModelWithDate extends BaseModel {
   @Column(updatable = false)
-  private Date createdAt;
-  private Date updatedAt;
+  private LocalDateTime createdAt;
+  private LocalDateTime updatedAt;
 
   @PrePersist
   protected void onCreate() {
-    this.createdAt = new Date();
+    this.createdAt = LocalDateTime.now();
   }
 
   @PreUpdate
   protected void onUpdate() {
-    this.updatedAt = new Date();
+    this.updatedAt = LocalDateTime.now();
   }
 }
