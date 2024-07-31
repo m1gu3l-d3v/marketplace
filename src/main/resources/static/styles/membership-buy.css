@@ -68,6 +68,8 @@
   --fs-data-info: clamp(0.5em, 1.5vw, 3.0em);
 
   --fs-text-danger: clamp(0.5em, 1.2vw, 2.0em);
+
+  --fs-input: clamp(0.5em, 1.2vw, 2.0em);
 }
 
 * {
@@ -151,6 +153,7 @@ body {
   padding-top: 20px;
   border: none;
   outline: none;
+  font-size: var(--fs-input);
 }
 
 .form .label-input {
@@ -162,6 +165,7 @@ body {
   pointer-events: none;
   transform: translateY(40%);
   border-bottom: 0.2em solid var(--colormain1);
+  font-size: var(--fs-input);
 }
 
 .label-input .text-name {
@@ -175,7 +179,7 @@ body {
 .form input:focus + .label-input .text-name,
 .form input:valid + .label-input .text-name,
 .form input.has-content + .label-input .text-name {
-  transform: translateY(-80%);
+  transform: translateY(-100%);
 }
 
 .social-icons a i {
@@ -205,7 +209,6 @@ input[type="number"] {
 }
 
 .btn {
-  margin-top: 5%;
   width: 100%;
   background-color: var(--colormain1);
   border: solid 0.2em var(--colormain1);
@@ -245,14 +248,22 @@ input[type="number"] {
   font-size: var(--fs-data-info);
 }
 
+.text {
+  font-size: var(--fs-text-danger);
+}
+
 .text-danger {
-  font-size: 15px;
+  font-size: var(--fs-text-danger);
   color: var(--color1);
   text-shadow: 3px 3px 3px rgba(0, 0, 0, 0.2);
 }
 
+.error-box {
+  margin: 1em 0;
+}
+
 .remember-forgot {
-  font-size: 14.5px;
+  font-size: 1rem;
   font-weight: 500;
   display: flex;
   flex-direction: column;

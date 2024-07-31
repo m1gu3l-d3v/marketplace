@@ -38,39 +38,41 @@ public class MembershipController {
     return "membership/memberships.jsp";
   }
 
-  @GetMapping({ "/{id}", "/{id}/" })
-  public String confirmBuyMembership(@PathVariable("id") Long id, Model model, HttpSession httpSession,
+  @GetMapping({ "/{idMembership}", "/{idMembership}/" })
+  public String confirmBuyMembership(@PathVariable("idMembership") Long idMembership, Model model, HttpSession httpSession,
       RedirectAttributes redirectAttributes) {
     // Process
-    model.addAttribute("membership", membershipService.findById(id));
+    model.addAttribute("membership", membershipService.findById(idMembership));
     return "membership/membership-buy.jsp";
   }
 
-  @PostMapping({ "/{id}", "/{id}/" })
-  public String buyMembership(@PathVariable("id") Long id, Model model, HttpSession httpSession,
+  @PostMapping({ "/{idMembership}", "/{idMembership}/" })
+  public String buyMembership(@PathVariable("idMembership") Long idMembership, Model model, HttpSession httpSession,
       RedirectAttributes redirectAttributes) {
     // Validations
     if (((Long) httpSession.getAttribute("idUser")) == null) {
       System.out.println("Error 1: " + httpSession.getAttribute("idUser"));
-      return "redirect:/memberships/" + id;
+      redirectAttributes.addFlashAttribute("userError", "No estas logeado.");
+      return "redirect:/memberships/" + idMembership;
     }
     if (!((httpSession.getAttribute("roleUser")).equals("seller"))) {
       System.out.println("Error 2: " + httpSession.getAttribute("roleUser"));
-      return "redirect:/memberships/" + id;
+      redirectAttributes.addFlashAttribute("roleError", "Solo los vendedores pueden necesitar una membresía, para q la querrías? :0.");
+      return "redirect:/memberships/" + idMembership;
     }
-    if (!membershipService.existsbyId(id)) {
-      System.out.println("Error 3: " + membershipService.existsbyId(id));
-      return "redirect:/memberships/" + id;
+    if (!membershipService.existsbyId(idMembership)) {
+      System.out.println("Error 3: " + membershipService.existsbyId(idMembership));
+      return "redirect:/memberships/" + idMembership;
     }
     Long idSeller = (Long) httpSession.getAttribute("idUser");
     if (!sellerService.existsbyId(idSeller)) {
-      System.out.println("Error 3: " + sellerService.existsbyId(idSeller));
-      return "redirect:/memberships/" + id;
+      System.out.println("Error 4: " + sellerService.existsbyId(idSeller));
+      return "redirect:/memberships/" + idMembership;
     }
 
     // Process
     MembershipSeller membershipSeller = new MembershipSeller();
-    Membership membership = membershipService.findById(id);
+    Membership membership = membershipService.findById(idMembership);
     if (membershipSellerService.existsBySellerId(idSeller)) {
       LocalDateTime maxExpirationPrev = membershipSellerService.findMaxExpirationBySellerId(idSeller);
       System.out.println(maxExpirationPrev);

@@ -25,8 +25,8 @@
         </div>
       <div class="text-sci">
         <h2 class="title-2">Bienvenido<br><span> <c:out value="${seller.firstName} ${seller.lastName}"/></span></h2>
-        <p>¡Hoy es un buen día para impulsar el crecimiento de  tu negocio!</p>
-        <div class="social-icons">
+        <p class="text">¡Hoy es un buen día para impulsar el crecimiento de  tu negocio!</p>
+        <div class="social-icons text">
           <a href="https://www.linkedin.com/"><i class='bx bxl-linkedin' ></i></a>
           <a href="https://www.facebook.com/"><i class='bx bxl-facebook' ></i></a>
           <a href="https://www.instagram.com/"><i class='bx bxl-instagram' ></i></a>

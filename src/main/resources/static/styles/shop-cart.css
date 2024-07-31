@@ -240,7 +240,10 @@ input[type="number"] {
 }
 
 .cart-item .item-img {
-  background-color: green;
+  width: 25%;
+  background-position: center; /* Centra la imagen */
+  background-size: cover; /* La imagen cubre todo el área del div */
+  background-repeat: no-repeat; /* Evita que la imagen se repita */
 }
 
 .mini-data {

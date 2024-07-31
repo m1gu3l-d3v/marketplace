@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.groupproyect.marketplace.model.cache.ProductClientCache;
 import com.groupproyect.marketplace.service.cache.ProductClientCacheService;
@@ -29,14 +30,20 @@ public class ShopController {
   }
 
   @GetMapping({ "/cart", "/cart/" })
-  public String cart(Model model) {
+  public String cart(Model model, HttpSession httpSession, RedirectAttributes redirectAttributes) {
+    if (((Long) httpSession.getAttribute("idUser")) == null) {
+      System.out.println("Error 1: " + httpSession.getAttribute("idUser"));
+      redirectAttributes.addFlashAttribute("userError", "No estas logeado.");
+      return "redirect:/login";
+    }
+    if (!((httpSession.getAttribute("roleUser")).equals("client"))) {
+      System.out.println("Error 2: " + httpSession.getAttribute("roleUser"));
+      redirectAttributes.addFlashAttribute("roleError", "Solo los clientes pueden comprar, debes crear otra cuenta.");
+      return "redirect:/login";
+    }
     model.addAttribute("products", productService.findAll());
+    model.addAttribute("productsClientCache", productClientCacheService.findByClientId(3L));
     return "shop/shop-cart.jsp";
-  }
-
-  @GetMapping({ "/checkout", "/checkout/" })
-  public String methodPayment(Model model) {
-    return "shop/shop-payment-method.jsp";
   }
 
   @GetMapping({ "/payment", "/payment/" })
@@ -67,10 +74,16 @@ public class ShopController {
 
     // Process
     ProductClientCache productClientCache = new ProductClientCache();
-    productClientCache.setAmount(1);
+    if (productClientCacheService.existsByClientIdAndProductId(idClient, idProduct)) {
+      productClientCache = productClientCacheService.findByClientIdAndProductId(idClient, idProduct).get(0);
+      productClientCache.setAmount(productClientCache.getAmount() + 1);
+    } else {
+      productClientCache.setAmount(1);
+    }
     productClientCache.setClient(clientService.findById(idClient));
     productClientCache.setProduct(productService.findById(idProduct));
     productClientCacheService.save(productClientCache);
+
     return "redirect:/products";
   }
 }

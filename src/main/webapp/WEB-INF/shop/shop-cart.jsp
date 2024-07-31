@@ -22,26 +22,27 @@
         </span>
       </div>
       <div class="container-cart-items subcontainer-2">
-        <!-- <h1 class="title-2">Items</h1> -->
-        <div class="cart-item">
-          <div class="item-img">
-            <h6>img</h6>
-          </div>
-          <div class="item-info">
-            <div class="info-top">
-              <span class="data-info">Store Name</span>
-              <h1 class="title-3">Product Name</h1>
+        <c:forEach items="${productsClientCache}" var="productClientCache">
+          <div class="cart-item">
+            <div class="item-img" style="background-image: url('${productClientCache.product.linkImage}');">
             </div>
-            <div class="info-bot">
-              <div class="mini-data">Producto de Categoria</div>
-              <div class="amount-price">
-              <label path="stars" class="form-pt  mini-data">Cantidad: </label>
-              <input type="number" id="stars" min="0" max="5" step="1" value="1" class="number mini-data"/>
-              <h3 class="title-3 mini-data">14785,24 COP</h3>
+            <div class="item-info">
+              <div class="info-top">
+                <span class="data-info"><c:out value="${productClientCache.product.store.name}"/></span>
+                <h1 class="title-3"><c:out value="${productClientCache.product.name}"/></h1>
+              </div>
+              <div class="info-bot">
+                <div class="mini-data"><c:out value="${productClientCache.product.categoryThree.name}"/></div>
+                <div class="amount-price">
+                  <label path="stars" class="form-pt  mini-data">Cantidad: </label>
+                  <input type="number" id="stars" min="0" max="5" step="1" value="${productClientCache.amount}" class="number mini-data"/>
+                  <c:set var="productPrice" value="${productClientCache.product.price * productClientCache.amount}" />
+                  <h3 class="title-3 mini-data"><c:out value="${productPrice}"/> COP</h3>
+                </div>
               </div>
             </div>
           </div>
-        </div>
+        </c:forEach>
       </div>
       <div class="submit-form subcontainer-2">
         <form action="/shop/payment">
