@@ -2,6 +2,7 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -35,9 +36,19 @@
                 <div class="mini-data"><c:out value="${productClientCache.product.categoryThree.name}"/></div>
                 <div class="amount-price">
                   <label path="stars" class="form-pt  mini-data">Cantidad: </label>
-                  <input type="number" id="stars" min="0" max="5" step="1" value="${productClientCache.amount}" class="number mini-data"/>
+                  <form action="/shop/minus" method="post" class="form-sign">
+                    <input type="hidden" name="idProduct" value="${productClientCache.product.id}">
+                    <button class="icon-sign-btn"><i class='bx bxs-minus-square'></i></button>
+                  </form>
+                  <div class="number mini-data"> <c:out value="${productClientCache.amount}"/> </div>
                   <c:set var="productPrice" value="${productClientCache.product.price * productClientCache.amount}" />
-                  <h3 class="title-3 mini-data"><c:out value="${productPrice}"/> COP</h3>
+                  <form action="/shop/plus" method="post" class="form-sign">
+                    <input type="hidden" name="idProduct" value="${productClientCache.product.id}">
+                    <button class="icon-sign-btn"><i class='bx bxs-plus-square'></i></button>
+                  </form>
+                  <h3 class="title-3 mini-data">
+                    <fmt:formatNumber value="${productPrice}" type="number" maxFractionDigits="2" /> COP
+                  </h3>
                 </div>
               </div>
             </div>
@@ -63,11 +74,28 @@
         </c:if>
         <c:if test="${not empty products}">
           <c:forEach items="${products}" var="product">
-            <span class="data-info">-----------------------------<br/></span>
-            <span class="data-info"><c:out value="${product.name}" /><br/></span>
-            <span class="data-info"><c:out value="${product.price}" /><br/></span>
-            <span class="data-info"><c:out value="${product.store.name}" /><br/></span>
-            <span class="data-info">-----------------------------<br/></span>
+            <div class="cart-item cart-item-product">
+              <div class="item-img" style="background-image: url('${product.linkImage}');">
+              </div>
+              <div class="item-info">
+                <div class="info-top">
+                  <span class="data-info"><c:out value="${product.store.name}"/></span>
+                  <h1 class="title-3"><c:out value="${product.name}"/></h1>
+                </div>
+                <div class="info-bot">
+                  <div class="mini-data"><c:out value="${product.categoryThree.name}"/></div>
+                  <div class="amount-price">
+                    <h3 class="title-3 mini-data">
+                      <form action="/shop/plus" method="post" class="form-sign form-add-newitem">
+                        <fmt:formatNumber value="${product.price}" type="number" maxFractionDigits="2" /> COP
+                        <input type="hidden" name="idProduct" value="${product.id}">
+                        <button class="icon-sign-add-item"><i class='bx bxs-cart-add'></i></button>
+                      </form>
+                    </h3>
+                  </div>
+                </div>
+              </div>
+            </div>
           </c:forEach>
         </c:if>
       </div>

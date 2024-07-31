@@ -44,7 +44,8 @@ public class StoreController {
 
   public StoreController(StoreService storeService, SellerService sellerService, DepartmentService departmentService,
       DistrictService districtService, CategoryOneService categoryOneService,
-      DirectionLocalService directionLocalService, LocalService localService, ProductService productService, ValorationStoreService valorationStoreService) {
+      DirectionLocalService directionLocalService, LocalService localService, ProductService productService,
+      ValorationStoreService valorationStoreService) {
     this.storeService = storeService;
     this.sellerService = sellerService;
     this.departmentService = departmentService;
@@ -69,7 +70,8 @@ public class StoreController {
   }
 
   @GetMapping({ "/{id}", "/{id}/" })
-  public String showStore(@PathVariable("id") Long id, Model model, @ModelAttribute("valorationStore") ValorationStore valorationStore) {
+  public String showStore(@PathVariable("id") Long id, Model model,
+      @ModelAttribute("valorationStore") ValorationStore valorationStore) {
     model.addAttribute("store", storeService.findById(id));
     model.addAttribute("seller", sellerService.findByStoreId(id));
     model.addAttribute("products", productService.findByStoreId(id));

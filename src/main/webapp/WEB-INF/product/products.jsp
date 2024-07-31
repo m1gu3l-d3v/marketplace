@@ -31,8 +31,8 @@
               <p class="card-text"> <c:out value="${product.price}" />   </p>
               <p class="card-text"><c:out value="${product.categoryThree.name}" />  </p>
               <form id="addItem" action="/shop/add-item" method="POST">
+                <input type="hidden" name="idProduct" value="${product.id}"/>
                 <button class="container-icon-cart">
-                  <input type="hidden" name="idProduct" value="${product.id}"/>
                   <span><i class='bx bxs-cart-add'></i></span>
                 </button>
               </form>

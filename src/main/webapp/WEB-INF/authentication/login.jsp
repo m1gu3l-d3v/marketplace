@@ -64,6 +64,11 @@
 
           <button type="submit" class="btn select">Entrar</button>
 
+          <div class="error-box">
+            <span class="text-danger"><c:out value="${userError}"/></span>
+            <span class="text-danger"><c:out value="${roleError}"/></span>
+          </div>
+
           <div class="login-register">
             <p>¿No tienes una cuenta? <a href="/register" class="register-link">Crear Cuenta</a></p>
           </div>
