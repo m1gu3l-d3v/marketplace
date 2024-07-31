@@ -19,7 +19,7 @@
   <div class="row"> 
     <div class="col-6"> 
       <img src="" class="img-fluid rounded-start imgshow" alt="..." >
-      <img src="https://cdn.pixabay.com/photo/2024/05/26/10/15/bird-8788491_1280.jpg" class="img-fluid rounded-start imgshow" alt="..." >
+      <img src="${product.linkImage}" class="img-fluid rounded-start imgshow" alt="">
     </div>
       <div class="col-6 "> 
         <a href="/products" class="btn btn-outline-dark my-3 ">   <span class="icon"><i class='bx bx-arrow-to-left'></i></span>  Todos los Productos </a>

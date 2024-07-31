@@ -23,11 +23,11 @@
       <c:forEach items="${productos}" var="product">
         <div class="col-3">
           <div class="card border-light prod">
-            <!-- <img src="${product.linkImage}" class="card-img-top imagen-producto" alt=""> -->
-            <img src="https://cdn.pixabay.com/photo/2024/05/26/10/15/bird-8788491_1280.jpg" class="card-img-top imagen-producto" alt="">
+            <img src="${product.linkImage}" class="card-img-top imagen-producto" alt="">
+            <!-- <img src="https://cdn.pixabay.com/photo/2024/05/26/10/15/bird-8788491_1280.jpg" class="card-img-top imagen-producto" alt=""> -->
             <div class="card-header cdstore"> <c:out value="${product.store.name}" />  </div>
             <div class="card-body">
-              <h5 class="card-header"> <a href="products/${product.id}/" style="text-decoration: none; color: var(--color15);"> <c:out value="${product.name}" /> </a> </h5>
+              <h5 class="card-header"> <a href="/products/${product.id}/" style="text-decoration: none; color: var(--color15);"> <c:out value="${product.name}" /> </a> </h5>
               <p class="card-text"> <c:out value="${product.price}" />   </p>
               <p class="card-text"><c:out value="${product.categoryThree.name}" />  </p>
             </div>

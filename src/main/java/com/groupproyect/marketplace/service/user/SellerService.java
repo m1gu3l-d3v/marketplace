@@ -9,7 +9,6 @@ import com.groupproyect.marketplace.repository.user.SellerRepository;
 
 @Service
 public class SellerService extends BaseUserService<Seller> {
-  @SuppressWarnings("unused")
   private final SellerRepository sellerRepository;
 
   public SellerService(SellerRepository sellerRepository) {

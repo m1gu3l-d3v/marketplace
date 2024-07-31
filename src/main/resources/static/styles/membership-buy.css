@@ -127,6 +127,7 @@ body {
   flex-direction: column;
   padding: 1em;
   align-items: center;
+  justify-content: space-evenly;
 }
 
 .container-form .form .input-group-row {
@@ -204,7 +205,7 @@ input[type="number"] {
 }
 
 .btn {
-  margin-top: 10%;
+  margin-top: 5%;
   width: 100%;
   background-color: var(--colormain1);
   border: solid 0.2em var(--colormain1);
@@ -242,4 +243,28 @@ input[type="number"] {
 .text-secondary {
   color: #26233a;
   font-size: var(--fs-data-info);
+}
+
+.text-danger {
+  font-size: 15px;
+  color: var(--color1);
+  text-shadow: 3px 3px 3px rgba(0, 0, 0, 0.2);
+}
+
+.remember-forgot {
+  font-size: 14.5px;
+  font-weight: 500;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 10px 0;
+}
+
+.remember-forgot a {
+  color: var(--colormain1);
+  text-decoration: none;
+}
+
+.remember-forgot a:hover {
+  text-decoration: underline;
 }

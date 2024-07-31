@@ -15,6 +15,7 @@
   <div class="container-main">
     <div class="container-welcome">
       <h1 class="logo"><i class='logo-main-content'></i> Tienda X</h1>
+      <!-- <h2 class="title-3">Comprar</h2> -->
 
         <c:set var="monthlyPrice" value="${membership.price / membership.months}" />
         <div class="membership">
@@ -24,7 +25,7 @@
         </div>
       <div class="text-sci">
         <h2 class="title-2">Bienvenido<br><span> <c:out value="${seller.firstName} ${seller.lastName}"/></span></h2>
-        <p>¡Hoy es un buen día para dar a conocer tu negocio!</p>
+        <p>¡Hoy es un buen día para impulsar el crecimiento de  tu negocio!</p>
         <div class="social-icons">
           <a href="https://www.linkedin.com/"><i class='bx bxl-linkedin' ></i></a>
           <a href="https://www.facebook.com/"><i class='bx bxl-facebook' ></i></a>
@@ -34,7 +35,7 @@
       </div>
     </div>
     <div class="container-form">
-      <form action="/memberships/id" method="post" class="form">
+      <form action="/memberships/${membership.id}" method="post" class="form">
         <div>
           <h2 class="title-2">Selecciona el método de pago</h2>
         </div>
@@ -68,13 +69,26 @@
         </div>
         <div class="input-group-row">
           <div class="input-box">
-            <input class="input" type="number" required>
+            <input class="input expiration" type="number" min="000" max="999" required>
             <label class="label-input">
               <span class="text-name">CVC</span>
             </label>
           </div>
         </div>
+
+        <div class="error-box">
+          <span class="text-danger"><c:out value="${userError}"/></span>
+          <span class="text-danger"><c:out value="${roleError}"/></span>
+          <span class="text-danger"><c:out value="${passwordError}"/></span>
+        </div>
+
         <button class="btn">Enviar</button>
+
+
+        <div class="remember-forgot">
+          <p>¿No estas logeado? <a href="/login" class=""> Iniciar Sesión</a></p>
+          <p>¿No tienes una cuenta? <a href="/register" class=""> Crear Cuenta</a></p>
+        </div>
       </form>
     </div>
   </div>

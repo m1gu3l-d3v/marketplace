@@ -22,7 +22,7 @@
           <p class="text-primary"><c:out value="${membership.price}"/> COP</p>
           <p class="text-secondary">*Cada mes pagas <c:out value="${monthlyPrice}" /> COP</p>
           <div class="form">
-            <a href="/membership/${membership.id}"><button class="btn">Comprar</button></a>
+            <a href="/memberships/${membership.id}"><button class="btn">Comprar</button></a>
           </div>
         </div>
       </c:forEach>
