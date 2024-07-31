@@ -48,7 +48,22 @@ public class ShopController {
   }
 
   @GetMapping({ "/payment", "/payment/" })
-  public String payment(Model model) {
+  public String payment(HttpSession httpSession, Model model) {
+    // Validations
+    if (((Long) httpSession.getAttribute("idUser")) == null) {
+      System.out.println("Error 1: " + httpSession.getAttribute("idUser"));
+      return "redirect:/shop/payment";
+    }
+    if (!((httpSession.getAttribute("roleUser")).equals("client"))) {
+      System.out.println("Error 2: " + httpSession.getAttribute("roleUser"));
+      return "redirect:/shop/payment";
+    }
+    Long idClient = (Long) httpSession.getAttribute("idUser");
+    if (!clientService.existsbyId(idClient)) {
+      System.out.println("Error 4: " + clientService.existsbyId(idClient));
+      return "redirect:/products";
+    }
+    model.addAttribute("totalPurchaseCost", productClientCacheService.findTotalAmountByClientId(idClient));
     return "shop/shop-payment.jsp";
   }
 

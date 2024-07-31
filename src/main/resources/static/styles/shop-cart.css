@@ -317,3 +317,7 @@ input[type="number"] {
 .form-add-newitem {
   font-size: 1rem;
 }
+
+button {
+  cursor: pointer;
+}

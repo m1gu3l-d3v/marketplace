@@ -41,4 +41,8 @@ public class ProductClientCacheService extends BaseWithDateService<ProductClient
   public boolean existsByClient(Client client) {
     return productClientCacheRepository.existsByClient(client);
   }
+
+  public Double findTotalAmountByClientId(Long idClient) {
+    return productClientCacheRepository.findTotalAmountByClientId(idClient);
+  }
 }

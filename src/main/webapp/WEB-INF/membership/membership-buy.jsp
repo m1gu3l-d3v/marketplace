@@ -82,7 +82,7 @@
           <span class="text-danger"><c:out value="${passwordError}"/></span>
         </div>
 
-        <button class="btn">Enviar</button>
+        <button class="btn">Adquirir Membresía</button>
 
 
         <div class="remember-forgot">
