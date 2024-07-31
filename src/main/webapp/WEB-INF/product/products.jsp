@@ -30,10 +30,16 @@
               <h5 class="card-header"> <a href="/products/${product.id}/" style="text-decoration: none; color: var(--color15);"> <c:out value="${product.name}" /> </a> </h5>
               <p class="card-text"> <c:out value="${product.price}" />   </p>
               <p class="card-text"><c:out value="${product.categoryThree.name}" />  </p>
+              <form id="addItem" action="/shop/add-item" method="POST">
+                <button class="container-icon-cart">
+                  <input type="hidden" name="idProduct" value="${product.id}"/>
+                  <span><i class='bx bxs-cart-add'></i></span>
+                </button>
+              </form>
             </div>
             <c:forEach items="${product.valorationProducts}" var="valoration"> 
               <p class="card-text btn btn-warning stars"><c:out value="${valoration.stars}" /> 4
-                <span class="icon"><i class='bx bx-star'></i></span>
+                <span class="icon-cart"><i class='bx bx-star'></i></span>
               </p>
             </c:forEach>
           </div>
