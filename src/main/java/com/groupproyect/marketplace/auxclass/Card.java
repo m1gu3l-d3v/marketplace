@@ -1,4 +1,4 @@
-package com.groupproyect.marketplace.aux;
+package com.groupproyect.marketplace.auxclass;
 
 import lombok.Getter;
 import lombok.Setter;
