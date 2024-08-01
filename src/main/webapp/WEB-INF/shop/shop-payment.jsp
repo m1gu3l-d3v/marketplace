@@ -35,7 +35,7 @@
       </div>
     </div>
     <div class="container-form">
-      <form action="/memberships/${membership.id}" method="post" class="form">
+      <form action="/shop/buy" method="post" class="form">
         <div>
           <h2 class="title-2">Selecciona el método de pago</h2>
         </div>

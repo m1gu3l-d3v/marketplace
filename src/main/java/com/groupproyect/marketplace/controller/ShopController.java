@@ -172,4 +172,9 @@ public class ShopController {
     }
     return "redirect:/shop/cart";
   }
+
+  @PostMapping("/buy")
+  public String buying() {
+    return "process-confirmation.jsp";
+  }
 }

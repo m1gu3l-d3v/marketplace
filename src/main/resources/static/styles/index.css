@@ -12,6 +12,7 @@ body {
   color: white;
   height: 5rem;
   padding: 25px;
+  z-index: 1111;
 }
 .menu_container{
   display: flex;
@@ -55,6 +56,7 @@ body {
   width: max-content;
   transform: translateY(100%);
   background-color: #bf616a;
+  z-index: 1111;
 }
 #menu_arrow{
   transform: var(--transform);
