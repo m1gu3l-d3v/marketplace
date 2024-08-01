@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import com.groupproyect.marketplace.aux.Card;
+import com.groupproyect.marketplace.auxclass.Card;
 import com.groupproyect.marketplace.model.cache.ProductClientCache;
 import com.groupproyect.marketplace.service.cache.ProductClientCacheService;
 import com.groupproyect.marketplace.service.product.ProductService;

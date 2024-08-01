@@ -11,13 +11,13 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.groupproyect.marketplace.aux.Card;
+import com.groupproyect.marketplace.auxclass.Card;
 import com.groupproyect.marketplace.model.cache.ProductClientCache;
 import com.groupproyect.marketplace.model.order.Order;
 import com.groupproyect.marketplace.model.order.OrderProduct;
 import com.groupproyect.marketplace.model.product.Product;
 import com.groupproyect.marketplace.model.user.Client;
-import com.groupproyect.marketplace.service.aux.CardService;
+import com.groupproyect.marketplace.service.auxservice.CardService;
 import com.groupproyect.marketplace.service.cache.ProductClientCacheService;
 import com.groupproyect.marketplace.service.delivery.DeliveryStatusService;
 import com.groupproyect.marketplace.service.order.OrderProductService;

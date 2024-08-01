@@ -1,6 +1,6 @@
-package com.groupproyect.marketplace.service.aux;
+package com.groupproyect.marketplace.service.auxservice;
 
-import com.groupproyect.marketplace.aux.Card;
+import com.groupproyect.marketplace.auxclass.Card;
 
 public class CardService {
   public static boolean cardVerify(Card card) {
