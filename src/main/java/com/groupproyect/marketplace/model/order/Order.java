@@ -8,7 +8,6 @@ import com.groupproyect.marketplace.model.delivery.DeliveryStatus;
 import com.groupproyect.marketplace.model.product.Product;
 import com.groupproyect.marketplace.model.purchase.Invoice;
 import com.groupproyect.marketplace.model.user.Client;
-import com.groupproyect.marketplace.model.user.Seller;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
@@ -16,27 +15,26 @@ import jakarta.persistence.FetchType;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
+import lombok.Getter;
+import lombok.Setter;
 
 @Entity
 @Table(name = "orders")
+@Getter
+@Setter
 public class Order extends BaseModelWithDate {
   // Table with Foreign Key
   // Table: clients FK
-  @OneToOne(fetch = FetchType.LAZY)
+  @ManyToOne(fetch = FetchType.LAZY)
   @JoinColumn(name = "client_id")
   private Client client;
 
   // Table with Foreign Key
-  // Table: sellers FK
-  @OneToOne(fetch = FetchType.LAZY)
-  @JoinColumn(name = "seller_id")
-  private Seller seller;
-
-  // Table with Foreign Key
   // Table: delivery_status FK
-  @OneToOne(fetch = FetchType.LAZY)
+  @ManyToOne(fetch = FetchType.LAZY)
   @JoinColumn(name = "deliveryStatus_id")
   private DeliveryStatus deliveryStatus;
 

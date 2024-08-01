@@ -3,11 +3,13 @@ package com.groupproyect.marketplace.controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.groupproyect.marketplace.aux.Card;
 import com.groupproyect.marketplace.model.cache.ProductClientCache;
 import com.groupproyect.marketplace.service.cache.ProductClientCacheService;
 import com.groupproyect.marketplace.service.product.ProductService;
@@ -48,21 +50,22 @@ public class ShopController {
   }
 
   @GetMapping({ "/payment", "/payment/" })
-  public String payment(HttpSession httpSession, Model model) {
+  public String payment(HttpSession httpSession, Model model, @ModelAttribute("card") Card card) {
     // Validations
     if (((Long) httpSession.getAttribute("idUser")) == null) {
       System.out.println("Error 1: " + httpSession.getAttribute("idUser"));
-      return "redirect:/shop/payment";
+      return "redirect:/login";
     }
     if (!((httpSession.getAttribute("roleUser")).equals("client"))) {
       System.out.println("Error 2: " + httpSession.getAttribute("roleUser"));
-      return "redirect:/shop/payment";
+      return "redirect:/login";
     }
     Long idClient = (Long) httpSession.getAttribute("idUser");
     if (!clientService.existsbyId(idClient)) {
       System.out.println("Error 4: " + clientService.existsbyId(idClient));
       return "redirect:/products";
     }
+
     model.addAttribute("totalPurchaseCost", productClientCacheService.findTotalAmountByClientId(idClient));
     return "shop/shop-payment.jsp";
   }
@@ -171,10 +174,5 @@ public class ShopController {
       productClientCacheService.delete(productClientCache);
     }
     return "redirect:/shop/cart";
-  }
-
-  @PostMapping("/buy")
-  public String buying() {
-    return "process-confirmation.jsp";
   }
 }

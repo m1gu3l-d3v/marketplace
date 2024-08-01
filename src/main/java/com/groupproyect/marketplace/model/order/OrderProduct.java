@@ -1,6 +1,6 @@
 package com.groupproyect.marketplace.model.order;
 
-import com.groupproyect.marketplace.model.BaseModel;
+import com.groupproyect.marketplace.model.BaseModelWithDate;
 import com.groupproyect.marketplace.model.product.Product;
 
 import jakarta.persistence.Entity;
@@ -15,8 +15,9 @@ import lombok.Setter;
 @Table(name = "orders_products")
 @Getter
 @Setter
-public class OrderProduct extends BaseModel {
+public class OrderProduct extends BaseModelWithDate {
   private Integer amount;
+  private Double price;
 
   // Table with Foreign Key
   // Table: orders FK

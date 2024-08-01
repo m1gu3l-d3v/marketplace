@@ -1,12 +1,14 @@
 package com.groupproyect.marketplace.model.delivery;
 
+import java.util.List;
+
 import com.groupproyect.marketplace.model.BaseModel;
 import com.groupproyect.marketplace.model.order.Order;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
-import jakarta.persistence.OneToOne;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.Getter;
 import lombok.Setter;
@@ -20,6 +22,6 @@ public class DeliveryStatus extends BaseModel {
 
   // Referenced Table
   // Table: order FK
-  @OneToOne(mappedBy="deliveryStatus", cascade=CascadeType.ALL, fetch=FetchType.LAZY)
-  private Order order;
+  @OneToMany(mappedBy="deliveryStatus", cascade=CascadeType.ALL, fetch=FetchType.LAZY)
+  private List<Order> orders;
 }

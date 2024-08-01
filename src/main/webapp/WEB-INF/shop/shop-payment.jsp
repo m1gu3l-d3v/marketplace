@@ -35,44 +35,44 @@
       </div>
     </div>
     <div class="container-form">
-      <form action="/shop/buy" method="post" class="form">
+      <form:form action="/orders/new" method="post" class="form" modelAttribute="card">
         <div>
           <h2 class="title-2">Selecciona el método de pago</h2>
         </div>
         <div class="input-group-row">
           <div class="input-box">
-            <input class="input" type="text" required>
-            <label class="label-input">
+            <form:input path="cardholder" class="input" type="text" required="required" />
+            <form:label path="cardholder" class="label-input">
               <span class="text-name">Titular de la Tarjeta</span>
-            </label>
+            </form:label>
           </div>
           <div class="input-box">
-            <input class="input" type="number" required>
-            <label class="label-input">
+            <form:input path="cardnumber" class="input" type="number" required="required" />
+            <form:label path="cardnumber" class="label-input">
               <span class="text-name">Número de Tarjeta</span>
-            </label>
+            </form:label>
           </div>
         </div>
         <div class="input-group-row">
           <div class="input-box">
-            <input class="input expiration" type="number" min="1" max="12" required>
-            <label class="label-input">
+            <form:input path="expMonth" class="input expiration" type="number" min="1" max="12" required="required" />
+            <form:label path="expMonth" class="label-input">
               <span class="text-name">Exp. Month</span>
-            </label>
+            </form:label>
           </div>
           <div class="input-box">
-            <input class="input expiration" type="number" min="00" max="99" required>
-            <label class="label-input">
+            <form:input path="expYear" class="input expiration" type="number" min="00" max="99" required="required" />
+            <form:label path="expYear" class="label-input">
               <span class="text-name">Exp. Year</span>
-            </label>
+            </form:label>
           </div>
         </div>
         <div class="input-group-row">
           <div class="input-box">
-            <input class="input expiration" type="number" min="000" max="999" required>
-            <label class="label-input">
+            <form:input path="cvc" class="input expiration" type="number" min="000" max="999" required="required" />
+            <form:label path="cvc" class="label-input">
               <span class="text-name">CVC</span>
-            </label>
+            </form:label>
           </div>
         </div>
 
@@ -89,7 +89,7 @@
           <p>¿No estas logeado? <a href="/login" class=""> Iniciar Sesión</a></p>
           <p>¿No tienes una cuenta? <a href="/register" class=""> Crear Cuenta</a></p>
         </div>
-      </form>
+      </form:form>
     </div>
   </div>
 </body>

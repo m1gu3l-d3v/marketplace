@@ -4,10 +4,8 @@ import java.util.List;
 
 import com.groupproyect.marketplace.model.cite.District;
 import com.groupproyect.marketplace.model.monetization.Membership;
-import com.groupproyect.marketplace.model.order.Order;
 import com.groupproyect.marketplace.model.store.Store;
 
-import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.JoinColumn;
@@ -42,9 +40,4 @@ public class Seller extends BaseUser {
   @ManyToMany(fetch = FetchType.LAZY)
   @JoinTable(name = "memberships_sellers", joinColumns = @JoinColumn(name = "seller_id"), inverseJoinColumns = @JoinColumn(name = "membership_id"))
   private List<Membership> memberships;
-
-  // Referenced Table
-  // Table: orders FK
-  @OneToOne(mappedBy = "seller", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-  private Order order;
 }

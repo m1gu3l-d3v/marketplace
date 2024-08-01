@@ -33,10 +33,6 @@ public class BaseService<T> {
     return findById(castFromIntegerToLong(id));
   }
 
-  public T findById(String id) {
-    return findById(castFromStringToLong(id));
-  }
-
   public boolean existsbyId(Long id) {
     if (id == null) {
       return false;
@@ -65,18 +61,5 @@ public class BaseService<T> {
       return null;
     }
     return Long.valueOf(auxInt);
-  }
-
-  public Long castFromStringToLong(String auxString) {
-    System.out.println("1111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111");
-    if (auxString == null) {
-      return null;
-    }
-    try {
-      return Long.valueOf(auxString);
-    } catch (NumberFormatException e) {
-      System.err.println("Error: el string no se puede convertir a Long. " + e.getMessage());
-      return null;
-    }
   }
 }
