@@ -55,35 +55,35 @@
 
           <div class="input-group-row">
             <div class="input-box">
-              <span class="icon"><i class='bx bxs-envelope'></i></span>
-              <form:input required="required" path="email" type="email" id="email" />
-              <form:errors path="email" class="text-danger" />
-              <form:label path="email">Correo</form:label>
+            <span class="icon"><i class='bx bxs-envelope'></i></span>
+            <form:input required="required" path="email" type="email" id="email" />
+            <form:errors path="email" class="text-danger" />
+            <form:label path="email">Correo</form:label>
             </div>
 
             <div class="option-box">
-              <label>Rol</label>
+            <label>Rol</label>
 
-              <div class="radio-container">
+            <div class="radio-container">
                 <div class="radio-wrapper">
-                  <label class="radio-button">
-                    <input name="radio-group" type="radio" value="client" checked>
+                <label class="radio-button">
+                    <input name="radio-group" type="radio" value="client" >
                     <span class="radio-checkmark"></span>
                     <span class="radio-label">Cliente</span>
-                  </label>
+                </label>
                 </div>
 
                 <div class="radio-wrapper">
-                  <label class="radio-button">
+                <label class="radio-button">
                     <input name="radio-group" type="radio" value="seller">
                     <span class="radio-checkmark"></span>
                     <span class="radio-label">Vendedor</span>
-                  </label>
+                </label>
                 </div>
                 <!-- <span class="icon"><i class='bx bxs-id-card'></i></span> -->
-              </div>
             </div>
-          </div>
+            </div>
+        </div>
 
           <div class="input-group-row">
             <div class="input-box">
@@ -100,6 +100,37 @@
               <form:label path="numberDocumentIdentity">DNI</form:label>
             </div>
           </div>
+
+          <div class="input-group-row">
+            <div class="select-box">
+              <label for="department">Departamento:
+                <select name="department" id="department" onchange="updateDistricts()" class="btn select">
+                  <c:forEach items="${departments}" var="department">
+                    <option value="${department.id}">${department.name}</option>
+                  </c:forEach>
+                </select>
+              </label>
+              </div>
+        
+              <div class="select-box">
+              <label for="district">Distrito:
+                <select name="idDistrict" id="district" class="btn select">
+                  <c:forEach items="${districts}" var="district">
+                    <option value="${district.id}" class="${district.department.id}">${district.name}</option>
+                  </c:forEach>
+                </select>
+              </label>
+            </div>
+          </div>
+
+
+            <div class="input-group-row">
+                <div class="input-box">
+                    <span class="icon"><i class='bx bxs-map'></i></span>
+                    <input type="text" name="direction" id="direction" required>
+                    <label>Direction</label>
+                </div>
+            </div>
 
           <div class="input-group-row">
             <div class="input-box">
@@ -160,6 +191,37 @@
   </div>
 </body>
 
+
 <script src="/scripts/form/form.js"></script>
 <script src="/scripts/form/register.js"></script>
+<script>
+  function updateDistricts() {
+    // Obtén el departamento seleccionado
+    let selectedDepartment = document.getElementById('department').value;
+
+    // Obtén todos los distritos
+    let districts = document.getElementById('district').options;
+
+    // Muestra solo los distritos que pertenecen al departamento seleccionado
+    let firstDistrict = null;
+    for (let i = 0; i < districts.length; i++) {
+    if (districts[i].className === selectedDepartment) {
+        districts[i].style.display = 'block';
+        if (!firstDistrict) {
+        firstDistrict = districts[i].value;
+        }
+    } else {
+        districts[i].style.display = 'none';
+    }
+    }
+
+    // Cambia el valor del select de distritos al primer distrito del departamento seleccionado
+    document.getElementById('district').value = firstDistrict;
+  }
+
+  // Actualiza los distritos cuando la página se carga por primera vez
+  window.onload = function() {
+      updateDistricts();
+  }
+</script>
 </html>
