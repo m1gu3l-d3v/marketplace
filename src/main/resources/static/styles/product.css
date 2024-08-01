@@ -55,12 +55,11 @@
   background-color: var(--color0);
   border: none;
   transition: 1s;
+  color: var(--colorfg);
 }
 
 .card:hover{
   transform: scale(104%);
-  z-index: 1111;
-
 }
 
 .bgshow{
@@ -74,9 +73,6 @@ h2{
   text-align: center;
 }
 
-.card{
-  color: var(--colorfg);
-}
 
 .prod{
   text-align: center;
@@ -103,12 +99,11 @@ h2{
 }
 
 
-.stars{
-  width: 21%;
+.starsval{
+  width: 20%;
   margin-left: 4%;
   margin-right: 4%;
-  margin-top: -10%;
-  margin-bottom: 3%;
+  margin-top: -5%;
   border-radius: 50%;
 }
 
@@ -131,7 +126,7 @@ h2{
 
 .imgshow{
   max-width: 100%;
-  object-fit: cover;
+  height: 100%;
   padding: 1%;
   border-radius: 5%;
 }
@@ -158,7 +153,31 @@ h2{
   scale: 105%;
 }
 
+
+.card-review{
+  
+  background-color:#e0def4bb;
+  color: black;
+  
+
+}
+
+.card-review:hover{
+  transform: scale(100%);
+}
+
+.califica{
+  color: black;
+}
+
+.cuerpo{
+  height: 180px;
+}
+
+
 /* MIS MODIFICACIONES */
+
+
 
 .container-icon-cart {
   background-color: var(--color3);

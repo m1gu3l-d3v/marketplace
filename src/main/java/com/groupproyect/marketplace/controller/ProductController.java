@@ -13,11 +13,13 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.groupproyect.marketplace.model.product.Product;
 import com.groupproyect.marketplace.model.store.Store;
+import com.groupproyect.marketplace.model.valoration.ValorationProduct;
 import com.groupproyect.marketplace.service.category.CategoryOneService;
 import com.groupproyect.marketplace.service.category.CategoryThreeService;
 import com.groupproyect.marketplace.service.category.CategoryTwoService;
 import com.groupproyect.marketplace.service.product.ProductService;
 import com.groupproyect.marketplace.service.store.StoreService;
+import com.groupproyect.marketplace.service.valoration.ValorationProductService;
 
 import jakarta.servlet.http.HttpSession;
 import jakarta.validation.Valid;
@@ -30,15 +32,17 @@ public class ProductController {
   private final CategoryOneService categoryOneService;
   private final CategoryTwoService categoryTwoService;
   private final CategoryThreeService categoryThreeService;
+  private final ValorationProductService valorationProductService;
 
   public ProductController(ProductService productService, StoreService storeService,
       CategoryOneService categoryOneService, CategoryTwoService categoryTwoService,
-      CategoryThreeService categoryThreeService) {
+      CategoryThreeService categoryThreeService, ValorationProductService valorationProductService) {
     this.productService = productService;
     this.storeService = storeService;
     this.categoryOneService = categoryOneService;
     this.categoryTwoService = categoryTwoService;
     this.categoryThreeService = categoryThreeService;
+    this.valorationProductService = valorationProductService;
   }
 
   @GetMapping({ "", "/" })
@@ -48,8 +52,10 @@ public class ProductController {
   }
 
   @GetMapping({ "/{id}", "/{id}/" })
-  public String showProduct(@PathVariable("id") Long id, Model model) {
+  public String showProduct(@PathVariable("id") Long id,
+      @ModelAttribute("ValorationProduct") ValorationProduct valorationProduct, Model model) {
     model.addAttribute("product", productService.findById(id));
+    model.addAttribute("valorationsStore", valorationProductService.findByProductIdOrderByCreatedAtDesc(id));
     return "product/product-show.jsp";
   }
 
@@ -62,6 +68,16 @@ public class ProductController {
     model.addAttribute("categoriesTwos", categoryTwoService.findAll());
     model.addAttribute("categoriesThrees", categoryThreeService.findAll());
     return "/product/product-new.jsp";
+  }
+
+  @GetMapping({ "/{id}/coments", "/{id}/coments" })
+  public String coments(@PathVariable("id") Long id,
+      @ModelAttribute("ValorationProduct") ValorationProduct valorationProduct,
+      Model model, HttpSession httpSession) {
+
+    model.addAttribute("product", productService.findById(id));
+    model.addAttribute("valorationsProduct", valorationProductService.findAll());
+    return "product/product-showcoments.jsp";
   }
 
   @PostMapping("new")
