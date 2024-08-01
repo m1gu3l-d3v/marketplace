@@ -1,9 +1,56 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8">
   <title>Order Details</title>
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    :root {
+      --colorbg: #191724;
+      --colorfg: #e0def4;
+      --color1: #eb6f92;
+      --color2: #9ccfd8;
+      --color3: #f6c177;
+      --colormain1: #ebbcba;
+    }
+
+    body {
+      background-color: var(--colorbg);
+      color: var(--colorfg);
+    }
+
+    .container {
+      background-color: var(--colorbg);
+      padding: 20px;
+      border-radius: 8px;
+    }
+
+    h2, h3 {
+      color: var(--colormain1);
+    }
+
+    p {
+      margin: 10px 0;
+    }
+
+    .product-item {
+      border: 2px solid var(--colorfg);
+      padding: 10px;
+      margin-bottom: 10px;
+      list-style-type: none;
+    }
+
+    .btn-primary {
+      background-color: var(--color3);
+      border: none;
+    }
+
+    .btn-primary:hover {
+      background-color: var(--color3);
+      border: none;
+    }
+  </style>
 </head>
 <body>
 <div class="container">
@@ -14,7 +61,7 @@
   <h3>Products</h3>
   <ul>
     <c:forEach var="product" items="${order.products}">
-      <li style="border: 2px solid black; padding: 10px; margin-bottom: 2px; list-style-type: none;">
+      <li class="product-item">
         <span>Nombre del Producto: <c:out value="${product.name}"/></span><br/>
         <span>Precio: <c:out value="${product.price}"/></span><br/>
         <span>Tienda: <c:out value="${product.store.name}"/></span><br/>

@@ -9,6 +9,62 @@
   <title>Perfil del Cliente</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <style>
+    :root {
+      --colorbg: #191724;
+      --colorfg: #e0def4;
+      --color1: #eb6f92;
+      --color2: #9ccfd8;
+      --color3: #f6c177;
+      --colormain1: #ebbcba;
+    }
+
+    body {
+      background-color: var(--colorbg);
+      color: var(--colorfg);
+    }
+
+    .container {
+      background-color: var(--colorbg);
+      padding: 20px;
+      border-radius: 8px;
+    }
+
+    .list-group-item {
+      background-color: var(--color1);
+      color: var(--colorfg);
+    }
+
+    .list-group-item a {
+      color: var(--colorfg);
+    }
+
+    .list-group-item a:hover {
+      text-decoration: none;
+    }
+
+    .form-control {
+      background-color: var(--color2);
+      color: var(--colorbg);
+      border: none;
+    }
+
+    .form-control:focus {
+      background-color: var(--color2);
+      color: var(--colorbg);
+      border: none;
+      box-shadow: 0 0 5px var(--colormain1);
+    }
+
+    .btn-primary {
+      background-color: var(--color3);
+      border: none;
+    }
+
+    .btn-primary:hover {
+      background-color: var(--color3);
+      border: none;
+    }
+
     .home-icon {
       position: absolute;
       top: 10px;
@@ -36,7 +92,7 @@
         </div>
         <div class="form-group">
           <label for="lastName">Apellido</label>
-          <input type="text" class="form-control" id="apellido" name="lastName" value="${client.lastName}">
+          <input type="text" class="form-control" id="lastName" name="lastName" value="${client.lastName}">
         </div>
         <button type="submit" class="btn btn-primary">Guardar</button>
       </form>
