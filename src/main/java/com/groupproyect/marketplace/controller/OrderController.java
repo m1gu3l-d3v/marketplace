@@ -50,11 +50,11 @@ public class OrderController {
     // Validations
     if (((Long) httpSession.getAttribute("idUser")) == null) {
       System.out.println("Error 1: " + httpSession.getAttribute("idUser"));
-      return "redirect:/shop/payment";
+      return "redirect:/";
     }
     if (!((httpSession.getAttribute("roleUser")).equals("client"))) {
       System.out.println("Error 2: " + httpSession.getAttribute("roleUser"));
-      return "redirect:/shop/payment";
+      return "redirect:/";
     }
     Long idClient = (Long) httpSession.getAttribute("idUser");
 
