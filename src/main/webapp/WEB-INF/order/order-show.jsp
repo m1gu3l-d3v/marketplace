@@ -41,6 +41,11 @@
       list-style-type: none;
     }
 
+    .scrollable-products {
+      max-height: 400px; /* Ajusta la altura máxima según tus necesidades */
+      overflow-y: scroll;
+    }
+
     .btn-primary {
       background-color: var(--color3);
       border: none;
@@ -59,16 +64,18 @@
   <p><strong>Date:</strong> ${order.createdAt}</p>
   <p><strong>Status:</strong> ${order.deliveryStatus.name}</p>
   <h3>Products</h3>
-  <ul>
-    <c:forEach var="product" items="${order.products}">
-      <li class="product-item">
-        <span>Nombre del Producto: <c:out value="${product.name}"/></span><br/>
-        <span>Precio: <c:out value="${product.price}"/></span><br/>
-        <span>Tienda: <c:out value="${product.store.name}"/></span><br/>
-        <span>Vendedor Asociado: <c:out value="${product.store.seller.firstName} ${product.store.seller.lastName}"/></span>
-      </li>
-    </c:forEach>
-  </ul>
+  <div class="scrollable-products">
+    <ul>
+      <c:forEach var="product" items="${order.products}">
+        <li class="product-item">
+          <span>Nombre del Producto: <c:out value="${product.name}"/></span><br/>
+          <span>Precio: <c:out value="${product.price}"/></span><br/>
+          <span>Tienda: <c:out value="${product.store.name}"/></span><br/>
+          <span>Vendedor Asociado: <c:out value="${product.store.seller.firstName} ${product.store.seller.lastName}"/></span>
+        </li>
+      </c:forEach>
+    </ul>
+  </div>
   <a href="${pageContext.request.contextPath}/orders" class="btn btn-primary">Back to Orders</a>
 </div>
 </body>

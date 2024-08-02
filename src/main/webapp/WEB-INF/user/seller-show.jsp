@@ -21,12 +21,21 @@
     body {
       background-color: var(--colorbg);
       color: var(--colorfg);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
     }
 
     .container {
       background-color: var(--colorbg);
       padding: 20px;
       border-radius: 8px;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      width: 60%;
     }
 
     .list-group-item {
@@ -74,7 +83,7 @@
 </head>
 <body>
 <div class="container">
-  <div class="row">
+  <div class="row" style="width: 100%;">
     <div class="col-md-3">
       <ul class="list-group">
         <li class="list-group-item"><a href="#">Retirar</a></li>
@@ -85,17 +94,39 @@
     </div>
     <div class="col-md-9">
       <h2>Perfil del Vendedor</h2>
-      <form action="/perfil/update" method="post">
-        <div class="form-group">
-          <label for="name">Nombre</label>
-          <input type="text" class="form-control" id="name" name="name" value="${seller.firstName}">
-        </div>
-        <div class="form-group">
-          <label for="lastName">Apellido</label>
-          <input type="text" class="form-control" id="apellido" name="lastName" value="${seller.lastName}">
-        </div>
-        <button type="submit" class="btn btn-primary">Guardar</button>
-      </form>
+      <div class="form-group">
+        <span>Nombre</span>
+        <span class="form-control" id="name" ><c:out value="${seller.firstName}" /></span>
+      </div>
+      <div class="form-group">
+        <span>Apellido</span>
+        <span class="form-control" id="lastName"><c:out value="${seller.lastName}" /></span>
+      </div>
+      <div class="form-group">
+        <span>Email</span>
+        <span class="form-control" id="lastName"><c:out value="${seller.email}" /></span>
+      </div>
+      <div class="form-group">
+        <span>Tienda Asociada</span>
+        <span class="form-control" id="lastName"><c:out value="${seller.store.name}" /></span>
+      </div>store
+      <div class="form-group">
+        <span>Número Telefónico</span>
+        <span class="form-control" id="lastName"><c:out value="${seller.telephoneNumber}" /></span>
+      </div>
+      <div class="form-group">
+        <span>Carné de Identidad</span>
+        <span class="form-control" id="lastName"><c:out value="${seller.numberDocumentIdentity}" /></span>
+      </div>
+      <div class="form-group">
+        <span>Estado de la cuenta</span>
+        <c:if test="${seller.isEnable}">
+          <span class="form-control" id="lastName">Activa</span>
+        </c:if>
+        <c:if test="${not seller.isEnable}">
+          <span class="form-control" id="lastName">Inactiva</span>
+        </c:if>
+      </div>
       <div class="mt-3">
           <a href="/perfil">Datos</a> | 
           <a href="/perfil/password-reset">Cambio de contraseña</a> | 

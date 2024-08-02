@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Orders</title>
+  <title>Products</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <style>
     :root {
@@ -56,31 +56,42 @@
       background-color: var(--color3);
       border: none;
     }
+
+    .scrollable-table {
+      max-height: 400px; /* Ajusta la altura máxima según tus necesidades */
+      overflow-y: scroll;
+    }
   </style>
 </head>
 <body>
 <div class="container">
-  <h2>Orders</h2>
-  <table class="table table-striped">
-    <thead>
-    <tr>
-      <th>ID</th>
-      <th>Date</th>
-      <th>Status</th>
-      <th>Details</th>
-    </tr>
-    </thead>
-    <tbody>
-    <c:forEach var="order" items="${orders}">
+  <h2>Products</h2>
+  <div class="scrollable-table">
+    <table class="table table-striped">
+      <thead>
       <tr>
-        <td>${order.id}</td>
-        <td>${order.createdAt}</td>
-        <td>${order.deliveryStatus.name}</td>
-        <td><a href="${pageContext.request.contextPath}/orders/${order.id}" class="btn btn-primary">View</a></td>
+        <th>ID</th>
+        <th>Title</th>
+        <th>Price</th>
+        <th>Category</th>
+        <th>Image</th>
+        <th>Action</th>
       </tr>
-    </c:forEach>
-    </tbody>
-  </table>
+      </thead>
+      <tbody>
+      <c:forEach var="product" items="${products}">
+        <tr>
+          <td>${product.id}</td>
+          <td>${product.title}</td>
+          <td>${product.price}</td>
+          <td>${product.category}</td>
+          <td><img src="${product.imageURL}" alt="${product.title}" width="50"></td>
+          <td><a href="${pageContext.request.contextPath}/products/${product.id}" class="btn btn-primary">View</a></td>
+        </tr>
+      </c:forEach>
+      </tbody>
+    </table>
+  </div>
 </div>
 </body>
 </html>

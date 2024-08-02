@@ -18,7 +18,7 @@ public class ClientController {
   }
 
   @GetMapping({ "/{idClient}", "/{idClient}/" })
-  public String gg(@PathVariable("idClient") Long idClient, Model model) {
+  public String showClient(@PathVariable("idClient") Long idClient, Model model) {
     model.addAttribute("client", clientService.findById(idClient));
     return "user/client-show.jsp";
   }
