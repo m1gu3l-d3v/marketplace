@@ -281,7 +281,8 @@
           <a href="#" class="btn-details"></a>
           <div class="actions">
             <span><i class='bx bxs-cart-add'></i></span>
-            <span><i class='bx bxs-heart bx-tada' style='color:#ffffff' ></i></span>
+            <span><i class='bx bxs-heart'></i></span>
+            <span><i class='bx bxs-share-alt' style='color:#ffffff' ></i></span>
           </div>
         </div>
         </div>
@@ -302,7 +303,8 @@
         <a href="#" class="btn-details"></a>
         <div class="actions">
           <span><i class='bx bxs-cart-add'></i></span>
-          <span><i class='bx bxs-heart bx-tada' style='color:#ffffff' ></i></span>
+          <span><i class='bx bxs-heart'></i></span>
+          <span><i class='bx bxs-share-alt' style='color:#ffffff' ></i></span>
         </div>
       </div>
       </div>
@@ -319,11 +321,12 @@
     </div>
     <div class="info-card">
       <span class="name-card1">Arroz Costeño</span>
-      <span class=" lorem">Lorem ipsum dolor sit amet consectetur adipisicing elit. At nobis odio suscipit nisi commodi tempora, reiciendis perspiciatis voluptates incidunt a ipsum molestiae optio asperiores explicabo error aut. Quaerat, praesentium quae.</span>
+      <span class="lorem">Lorem ipsum dolor sit amet consectetur adipisicing elit. At nobis odio suscipit nisi commodi tempora, reiciendis perspiciatis voluptates incidunt a ipsum molestiae optio asperiores explicabo error aut. Quaerat, praesentium quae.</span>
       <a href="#" class="btn-details"></a>
       <div class="actions">
         <span><i class='bx bxs-cart-add'></i></span>
-        <span><i class='bx bxs-heart bx-tada' style='color:#ffffff' ></i></span>
+        <span><i class='bx bxs-heart'></i></i></span>
+        <span><i class='bx bxs-share-alt' style='color:#ffffff' ></i></span>
       </div>
     </div>
     </div>
@@ -344,7 +347,8 @@
       <a href="#" class="btn-details"></a>
       <div class="actions">
         <span><i class='bx bxs-cart-add'></i></span>
-        <span><i class='bx bxs-heart bx-tada' style='color:#ffffff' ></i></span>
+        <span><i class='bx bxs-heart'></i></span>
+        <span><i class='bx bxs-share-alt' style='color:#ffffff' ></i></span>
       </div>
     </div>
     </div>
@@ -365,7 +369,8 @@
     <a href="#" class="btn-details"></a>
     <div class="actions">
       <span><i class='bx bxs-cart-add'></i></span>
-      <span><i class='bx bxs-heart bx-tada' style='color:#ffffff' ></i></span>
+      <span><i class='bx bxs-heart'></i></span>
+      <span><i class='bx bxs-share-alt' style='color:#ffffff' ></i></span>
     </div>
   </div>
   </div>
@@ -411,3 +416,4 @@
 </body>
 <script src="/scripts/index.js" ></script>
 </html>
+
