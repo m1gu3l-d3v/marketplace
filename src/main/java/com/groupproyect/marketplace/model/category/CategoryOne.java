@@ -16,6 +16,8 @@ import lombok.Setter;
 @Getter
 @Setter
 public class CategoryOne extends BaseCategory {
+  private String linkImage;
+
   // Referenced Table
   // Table: categories_two
   @OneToMany(mappedBy="categoryOne", fetch = FetchType.LAZY)
