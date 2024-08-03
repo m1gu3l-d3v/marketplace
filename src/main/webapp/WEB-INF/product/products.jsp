@@ -12,10 +12,67 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
   <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
   <link rel="stylesheet" href="/styles/product.css">
+  <link rel="stylesheet" href="/styles/menu.css">
   <title>Products</title>
 </head>
 
 <body class="bgshow">
+  <nav class="menu">
+    <section class="menu_container">
+      <h1 class="menu_logo">Logo</h1>
+      <ul class="menu_links">
+        <li id="barra">
+          <form class="d-flex" role="search" >
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success" type="submit">Search</button>
+          </form>
+        </li>
+        <li class="menu_item">
+          <a href="/" class="menu_link">Home</a>
+        </li>
+        <li class="menu_item menu_item--show">
+          <a href="#" class="menu_link">Categorias <span class="icono1"><i class='bx bx-chevrons-right' id="menu_arrow" style='color: #FFf'></i></span></a>
+          <ul class="menu_nesting">
+            <c:forEach items="${categoriesOne}" var="categoryOne">
+              <li class="menu_inside">
+                <a href="/category/1/${categoryOne.id}" class="menu_link--inside"><c:out value="${categoryOne.name}"/></a>
+              </li>
+            </c:forEach>
+          </ul>
+        </li>
+        <!-- <li class="menu_item menu_item--show">
+          <a href="#" class="menu_link">Categorias2 <span class="icono1"><i class='bx bx-chevrons-right' id="menu_arrow" style='color: #FFf'></i></span></a>
+          <ul class="menu_nesting">
+            <li class="menu_inside">
+              <a href="#" class="menu_link--inside">About1</a>
+            </li>
+            <li class="menu_inside">
+              <a href="#" class="menu_link--inside">About1</a>
+            </li>
+            <li class="menu_inside">
+              <a href="#" class="menu_link--inside">About1</a>
+            </li>
+          </ul>
+        </li> -->
+        <c:if test="${empty user}">
+          <li class="menu_item">
+            <a href="/login" class="menu_link">Iniciar session</a>
+          </li>
+          <li class="menu_item">
+            <a href="/register" class="menu_link">Registrarse</a>
+          </li>
+        </c:if>
+        <c:if test="${not empty user}">
+          <li class="menu_item">
+            <a href="/logout" class="menu_link">Logout</a>
+          </li>
+        </c:if>
+      </ul>
+      <div class="menu_hamburguer">
+        <i class='bx bx-align-justify' id="menu_img" style='color:#ffffff'></i>
+      </div>
+    </section>
+  </nav>
   <div class="container">
     <h2 class="title"> Tus Productos  </h2>
     <a href="/products/new" class="btn btn-dark "> Crea un nuevo Producto </a>

@@ -8,6 +8,7 @@
   <meta charset="UTF-8">
   <title>Perfil del Cliente</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/styles/menu.css">
   <style>
     :root {
       --colorbg: #191724;
@@ -29,6 +30,7 @@
     }
 
     .container {
+      margin-top: 100px;
       background-color: var(--colorbg);
       padding: 20px;
       border-radius: 8px;
@@ -82,6 +84,49 @@
   </style>
 </head>
 <body>
+  <nav class="menu">
+    <section class="menu_container">
+      <h1 class="menu_logo">Logo</h1>
+      <ul class="menu_links">
+        <li id="barra">
+          <form class="d-flex" role="search">
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success" type="submit">Search</button>
+          </form>
+        </li>
+        <li class="menu_item">
+          <a href="/" class="menu_link">Home</a>
+        </li>
+        <li class="menu_item menu_item--show">
+          <a href="#" class="menu_link">Categorias <span class="icono1"><i class='bx bx-chevrons-right' id="menu_arrow" style='color: #FFf'></i></span></a>
+          <ul class="menu_nesting">
+            <c:forEach items="${categoriesOne}" var="categoryOne">
+              <li class="menu_inside">
+                <a href="/category/1/${categoryOne.id}" class="menu_link--inside"><c:out value="${categoryOne.name}"/></a>
+              </li>
+            </c:forEach>
+          </ul>
+        </li>
+        <c:if test="${empty user}">
+          <li class="menu_item">
+            <a href="/login" class="menu_link">Iniciar sesión</a>
+          </li>
+          <li class="menu_item">
+            <a href="/register" class="menu_link">Registrarse</a>
+          </li>
+        </c:if>
+        <c:if test="${not empty user}">
+          <li class="menu_item">
+            <a href="/logout" class="menu_link">Logout</a>
+          </li>
+        </c:if>
+      </ul>
+      <div class="menu_hamburguer">
+        <i class='bx bx-align-justify' id="menu_img" style='color:#ffffff'></i>
+      </div>
+    </section>
+  </nav>
+
 <div class="container">
   <div class="row" style="width: 100%;">
     <div class="col-md-3">

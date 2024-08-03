@@ -189,7 +189,6 @@ h2{
   padding: 10px;
   position: absolute;
   transform: translate(100%, -30%) scale(75%);
-  z-index: 1111;
   cursor: pointer;
   border: none;
 }
@@ -210,4 +209,8 @@ h2{
 
 .title {
   color: var(--color0);
+}
+
+.container {
+  margin-top: 100px;
 }
