@@ -305,6 +305,7 @@ img {
   transform: translate3d(0, 0, 0);
   --curent-color: #fad00c;
   --curent-color2: #eceaed;
+
 }
 
 #s1:checked ~ .cards #slide2,
@@ -345,7 +346,7 @@ img {
   height: 500px;
   width: 430px;
   margin-bottom: 20px;
-  perspective: 1000px;
+  perspective: 1200px;
   transform-style: preserve-3d;
 }
 .cards label{
@@ -367,12 +368,13 @@ img {
 .cards .image-card {
   display: flex;
   justify-content: space-between;
+
 }
 .cards .image-card img {
   border-radius: 5px;
   box-shadow: 15px 15px 40px rgba(0, 0, 0, 50%);
   margin-top: 23px;
-  width: 86%;
+  width: 93%;
   height: 220px;
   object-fit: cover;
   transition: all .7s;
@@ -401,23 +403,26 @@ img {
 .cards .info-card{
   display: block;
   text-align: end;
-  padding-top: 60px;
+  padding-top: 20px;
 }
 .cards .info-card span{
   display: block;
 }
-.infos .name-card1{
+.info-card .name-card1{
   font-size: 30px;
   color: var(--curent-color);
   letter-spacing: 8px;
-  margin-bottom: 20px;
-  padding: 25%;
+  margin-bottom: 5px;
+  padding: 25px;
   transition: all .6s ease;
+  text-align: center;
 }
 .card .lorem{
   font-size: 15.5px;
   color: #eceaed;
   letter-spacing: 3px;
+  text-align: center;
+  width: 100%;
 }
 .card .btn-details{
   width: 100%;
@@ -460,8 +465,8 @@ footer {
   color: white;
   padding: 20px 0;
   text-align: center;
-  margin-top: 40px;
   width: 100%;
+  margin-top: 800px;
 }
 
 .footer-container {
