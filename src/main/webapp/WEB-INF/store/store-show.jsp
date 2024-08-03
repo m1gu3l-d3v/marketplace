@@ -10,6 +10,7 @@
   <title>Show Store</title>
   <link rel="stylesheet" href="/styles/main.css">
   <link rel="stylesheet" href="/styles/show.css">
+  <link rel="stylesheet" href="/styles/shop-cart.css">
   <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
 <body>
@@ -60,11 +61,20 @@
         </c:if>
         <c:if test="${not empty valorationsStore}">
           <c:forEach items="${valorationsStore}" var="valoration">
-            <span class="data-info">-----------------------------<br/></span>
-            <span class="data-info"><c:out value="${valoration.stars}"/> Estrellas<br/></span>
-            <span class="data-info"><c:out value="${valoration.createdAt}" /><br/></span>
-            <span class="data-info"><c:out value="${valoration.review}" /><br/></span>
-            <span class="data-info">-----------------------------<br/></span>
+            <div class="content-valoration">
+              <div class="item-info">
+                <div class="info-top">
+                  <span class="data-info"><c:out value="${valoration.stars}"/></span>
+                  <c:forEach var = "i" begin = "1" end = "${valoration.stars}">
+                    <i class='bx bxs-star'></i>
+                  </c:forEach>
+                  <span class="data-info"><c:out value="${valoration.createdAt}"/></span>
+                </div>
+                <div class="info-bot">
+                  <div class="mini-data"><c:out value="${valoration.review}"/></div>
+                </div>
+              </div>
+            </div>
           </c:forEach>
         </c:if>
       </div>
@@ -81,11 +91,33 @@
         </c:if>
         <c:if test="${not empty products}">
           <c:forEach items="${products}" var="product">
-            <span class="data-info">-----------------------------<br/></span>
-            <span class="data-info"><c:out value="${product.name}" /><br/></span>
-            <span class="data-info"><c:out value="${product.price}" /><br/></span>
-            <span class="data-info"><c:out value="${product.store.name}" /><br/></span>
-            <span class="data-info">-----------------------------<br/></span>
+            <div class="cart-item cart-item-product">
+              <c:if test="${empty product.linkImage}">
+                <div class="item-img" style="background-image: url('https://img.freepik.com/free-vector/illustration-gallery-icon_53876-27002.jpg');">
+              </c:if>
+              <c:if test="${not empty product.linkImage}">
+                <div class="item-img" style="background-image: url('${product.linkImage}');">
+              </c:if>
+            </div>
+              <div class="item-info">
+                <div class="info-top">
+                  <span class="data-info"><c:out value="${product.store.name}"/></span>
+                  <h1 class="title-3"><c:out value="${product.name}"/></h1>
+                </div>
+                <div class="info-bot">
+                  <div class="mini-data"><c:out value="${product.categoryThree.name}"/></div>
+                  <div class="amount-price">
+                    <h3 class="title-3 mini-data">
+                      <form action="/shop/plus" method="post" class="form-sign form-add-newitem">
+                        <fmt:formatNumber value="${product.price}" type="number" maxFractionDigits="2" /> COP
+                        <input type="hidden" name="idProduct" value="${product.id}">
+                        <button class="icon-sign-add-item"><i class='bx bxs-cart-add'></i></button>
+                      </form>
+                    </h3>
+                  </div>
+                </div>
+              </div>
+            </div>
           </c:forEach>
         </c:if>
       </div>

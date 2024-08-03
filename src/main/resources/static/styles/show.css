@@ -235,3 +235,10 @@ input[type="number"] {
   -moz-appearance: textfield;
   -webkit-appearance: textfield;
 }
+
+.content-valoration {
+  border: solid #907AA9;
+  background-color: rgba(0, 0, 0, 0.1);
+  width: 80%;
+  margin: 10px auto;
+}

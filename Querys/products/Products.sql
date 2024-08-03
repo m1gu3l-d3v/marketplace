@@ -303,3 +303,6 @@ INSERT INTO products (created_at, updated_at, name, price, category_three_id, st
 ('2024-08-02 05:45:00', '2024-08-02 05:45:00', 'Taladro Inalámbrico', 89.99, 60, 1, 1870, 'https://example.com/images/taladro_inalambrico.jpg'),
 ('2024-08-02 05:50:00', '2024-08-02 05:50:00', 'Lijadora de Banda', 74.99, 60, 1, 1880, 'https://example.com/images/lijadora_banda.jpg'),
 ('2024-08-02 05:55:00', '2024-08-02 05:55:00', 'Sierra Circular', 99.99, 60, 1, 1890, 'https://example.com/images/sierra_circular.jpg');
+
+UPDATE products
+SET link_image = NULL;

@@ -25,7 +25,12 @@
       <div class="container-cart-items subcontainer-2">
         <c:forEach items="${productsClientCache}" var="productClientCache">
           <div class="cart-item">
-            <div class="item-img" style="background-image: url('${productClientCache.product.linkImage}');">
+            <c:if test="${empty productClientCache.product.linkImage}">
+              <div class="item-img" style="background-image: url('https://img.freepik.com/free-vector/illustration-gallery-icon_53876-27002.jpg');">
+            </c:if>
+            <c:if test="${not empty productClientCache.product.linkImage}">
+              <div class="item-img" style="background-image: url('${productClientCache.product.linkImage}');">
+            </c:if>
             </div>
             <div class="item-info">
               <div class="info-top">
@@ -75,7 +80,12 @@
         <c:if test="${not empty products}">
           <c:forEach items="${products}" var="product">
             <div class="cart-item cart-item-product">
-              <div class="item-img" style="background-image: url('${product.linkImage}');">
+                <c:if test="${empty product.linkImage}">
+                  <div class="item-img" style="background-image: url('https://img.freepik.com/free-vector/illustration-gallery-icon_53876-27002.jpg');">
+                </c:if>
+                <c:if test="${not empty product.linkImage}">
+                  <div class="item-img" style="background-image: url('${product.linkImage}');">
+                </c:if>
               </div>
               <div class="item-info">
                 <div class="info-top">

@@ -23,8 +23,12 @@
       <c:forEach items="${productos}" var="product">
         <div class="col-3">
           <div class="card border-light prod">
-            <img src="${product.linkImage}" class="card-img-top imagen-producto" alt="">
-            <!-- <img src="https://cdn.pixabay.com/photo/2024/05/26/10/15/bird-8788491_1280.jpg" class="card-img-top imagen-producto" alt=""> -->
+            <c:if test="${empty product.linkImage}">
+              <img src='https://img.freepik.com/free-vector/illustration-gallery-icon_53876-27002.jpg' class="card-img-top imagen-producto" alt="">
+            </c:if>
+            <c:if test="${not empty product.linkImage}">
+              <img src="${product.linkImage}" class="card-img-top imagen-producto" alt="">
+            </c:if>
             <div class="card-header cdstore"> <c:out value="${product.store.name}" />  </div>
             <div class="card-body">
               <h5 class="card-header"> <a href="/products/${product.id}/" style="text-decoration: none; color: var(--color15);"> <c:out value="${product.name}" /> </a> </h5>
