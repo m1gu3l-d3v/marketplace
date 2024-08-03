@@ -198,7 +198,7 @@ img {
   margin: 0px auto;
   padding: 10px 0px;
   max-width: 90vw;
-  overflow-x: hidden;
+  overflow: hidden;
 }
 .slick-track{
   position: relative;
