@@ -34,7 +34,7 @@
           <ul class="menu_nesting">
             <c:forEach items="${categoriesOne}" var="categoryOne">
               <li class="menu_inside">
-                <a href="/category/${categoryOne.id}" class="menu_link--inside"><c:out value="${categoryOne.name}"/></a>
+                <a href="/category/1/${categoryOne.id}" class="menu_link--inside"><c:out value="${categoryOne.name}"/></a>
               </li>
             </c:forEach>
           </ul>
