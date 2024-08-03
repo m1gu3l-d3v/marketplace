@@ -1,46 +1,70 @@
 package com.groupproyect.marketplace.controller;
 
+import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
-import java.util.stream.Collectors;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.groupproyect.marketplace.model.category.CategoryOne;
+import com.groupproyect.marketplace.model.category.CategoryThree;
 import com.groupproyect.marketplace.model.category.CategoryTwo;
+import com.groupproyect.marketplace.model.product.Product;
 import com.groupproyect.marketplace.service.category.CategoryOneService;
+import com.groupproyect.marketplace.service.category.CategoryThreeService;
 import com.groupproyect.marketplace.service.category.CategoryTwoService;
+import com.groupproyect.marketplace.service.product.ProductService;
 
 @Controller
-@RequestMapping("/categories")
+@RequestMapping("/category")
 public class CategoryController {
+  private final ProductService productService;
   private final CategoryOneService categoryOneService;
   private final CategoryTwoService categoryTwoService;
+  private final CategoryThreeService categoryThreeService;
 
-  public CategoryController(CategoryOneService categoryOneService, CategoryTwoService categoryTwoService) {
+  public CategoryController(ProductService productService, CategoryOneService categoryOneService, CategoryTwoService categoryTwoService, CategoryThreeService categoryThreeService) {
+    this.productService = productService;
     this.categoryOneService = categoryOneService;
     this.categoryTwoService = categoryTwoService;
+    this.categoryThreeService = categoryThreeService;
   }
 
-  @GetMapping({ "", "/" })
-  public String getCategories(Model model) {
-    List<CategoryOne> categoriesOne = categoryOneService.findAll().stream().limit(10).collect(Collectors.toList());
+  @GetMapping({"1/{idCategoryOne}", "1/{idCategoryOne}/"})
+  public String showOneProducts(@PathVariable("idCategoryOne") Long idCategoryOne, Model model) {
+    List<Product> products = new ArrayList<Product>();
+    List<CategoryTwo> categoriesTwos = categoryTwoService.findByCategoryOneId(idCategoryOne);
+    List<CategoryThree> categoriesThrees = new ArrayList<CategoryThree>();
+    for (CategoryTwo categoryTwo : categoriesTwos) {
+      categoriesThrees = categoryThreeService.findByCategoryTwoId(categoryTwo.getId());
+      for (CategoryThree categoryThree : categoriesThrees) {
+        products.addAll(productService.findByCategoryThreeId(categoryThree.getId()));
+      }
+    }
+    model.addAttribute("products", products);
+    model.addAttribute("category", categoryOneService.findById(idCategoryOne));
+    return "category/category-show-products.jsp";
+  }
 
-    // Mapear categorías de nivel uno a sus subcategorías, limitando a 10
-    Map<Long, List<CategoryTwo>> categoryTwoMap = categoriesOne.stream()
-        .collect(Collectors.toMap(
-            CategoryOne::getId,
-            categoryOne -> categoryTwoService.findByCategoryOneId(categoryOne.getId())
-                .stream()
-                .limit(10)
-                .collect(Collectors.toList())));
+  @GetMapping({"2/{idCategoryTwo}", "2/{idCategoryTwo}/"})
+  public String showTwoProducts(@PathVariable("idCategoryTwo") Long idCategoryTwo, Model model) {
+    List<Product> products = new ArrayList<Product>();
+    List<CategoryThree> categoriesThrees = categoryThreeService.findByCategoryTwoId(idCategoryTwo);
+    for (CategoryThree categoryThree : categoriesThrees) {
+      products.addAll(productService.findByCategoryThreeId(categoryThree.getId()));
+    }
+    model.addAttribute("products", products);
+    model.addAttribute("category", categoryTwoService.findById(idCategoryTwo));
+    return "category/category-show-products.jsp";
+  }
 
-    model.addAttribute("categoriesOne", categoriesOne);
-    model.addAttribute("categoryTwoMap", categoryTwoMap);
-
-    return "categories/categories.jsp";
+  @GetMapping({"3/{idCategoryThree}", "3/{idCategoryThree}/"})
+  public String showThreeProducts(@PathVariable("idCategoryThree") Long idCategoryThree, Model model) {
+    List<Product> products = productService.findByCategoryThreeId(idCategoryThree);
+    model.addAttribute("products", products);
+    model.addAttribute("category", categoryThreeService.findById(idCategoryThree));
+    return "category/category-show-products.jsp";
   }
 }

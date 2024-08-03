@@ -25,4 +25,8 @@ public class ProductService extends BaseService<Product> {
   public List<Product> findByStore(Store store) {
     return productRepository.findByStore(store);
   }
+
+  public List<Product> findByCategoryThreeId(Long idCategoryThree) {
+    return productRepository.findByCategoryThreeId(idCategoryThree);
+  }
 }

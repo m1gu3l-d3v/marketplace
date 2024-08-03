@@ -197,3 +197,17 @@ h2{
 .bx {
   font-size: 4em;
 }
+
+.link-dark {
+  text-decoration: none;
+  color: var(--color0);
+}
+
+.link-white {
+  text-decoration: none;
+  color: var(--colorfg);
+}
+
+.title {
+  color: var(--color0);
+}

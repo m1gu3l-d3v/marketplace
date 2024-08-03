@@ -13,6 +13,7 @@ import jakarta.servlet.http.HttpSession;
 @Controller
 @RequestMapping("")
 public class HomeController {
+  @SuppressWarnings("unused")
   private final ProductService productService;
   private final CategoryOneService categoryOneService;
 
