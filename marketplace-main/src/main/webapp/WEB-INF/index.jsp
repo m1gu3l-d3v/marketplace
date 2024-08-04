@@ -259,6 +259,7 @@
 
   <div class="container-card">
     <h4 class="productos-title">Productos destacados</h4>
+    <c:forEach items="${products}" var="product">
     <input type="radio" name="slider" id="s1" checked>
     <input type="radio" name="slider" id="s2">
     <input type="radio" name="slider" id="s3">
@@ -277,7 +278,7 @@
         </div>
         <div class="info-card">
           <span class="name-card1">Arroz Costeño</span>
-          <span class=" lorem">Lorem ipsum dolor sit amet consectetur adipisicing elit. At nobis odio suscipit nisi commodi tempora, reiciendis perspiciatis voluptates incidunt a ipsum molestiae optio asperiores explicabo error aut. Quaerat, praesentium quae.</span>
+          <span class=" lorem">.</span>
           <a href="#" class="btn-details"></a>
           <div class="actions">
             <span><i class='bx bxs-cart-add'></i></span>
@@ -299,7 +300,7 @@
       </div>
       <div class="info-card">
         <span class="name-card1">Arroz Costeño</span>
-        <span class=" lorem">Lorem ipsum dolor sit amet consectetur adipisicing elit. At nobis odio suscipit nisi commodi tempora, reiciendis perspiciatis voluptates incidunt a ipsum molestiae optio asperiores explicabo error aut. Quaerat, praesentium quae.</span>
+        <span class=" lorem">.</span>
         <a href="#" class="btn-details"></a>
         <div class="actions">
           <span><i class='bx bxs-cart-add'></i></span>
@@ -321,7 +322,7 @@
     </div>
     <div class="info-card">
       <span class="name-card1">Arroz Costeño</span>
-      <span class="lorem">Lorem ipsum dolor sit amet consectetur adipisicing elit. At nobis odio suscipit nisi commodi tempora, reiciendis perspiciatis voluptates incidunt a ipsum molestiae optio asperiores explicabo error aut. Quaerat, praesentium quae.</span>
+      <span class="lorem">.</span>
       <a href="#" class="btn-details"></a>
       <div class="actions">
         <span><i class='bx bxs-cart-add'></i></span>
@@ -343,7 +344,7 @@
     </div>
     <div class="info-card">
       <span class="name-card1">Arroz Costeño</span>
-      <span class=" lorem">Lorem ipsum dolor sit amet consectetur adipisicing elit. At nobis odio suscipit nisi commodi tempora, reiciendis perspiciatis voluptates incidunt a ipsum molestiae optio asperiores explicabo error aut. Quaerat, praesentium quae.</span>
+      <span class=" lorem">.</span>
       <a href="#" class="btn-details"></a>
       <div class="actions">
         <span><i class='bx bxs-cart-add'></i></span>
@@ -364,10 +365,16 @@
     </div>
   </div>
   <div class="info-card">
-    <span class="name-card1">Arroz Costeño</span>
-    <span class=" lorem">Lorem ipsum dolor sit amet consectetur adipisicing elit. At nobis odio suscipit nisi commodi tempora, reiciendis perspiciatis voluptates incidunt a ipsum molestiae optio asperiores explicabo error aut. Quaerat, praesentium quae.</span>
+    <span class="name-card1">${product.name}</span>
+    <span class="lorem"></span>
     <a href="#" class="btn-details"></a>
     <div class="actions">
+      <form id="addItem" action="/shop/add-item" method="POST">
+        <input type="hidden" name="idProduct" value="${product.id}"/>
+        <button class="container-icon-cart">
+          <span><i class='bx bxs-cart-add'></i></span>
+        </button>
+      </form>
       <span><i class='bx bxs-cart-add'></i></span>
       <span><i class='bx bxs-heart'></i></span>
       <span><i class='bx bxs-share-alt' style='color:#ffffff' ></i></span>
@@ -376,6 +383,8 @@
   </div>
   </label>
     </div>
+  </c:forEach>
+
   </div>
   <footer>
     <div class="footer-container">
