@@ -5,42 +5,107 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.groupproyect.marketplace.model.delivery.DeliveryMethod;
 import com.groupproyect.marketplace.model.order.Order;
 import com.groupproyect.marketplace.model.purchase.Invoice;
 import com.groupproyect.marketplace.model.purchase.PaymentMethod;
+import com.groupproyect.marketplace.service.cache.ProductClientCacheService;
+import com.groupproyect.marketplace.service.delivery.DeliveryMethodService;
+import com.groupproyect.marketplace.service.delivery.DeliveryStatusService;
+import com.groupproyect.marketplace.service.delivery.PaymentMethodService;
 import com.groupproyect.marketplace.service.direction.DirectionClientService;
+import com.groupproyect.marketplace.service.invoice.InvoiceService;
 import com.groupproyect.marketplace.service.order.OrderProductService;
 import com.groupproyect.marketplace.service.order.OrderService;
+import com.groupproyect.marketplace.service.store.StoreService;
+
 
 @Controller
 @RequestMapping("/invoices")
 public class InvoiceController {
+    
+    private final InvoiceService invoiceService;
+    private final OrderService orderService;
+    private final OrderProductService orderProductService;
+    private final DirectionClientService directionClientService;
+    private final DeliveryStatusService deliveryStatusService;
+    private final StoreService storeService;
+    private final ProductClientCacheService productClientCacheService;
 
-  private final OrderService orderService;
-  private final OrderProductService orderProductService;
-  private final DirectionClientService directionClientService;
 
-  public InvoiceController(
-      OrderService orderService, DirectionClientService directionClientService,
-      OrderProductService orderProductService) {
+    private final DeliveryMethodService deliveryMethodService;
+    private final PaymentMethodService paymentMethodService;
+
+    public InvoiceController(InvoiceService invoiceService,
+    OrderService orderService, DirectionClientService directionClientService,
+    OrderProductService orderProductService, DeliveryStatusService deliveryStatusService,
+    ProductClientCacheService productClientCacheService, StoreService storeService,
+    DeliveryMethodService deliveryMethodService, PaymentMethodService paymentMethodService) {
+    this.invoiceService = invoiceService;
     this.orderService = orderService;
     this.directionClientService = directionClientService;
     this.orderProductService = orderProductService;
-  }
+    this.deliveryStatusService = deliveryStatusService;
+    this.productClientCacheService = productClientCacheService;
+    this.storeService = storeService;
+    this.deliveryMethodService = deliveryMethodService;
+    this.paymentMethodService = paymentMethodService;
+}
 
-  @GetMapping({ "/{id}", "/{id}/" })
-  public String invoiceByOrder(@PathVariable("id") Long id,
-      Model model, @ModelAttribute("order") Order order,
-      @ModelAttribute("invoice") Invoice invoice,
-      @ModelAttribute("deliveryMethod") DeliveryMethod deliveryMethod,
-      @ModelAttribute("paymentMethod") PaymentMethod paymentMethod) {
-    order = orderService.findById(id);
-    model.addAttribute("order", order);
-    model.addAttribute("direction", directionClientService.findById(id));
-    model.addAttribute("productservice", orderProductService.findById(id));
-    return "shop/shop-invoice.jsp";
-  }
+
+    @GetMapping({ "/{id}", "/{id}/" })
+    public String invoiceByOrder(@PathVariable("id") Long id, 
+    Model model,  @ModelAttribute("order") Order order, 
+    @ModelAttribute("Invoice") Invoice invoice,
+    @ModelAttribute("deliveryMethod") DeliveryMethod deliveryMethod, 
+    @ModelAttribute("paymentMethod") PaymentMethod paymentMethod) {
+
+        order = orderService.findById(id);
+
+        model.addAttribute("order", order);
+        model.addAttribute("direction",  directionClientService.findById(id));
+        model.addAttribute("productservice", productClientCacheService.findByClientId(orderService.findById(id).getClient().getId()));
+        model.addAttribute("date",  orderService.findById(id).getCreatedAt().toString().substring(0, 10));
+
+        /* productClientCacheService.findByClientIdAndProductId */
+        model.addAttribute("cantidad", productClientCacheService.findAll());
+        return "invoice.jsp";
+    }
+
+
+
+    @PostMapping({ "/{id}", "/{id}/" })
+    public String newinvoice(@PathVariable("id") Long id, 
+    Model model,   @ModelAttribute("Invoice") Invoice invoice) {
+
+        Order order = orderService.findById(id);
+
+        if(orderService.existsbyId(id) == true ){
+            return "redirect:/invoices/" + order.getId();
+        }
+
+        invoice = new Invoice();
+        DeliveryMethod deliveryMethod = new DeliveryMethod();
+        PaymentMethod paymentMethod = new PaymentMethod();
+
+        deliveryMethod.setName("ContraEntrega");
+        paymentMethod.setName("Tarjeta");
+
+        invoice.setDeliveryMethod(deliveryMethod);
+        invoice.setOrder(order);
+        invoice.setPaymentMethod(paymentMethod);
+
+        Long idDelivery = deliveryMethod.getId();
+        Long idPayMet = paymentMethod.getId(); 
+
+        deliveryMethodService.save(deliveryMethod);
+        paymentMethodService.save(paymentMethod);
+        invoiceService.save(invoice);
+
+        return "redirect:/invoices/" + order.getId();
+    }
+
 }
