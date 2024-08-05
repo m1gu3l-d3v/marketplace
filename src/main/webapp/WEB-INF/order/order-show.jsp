@@ -1,3 +1,8 @@
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ page isErrorPage="true" %>
+
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html lang="en">
@@ -77,6 +82,21 @@
     </ul>
   </div>
   <a href="${pageContext.request.contextPath}/orders" class="btn btn-primary">Back to Orders</a>
+
+    <form:form action="/invoices/${order.id}" method="post" modelAttribute="Invoice" >
+
+    <form:input type="hidden" path="order" value="${order.id}" />
+
+    <form:input type="hidden" path="deliveryMethod" value="${idDelivery}"  />
+    
+    <form:input type="hidden" path="paymentMethod" value="${idPayMet}"  />
+    
+    <form:input type="hidden"  path="iva" value="${invoice.iva}" />
+
+    <button class="btn btn-primary my-3"> FACTURA </button>
+    </form:form>
+
+
 </div>
 </body>
 </html>
