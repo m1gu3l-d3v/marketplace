@@ -83,10 +83,10 @@ public class InvoiceController {
 
         Order order = orderService.findById(id);
 
-        if(orderService.existsbyId(id) == true ){
+        if(invoiceService.findByOrderId(id) != null ){
             return "redirect:/invoices/" + order.getId();
         }
-
+        
         invoice = new Invoice();
         DeliveryMethod deliveryMethod = new DeliveryMethod();
         PaymentMethod paymentMethod = new PaymentMethod();
