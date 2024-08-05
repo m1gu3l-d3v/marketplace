@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.groupproyect.marketplace.model.purchase.Invoice;
 import com.groupproyect.marketplace.auxclass.Card;
 import com.groupproyect.marketplace.model.cache.ProductClientCache;
 import com.groupproyect.marketplace.model.order.Order;
@@ -64,7 +65,7 @@ public class OrderController {
   }
 
   @GetMapping({ "/{id}", "/{id}/" })
-  public String getOrderDetails(@PathVariable("id") Long id, Model model) {
+  public String getOrderDetails(@PathVariable("id") Long id, Model model, @ModelAttribute("Invoice") Invoice invoice) {
     Order order = orderService.findById(id);
     model.addAttribute("order", order);
     return "order/order-show.jsp";
