@@ -2,6 +2,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ page isErrorPage="true" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -98,11 +100,17 @@
                 </button>
               </form>
             </div>
-            <c:forEach items="${product.valorationProducts}" var="valoration"> 
-              <p class="card-text btn btn-warning stars"><c:out value="${valoration.stars}" /> 4
-                <span class="icon-cart"><i class='bx bx-star'></i></span>
-              </p>
+
+            <c:set var="estrellas" value="${0}" />
+            <c:forEach items="${product.valorationProducts}" var="valoration" > 
+
+              <c:set var="estrellas" value="${(estrellas + valoration.stars) / valoration.id}" />         
             </c:forEach>
+
+            <fmt:formatNumber value="${estrellas}" type="number" maxFractionDigits="1"/>
+            <span class="icon-cart"><i class='bx bx-star'></i></span>
+
+
           </div>
         </div>
       </c:forEach>
