@@ -55,8 +55,9 @@
 
                 <!-- COMENTARIOS -->
             <div class="row px-4 py-3"> 
-                <div class="card text-bg-light mb-3 col-4 mx-2" style="max-width: 18rem;">
+             
                     <c:forEach items="${product.valorationProducts}" var="valoration" > 
+                       <div class="card text-bg-light mb-3 col-4 mx-2" style="max-width: 18rem;">
 
                             <div class="card-header">Calificacion 
                                 <c:out value="${valoration.stars}"  /> 
@@ -74,8 +75,9 @@
             
 
                             </div>
+                        </div>
                     </c:forEach>
-                </div>
+        
 
         
         </div>
